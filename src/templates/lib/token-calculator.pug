@@ -1,0 +1,57 @@
+.token-calculator
+    .well
+        h3.text-center
+            strong Calculator
+        .row
+            .col-md-5
+                .form-group
+                    label.control-label(for='UNTAmount') # of UNT tokens
+                    .input-group
+                        span.input-group-addon.js-value-down
+                            i.glyphicon.glyphicon-minus
+                        input.form-control.js-calculator-token-amount-input(id='UNTAmount', name='UNTAmount' placeholder='UNT', value=200, type='number', min=200, max=13332)
+                        span.input-group-addon.js-value-up
+                            i.glyphicon.glyphicon-plus
+            .col-md-2.col-xs-4.text-2x.text-center.calculator-exchange-icon-container
+                i.glyphicon.glyphicon-retweet
+            .col-md-5.col-xs-8
+                .form-group
+                    label.control-label(for='etherAmount') Amount of ETH
+                    .input-group
+                        input.form-control.js-calculator-eth-amount-input(
+                        id='etherAmount', name='etherAmount' placeholder='ETH', type='text', step='0.0025')
+                        span.input-group-addon
+                            strong ETH
+
+    .panel
+        .panel-body.bg-primary
+            .row.text-center
+                .col-md-3
+                    p Your
+                        span.text-uppercase= ' Bonus:'
+                    p.text-1-5x
+                        strong
+                            span.js-token-total-bonus 40
+                            = '%'
+
+                .col-md-3
+                    p You'll recieve:
+                    p.text-1-5x
+                        strong.text-uppercase
+                            span.js-token-total-amount 140
+                            = 'UNT'
+
+                .col-md-3
+                    p For amount of ETH:
+                    p.text-1-5x
+                        strong
+                            span.js-eth-total-amount
+                            = 'ETH'
+
+                .col-md-3
+                    p Aproximate $ amount
+                    p.text-1-5x
+                        strong
+                            i.glyphicon.glyphicon-usd
+                            span.js-fiat-total-amount
+

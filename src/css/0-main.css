@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?87650830');
+  src: url('../fonts/fontello.eot?87650830#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff2?87650830') format('woff2'),
+       url('../fonts/fontello.woff?87650830') format('woff'),
+       url('../fonts/fontello.ttf?87650830') format('truetype'),
+       url('../fonts/fontello.svg?87650830#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?87650830#fontello') format('svg');
+  }
+}
+*/
+
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.text-2x {
+    font-size: 2em;
+}
+
+.text-1-5x {
+    font-size: 1.5em;
+}
+
+.text-0-85x {
+    font-size: 0.85em;
+}
+
+.js-value-down, .js-value-up {
+    cursor: pointer;
+}
+
+.block-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.block-overlay {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255, 0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.overlay-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-centered {
+    position: absolute;
+    top: 50%;
+}
+
+.full-width {
+    width:100%;
+}
+
+.nav > li > form > a {
+    padding: 15px 15px;
+    display: block;
+}
+
+.nav > li > form > a:hover {
+    text-decoration: none;
+    background-color: #eee;
+}
+
+.dropdown-menu > li > form > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.dropdown-menu > li > form > a:hover,
+.dropdown-menu > li > form > a:focus {
+  color: #262626;
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.dropdown-menu > .active > form > a,
+.dropdown-menu > .active > form > a:hover,
+.dropdown-menu > .active > form > a:focus {
+  color: #fff;
+  text-decoration: none;
+  background-color: #337ab7;
+  outline: 0;
+}
+.dropdown-menu > .disabled > form > a,
+.dropdown-menu > .disabled > form > a:hover,
+.dropdown-menu > .disabled > form > a:focus {
+  color: #777;
+}
+.dropdown-menu > .disabled > form > a:hover,
+.dropdown-menu > .disabled > form > a:focus {
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+#termsAndConditions .terms-content-block {
+    position: relative;
+    height: 30em;
+    overflow: auto;
+}
+
+.calculator-exchange-icon-container {
+    padding-top: 0.9em;
+}

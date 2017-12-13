@@ -1,0 +1,61 @@
+extends base/base
+
+block vars
+    -var pageTitle = 'Investors control panel';
+    -var isAuthorized = false;
+
+block content
+    .row
+        .col-md-8.col-md-offset-2
+            .panel.panel-default
+                .panel-body
+                    ul.nav.nav-tabs
+                        li.active(role='presentation')
+                            a(href='#auth-sign-up', role='tab', aria-controls='auth-sign-up', data-toggle='tab') Sign Up
+                        li(role='presentation')
+                            a(href='#auth-sign-in', role='tab', aria-controls='auth-sign-in', data-toggle='tab') Sign In
+                        li(role='presentation')
+                            a(href='#auth-recover-access', role='tab', aria-controls='auth-recover-access', data-toggle='tab') Forgot password
+                    .tab-content
+                        #auth-sign-up.tab-pane.active.js-has-overlay(role='tabpanel')
+                            include lib/overlay-loader
+                            form#signUpForm(role='form', data-toggle="validator", action='http://pre-ico.unilot.loc:8680/ru-ru/cp/sign-up.json', method='POST', data-url='http://pre-ico.unilot.loc:8680/ru-ru/cp/auth.html')
+                                .row
+                                    .col-xs-12
+                                        .alert.hidden.js-form-alert.text-center
+                                .row
+                                    .col-xs-12
+                                            .form-group
+                                                label.control-label(for='signUpEmail') Email
+                                                input#signUpEmail.form-control.focus(type='email', placeholder='Email', required=true, name='email')
+                                                .help-block.with-errors
+                                .row
+                                    include lib/overlay-loader
+                                    .col-xs-12
+                                        button.btn.btn-primary.pull-right(
+                                        type='button',data-toggle='modal', data-target='#termsAndConditions') Sign up
+
+                                include lib/auth-terms-and-conditions-modal
+                        #auth-sign-in.tab-pane.js-has-overlay(role='tabpanel')
+                            include lib/overlay-loader
+                            form.js-generic-form(role='form', data-toggle="validator", action='http://pre-ico.unilot.loc:8680/ru-ru/cp/sign-in.json', method='POST')
+                                .row
+                                    .col-xs-12
+                                        .alert.hidden.js-form-alert.text-center
+                                .row
+                                    .col-xs-12
+                                        .form-group
+                                            label.control-label(for='signInEmail') Email
+                                            input#signInEmail.form-control(type='email', placeholder='Email', required=true, name='email')
+                                            .help-block.with-errors
+                                .row
+                                    .col-xs-12
+                                        .form-group
+                                            label.control-label(for='signInPassword') Password
+                                            input#signInPassword.form-control(type='password', placeholder='Password', required=true, name='password')
+                                            .help-block.with-errors
+                                .row
+                                    include lib/overlay-loader
+                                    .col-xs-12
+                                        button.btn.btn-primary.pull-right(role='submit') Sign In
+                        #auth-recover-access.tab-pane(role='tabpanel')

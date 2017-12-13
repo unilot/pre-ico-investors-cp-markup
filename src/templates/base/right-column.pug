@@ -1,0 +1,93 @@
+.panel.panel-default
+    .panel-body
+        if isAuthorized
+            .row
+                .col-xs-12
+                    .btn-group-lg
+                        button.btn.btn-primary.btn-lg.btn-block.pull-right(
+                        type='button',data-toggle='modal', data-target='#buyTokens') Buy
+            include ../lib/buy-token-modal
+        if isAuthorized
+            .row
+                .col-xs-12
+                    .panel
+                        .panel-body
+                            strong My UNT Tokens
+                            p.text-2x
+                                strong 0
+                            a(href='#') Set wallet for withdrawal
+                    hr
+
+                    .panel
+                        .panel-body
+                            strong My UNT Referral Tokens
+
+                            p.text-2x
+                                strong 0
+                            a(href='#') Get more tokens for free
+                    hr
+
+                    .panel
+                        .panel-body
+                            strong UNT Token Price
+                            p.text-2x
+                                strong 0.0001 ETH
+                            p
+                                span(class='label label-primary') 40% Bonus
+                                = ' for purchase > 75 UNT'
+                    hr
+        .row
+            .col-xs-12
+                .panel
+                    .panel-body
+                        strong.text-uppercase BONUS SALE
+                        br
+
+                        #js-time-counter
+                        script#timeCounterTemplate(type='text/x-jsrender')
+                            .row
+                                .col-md-2.col-xs-3
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-2x
+                                                strong %D
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-0-85x Days
+                                .col-md-2.col-xs-3
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-2x
+                                                strong %H
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-0-85x Hours
+                                .col-md-2.col-xs-3
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-2x
+                                                strong %M
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-0-85x Minutes
+                                .col-md-2.col-xs-3
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-2x
+                                                strong %S
+                                    .row
+                                        .col-xs-12
+                                            p.text-center.text-0-85x Seconds
+
+                hr
+        .row
+            .col-xs-12
+                .panel
+                    .panel-body
+                        strong.text-uppercase ETH Raised
+                        h3
+                            strong 1000.2342 ETH
+                        .row
+                            .col-xs-12
+                                .progress
+                                    .progress-bar.progress-bar-striped.active(style="width:35%;")

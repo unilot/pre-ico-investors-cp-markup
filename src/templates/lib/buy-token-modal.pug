@@ -1,0 +1,30 @@
+#buyTokens.modal.fade(tabindex=-1, role='dialog')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                h4.modal-title Buy UNITs
+            .modal-body
+                h3 How to buy
+
+                p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+                ul
+                    li Aliquam sit amet lorem non felis consectetur pellentesque sagittis ut neque.
+                    li Nunc eu lacus fermentum, luctus lectus non, viverra nisi.
+                    li Curabitur risus orci, ultrices id pellentesque at, elementum a sapien.
+                    li Etiam sem purus, efficitur eu lectus ut, consequat gravida risus.
+                p Integer aliquet et mi a pellentesque. In volutpat tristique nulla luctus mattis. Maecenas pellentesque ligula mauris, ut eleifend lectus vehicula at. Nullam at lacus eget sapien placerat iaculis eu in augue. Maecenas tempor sapien fringilla eleifend malesuada.
+                include ../lib/token-calculator
+            .modal-footer
+                .row
+                    .col-md-8.col-md-offset-2
+                        .form-group
+                            input#tokenBuyContractNumber.form-control(type='text', readonly=true, value='0x69647d9418a4692848c3dc7f53dec4492bcce506')
+                .row
+                    .col-xs-12.text-center
+                        a.btn.btn-lg.btn-primary.js-buy-tokens-copy-contract-number(
+                        role='button', tabindex=0, data-toggle='focus', data-trigger='focus',
+                        data-placement='top', data-content='Contract number copied') Copy contract number
+

@@ -1,0 +1,58 @@
+#termsAndConditions.modal.fade(tabindex=-1, role='dialog')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                h4.modal-title Temrs & conditions
+            .modal-body
+                include overlay-loader
+                .row
+                    .col-xs-12
+                        .terms-content-block
+                            h2 Lorem ipsum dolor sit amet
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare molestie purus, eu consectetur ante condimentum eu. Nam faucibus, felis ut auctor sollicitudin, massa ligula suscipit purus, id maximus mi odio eget felis. Nullam malesuada ultrices ex vel egestas. Pellentesque nisi mi, pellentesque tempus tempus quis, ornare sed felis. Vestibulum quis porttitor turpis, suscipit hendrerit dui. Suspendisse orci quam, suscipit convallis odio in, pretium egestas velit. Vivamus gravida tellus a suscipit blandit.
+                            h2 Maecenas luctus rutrum magna
+                            p Maecenas luctus rutrum magna, vel maximus felis mollis venenatis. Nulla ac gravida augue. Vestibulum semper varius nisl eu bibendum. Proin odio dolor, porttitor et odio ac, suscipit dictum neque. In maximus posuere eros, id iaculis est. Donec in libero suscipit, dictum odio id, pharetra est. Praesent non leo mi. Donec sollicitudin pharetra arcu et consequat. Mauris diam erat, luctus eu dolor quis, hendrerit lacinia leo. In erat ante, scelerisque vel lorem id, iaculis porta metus. Maecenas id mauris sit amet tortor semper dictum.
+                            h2 Maecenas id leo erat
+                            p Maecenas id leo erat. Cras vel nulla scelerisque, sodales eros ut, fringilla nunc. Vivamus quis orci lectus. Fusce vel eros id purus varius accumsan. Suspendisse commodo iaculis luctus. Donec leo quam, aliquam vel cursus eu, scelerisque vel tortor. Nullam cursus nec mauris non blandit. Nulla facilisis ipsum ut dapibus faucibus. Vivamus enim tellus, tincidunt eget interdum a, finibus eget ex. Suspendisse potenti. Curabitur tristique mauris eget risus efficitur, sed consequat ex scelerisque. Sed turpis metus, tincidunt id massa molestie, consequat tempus lacus. Mauris et lacus suscipit felis dignissim euismod non ac libero. Suspendisse potenti. Duis tincidunt imperdiet tempus.
+                            h2 Nulla gravida sodales odio eu hendrerit
+                            p Nulla gravida sodales odio eu hendrerit. Nam lacinia malesuada facilisis. Nam imperdiet, urna id finibus suscipit, purus purus placerat quam, et commodo quam lorem non velit. Nulla dictum ac turpis eget ornare. Morbi iaculis, nisi sed luctus rutrum, neque tortor gravida mi, quis faucibus nunc purus vitae tortor. Nulla commodo justo ac dolor elementum efficitur. Etiam eget condimentum quam. Donec interdum sed justo commodo bibendum. Ut diam lacus, fringilla vitae libero at, scelerisque ultricies nisl. Aliquam ornare vulputate neque quis placerat.
+                            h2 Praesent mollis sollicitudin felis eget varius
+                            p Praesent mollis sollicitudin felis eget varius. Ut non leo eu enim cursus lobortis sed nec ex. Nunc lacinia et libero a hendrerit. In sagittis tellus sed lorem ullamcorper fringilla quis nec justo. In dignissim nisi id sapien molestie posuere. Vivamus lobortis odio sed tellus iaculis, quis fringilla velit dictum. Donec at aliquet orci.
+                .row
+                    .col-xs-12
+                        .alert.hidden.js-form-alert
+                .row
+                    .col-md-6
+                        .form-group
+                            .checkbox
+                                label
+                                    input#signUpNotUsCitizen(type='checkbox', name='not_us_citizen' required=true)
+                                    = 'I am not U.S. citizen'
+                            .help-block.with-errors
+                    .col-md-6
+                        .form-group
+                            .checkbox
+                                label
+                                    input#signUpSureNotUsCitizen(type='checkbox', name='sure_not_us_citizen' required=true)
+                                    = 'Yes I am sure I am not U.S citizen'
+                            .help-block.with-errors
+                    .col-md-6
+                        .form-group
+                            .checkbox
+                                label
+                                    input#signUpAgreeWithTerms(type='checkbox', name='agree_with_terms', required=true)
+                                    = 'I agree with terms and conditions'
+                            .help-block.with-errors
+                    .col-md-6
+                        .form-group
+                            .checkbox
+                                label
+                                    input#signUpNotCheatingNotUsCitizen(type='checkbox', name='not_cheating_not_us_citizen' required=true)
+                                    = 'I am not cheating. I am not U.S citizen'
+                            .help-block.with-errors
+
+            .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close
+                button.btn.btn-primary(role='submit') I agree to all terms and conditions
