@@ -163,3 +163,33 @@
 .calculator-exchange-icon-container {
     padding-top: 0.9em;
 }
+
+/* Added by Urist McDwarf */
+.calc-summary > p:nth-child(even) {
+    margin-bottom: 1.5em;
+}
+
+.calc-summary > p:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 500px) {
+    .calc-summary {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: [row1] 50% [row2] 50%;
+    }
+    
+    .calc-summary:before {
+        display: none;
+    }
+    
+    .calc-summary > p:nth-child(odd) {
+        grid-row: row1;
+    }
+    
+    .calc-summary > p:nth-child(even) {
+        grid-row: row2;
+        margin-bottom: 0;
+    }
+}
