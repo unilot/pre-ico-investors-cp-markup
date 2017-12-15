@@ -25,12 +25,16 @@ var jsSrc = [
     nodeModules + '/web3/dist/web3.js',
     nodeModules + '/bootstrap-validator/dist/validator.min.js',
     nodeModules + '/js-cookie/src/js.cookie.js',
+    nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js',
+    nodeModules + '/twitter-bootstrap-wizard/prettify.js',
     srcDir + '/js/*.js'
 ];
 
 var cssSrc = [
     nodeModules + '/normalize.css/normalize.css',
     nodeModules + '/bootstrap/dist/css/bootstrap.css',
+    nodeModules + '/twitter-bootstrap-wizard/bootstrap/css/bootstrap.css',
+    nodeModules + '/twitter-bootstrap-wizard/prettify.css',
     srcDir + '/css/*.css'
 ];
 

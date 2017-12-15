@@ -1,0 +1,40 @@
+extends base/base
+
+block vars
+    -var pageTitle = 'Investors control panel';
+    -var isAuthorized = false;
+
+block content
+  .row
+    .col-md-12#rootwizard
+      ul
+        li
+          a(href="#tab1" data-toggle="tab") Citizenship enquiry
+        li
+          a(href="#tab2" data-toggle="tab") Terms
+        li
+          a(href="#tab3" data-toggle="tab") Ethereum wallet
+        li
+          a(href="#tab4" data-toggle="tab") Notification email
+        li
+          a(href="#tab5" data-toggle="tab") Buyer information
+        li
+          a(href="#tab6" data-toggle="tab") Deposit
+
+      .tab-content
+        .tab-pane#tab1 Lorem ipsum
+        .tab-pane#tab2 Dolor sit
+        .tab-pane#tab3 Amet consectetur
+        .tab-pane#tab4 Adipisicing elit
+        .tab-pane#tab5 Wharrgarbl
+        .tab-pane#tab6 Final step
+
+        ul.pager.wizard
+          li.previous.first
+            a(href="#") First
+          li.previous
+            a(href="#") Previous
+          li.next.last
+            a(href="#") Last
+          li.next
+            a(href="#") Next
