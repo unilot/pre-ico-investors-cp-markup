@@ -6,35 +6,179 @@ block vars
 
 block content
   .row
-    .col-md-12#rootwizard
+    #rootwizard.col-md-12.tabbable.tabs-left
       ul
         li
-          a(href="#tab1" data-toggle="tab") Citizenship enquiry
+          a(href='#tab1' data-toggle='tab') Citizenship enquiry
         li
-          a(href="#tab2" data-toggle="tab") Terms
+          a(href='#tab2' data-toggle='tab') Terms
         li
-          a(href="#tab3" data-toggle="tab") Ethereum wallet
+          a(href='#tab3' data-toggle='tab') Ethereum wallet
         li
-          a(href="#tab4" data-toggle="tab") Notification email
+          a(href='#tab4' data-toggle='tab') Notification email
         li
-          a(href="#tab5" data-toggle="tab") Buyer information
+          a(href='#tab5' data-toggle='tab') Buyer information
         li
-          a(href="#tab6" data-toggle="tab") Deposit
+          a(href='#tab6' data-toggle='tab') Deposit
 
       .tab-content
-        .tab-pane#tab1 Lorem ipsum
-        .tab-pane#tab2 Dolor sit
-        .tab-pane#tab3 Amet consectetur
-        .tab-pane#tab4 Adipisicing elit
-        .tab-pane#tab5 Wharrgarbl
-        .tab-pane#tab6 Final step
+        .tab-pane#tab1
+          .row
+            .col-md-8.col-md-offset-2
+              h2.text-uppercase Citizenship enquiry
+              hr
+              p.lead Are you a resident in or are you holding a passport issued by any of the following countries?
+              ul.lead
+                li United States
+                li Canada
+          .row.row-controls
+            .col-md-4.col-md-offset-2
+              a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Yes
+            .col-md-4
+              a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase No
 
-        ul.pager.wizard
-          li.previous.first
-            a(href="#") First
-          li.previous
-            a(href="#") Previous
-          li.next.last
-            a(href="#") Last
-          li.next
-            a(href="#") Next
+        .tab-pane#tab2
+          .row
+            .col-md-12
+              h2.text-uppercase Terms and conditions
+              hr
+              pre.terms.pre-scrollable
+                p Token Pre-Sale Program Agreement
+                p Between Unilot Limited and ...
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+          .row.row-controls
+            .col-md-8.col-md-offset-2
+              form
+                .checkbox
+                  label
+                    input(type='checkbox')
+                    | I agree and accept these terms and conditions
+          .row.row-controls
+            .col-md-2.col-md-offset-2
+              a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+            .col-md-6
+              a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase Accept and continue
+
+        .tab-pane#tab3
+          .row
+            .col-md-8.col-md-offset-2
+              h2.text-uppercase Ethereum wallet
+              hr
+              form
+                .form-group
+                  label(for='wallet') What Ethereum wallet you are using?
+                  select.form-control#wallet(aria-describedby='wallet-help')
+                    option(value='coinbase') Coinbase
+                    option(value='my-ether-wallet') MyEtherWallet
+                    option(value='other') Other wallets
+                  span.help-block#wallet-help Tokens are compatible with some Ethereum wallets only. You cannot use an address from a cryptocurrency exchange.
+                  .alert.alert-info(role='alert')
+                    p #[span.glyphicon.glyphicon-question-sign(aria-hidden='true')] 
+                      a(href='#') For the instructions and compatible wallets see this page
+          .row.row-controls
+            .col-md-2.col-md-offset-2
+              a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+            .col-md-6
+              a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase Submit and continue
+
+        .tab-pane#tab4
+          .row
+            .col-md-8.col-md-offset-2
+              h2.text-uppercase Notification email
+              hr
+              form
+                .form-group
+                  label(for='email') Your email address
+                  input.form-control#email(type='email' placeholder='example@example.org' aria-describedby='email-help')
+                  span.help-block#email-help You will be notified when your tokens are available. We won't disclose your email to third parties.
+          .row.row-controls
+            .col-md-2.col-md-offset-2
+              a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+            .col-md-6
+              a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase Submit and continue
+
+        .tab-pane#tab5
+          .row
+            .col-md-8.col-md-offset-2
+              h2.text-uppercase Buyer information
+              hr
+              form
+                .form-group
+                  label(for='name') Your full name
+                  input.form-control#name(type='text')
+                .form-group
+                  label(for='company-name') Company name
+                  input.form-control#company-name(type='text' aria-describedby='company-name-help')
+                  span.help-block#company-name-help For incorporated buyers only, otherwise leave empty
+                .form-group
+                  label(for='phone') Phone number
+                  input.form-control#phone(type='tel')
+                .form-group
+                  label(for='address') Address
+                  input.form-control#address(type='text' aria-describedby='address-help')
+                  span.help-block#address-help Street address, postal code, city
+                .form-group
+                  label(for='country') Country
+                  select.form-control#country(aria-describedby='country-help')
+                    option(value='dominican-republic') Dominican Republic
+                    option(value='other') Other countries
+                  span.help-block#country-help This information is collected for contractual purposes only
+          .row.row-controls
+            .col-md-2.col-md-offset-2
+              a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+            .col-md-6
+              a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase Submit and continue
+
+        .tab-pane#tab6
+          .row
+            .col-md-12
+              h2.text-uppercase Deposit
+              hr
+          .row
+            .col-md-6
+              form
+                .form-group
+                  label(for='deposit-address').text-uppercase Address:
+                  span.input-group
+                    a.input-group-addon.btn.btn-default(href='#' role='button') Copy
+                    textarea.form-control.no-resize#deposit-address(readonly) 0x123f681646d4a755815f9cb19e1acc8565a0c2ac
+                .form-group
+                  label(for='deposit-data').text-uppercase Data: #[span.label.label-warning Required]
+                  .input-group
+                    a.input-group-addon.btn.btn-default(href='#' role='button') Copy
+                    textarea.form-control.no-resize#deposit-data(required readonly) 0x99e9376c000000000000000000000c8328e07d1644c83818838579c590cb5
+                .form-group
+                  // There is weird spacing between T and semicolon, looking like no spacing at all.
+                  // Trying to fix that with span.spaced
+                  label(for='deposit-gas-limit').text-uppercase Gas limi#[span.spaced t:] #[span.label.label-warning Required]
+                  .input-group
+                    a.input-group-addon.btn.btn-default(href='#' role='button') Copy
+                    input.form-control#deposit-gas-limit(type='text' required readonly value='260300')
+                .form-group
+                  label(for='deposit-gas-price').text-uppercase Gas price (GWEI):
+                  .input-group
+                    a.input-group-addon.btn.btn-default(href='#' role='button') Copy
+                    input.form-control#deposit-gas-price(type='text' readonly value='30')
+            .col-md-6#deposit-help
+              label(for='deposit-help').text-uppercase Instructions:
+              p Minimum payment: 20 ETH.
+              p You'll receive 20% discount.
+              p Make Ethereum transaction using given personal payment details and your whitelisted Ethereum address. You need to fill in ALL payment details in your wallet:
+                ul
+                  li Amount ETH (more than minimum)
+                  li Address
+                  li Gas limit
+                  li Data
+              .alert.alert-info(role='alert')
+                p #[span.glyphicon.glyphicon-question-sign(aria-hidden='true')] 
+                  strong.text-uppercase Need help?
+                  p
+                    a(href='#') See how to make a transaction to an Ethereum token presale          
+          .row.row-controls
+            .col-md-2.col-md-offset-2
+              a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+            .col-md-6
+              a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase Go to the Dashboard

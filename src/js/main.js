@@ -54,5 +54,5 @@
 
 // Wizard
 $(document).ready(function() {
-    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-pills'});
-  });
+    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs'});
+});
