@@ -1,0 +1,19 @@
+/* Based on idea by Harry from CSS Wizardry https://csswizardry.com/2013/04/shame-css/ */
+/* All hacky and quick-fix CSS should go here */
+
+/* Wizard-related hacks (Wizard > Deposit) ------------------------------ */
+  /* Bootstrap 3 documentation assumes .input-group-button not to be used
+     with textarea. Trying to imitate its behaviour via a.input-group-addon */
+  a.input-group-addon.btn.btn-default {background-color: #fff;}
+  a.input-group-addon.btn.btn-default:hover {background-color: #e6e6e6;}
+
+  /* String 'GAS LIMIT:' has weird spacing between T and semicolon in both
+     Chrome and Firefox. Trying to fix that */
+  
+  @-moz-document url-prefix() {
+    .spaced {letter-spacing: 2px;}  /* Mozilla Firefox */
+  }
+  @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+    .spaced {letter-spacing: 1px;}  /* Google Chrome */
+  }
+/* ---------------------------------------------------------------------- */

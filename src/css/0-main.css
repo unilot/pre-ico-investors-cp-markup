@@ -214,13 +214,3 @@
     max-height: 250px;
     font-size: 1.2em;
 }
-
-/* Styles to imitate input-group-button behaviour with textarea via a.input-group-addon */
-a.input-group-addon.btn.btn-default {background-color: #fff;}
-a.input-group-addon.btn.btn-default:hover {background-color: #e6e6e6;}
-
-/*  String 'GAS LIMIT:' has weird spacing between T and semicolon, 
-    looking like no spacing at all. Trying to fix that */
-.spaced {
-    letter-spacing: 2px;
-}
