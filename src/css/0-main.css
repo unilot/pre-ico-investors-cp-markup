@@ -205,12 +205,16 @@
     margin-bottom: 3em;
 }
 
-.row-controls {
-    margin-top: 2em;
+.row-controls > * {
+    margin-top: 1em;
 }
 
 .terms {
     white-space: pre-wrap;
     max-height: 250px;
     font-size: 1.2em;
+}
+
+#rootwizard .active .visible-xs-block:before {
+    content: 'Step ';
 }
