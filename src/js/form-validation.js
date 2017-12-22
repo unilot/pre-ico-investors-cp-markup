@@ -80,7 +80,7 @@
             custom: {
                 wallet: function($input) {
                     if ( $input.val().length > 0 && !(new Web3()).isAddress($input.val()) ) {
-                        var error = config.messages.errors.invalidWallet;
+                        var error = config.messages.errors.validation.invalidWallet;
 
                         if ($input.data('wallet-error')) {
                             error = $input.data('wallet-error');
@@ -90,6 +90,85 @@
 
                         return error;
                     }
+                },
+                online: function($input) {
+                    var url = $input.data('online');
+                    var $form = $input.closest('form');
+                    var validator = $form.data('bs.validator');
+                    var data = {};
+
+                    data[$input.attr('name')] = $input.val();
+
+                    //TODO a lot of code duplication. This part should probably be refactored
+                    if (validator && ($input.data('bs.validator.errors') || []).length === 0) {
+                        $.ajax({
+                            url: url,
+                            dataType: 'json',
+                            method: 'OPTIONS',
+                            xhrFields: {
+                                withCredentials: true
+                            },
+                            headers: {
+                                'X-CSRFToken': Cookies.get('csrftoken')
+                            },
+                            success: function () {
+                                $.ajax({
+                                    url: url,
+                                    dataType: 'json',
+                                    data: data,
+                                    method: 'POST',
+                                    xhrFields: {
+                                        withCredentials: true
+                                    },
+                                    headers: {
+                                        'X-CSRFToken': Cookies.get('csrftoken')
+                                    },
+                                    statusCode: {
+                                        400: function (jqXHR, textStatus, errorThrown) {
+                                            var errors = $input.data('bs.validator.errors');
+                                            try {
+                                                var resposneData = JSON.parse(jqXHR.responseText);
+                                                errors.push(resposneData[$input.attr('name')]);
+                                            } catch (e) {
+                                                errors.push(jqXHR.responseText || textStatus);
+                                            }
+
+                                            $input.data('bs.validator.errors', errors);
+                                            validator.showErrors($input);
+                                        }
+                                    },
+                                    error: function (jqXHR, textStatus, errorThrown) {
+                                        var error = config.messages.errors.validation.requestFailed;
+
+                                        $input.data('bs.validator.errors', [error]);
+                                        validator.showErrors($input);
+                                    }
+                                });
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                var error = config.messages.errors.validation.requestFailed;
+
+                                $input.data('bs.validator.errors', [error]);
+                                validator.showErrors($input);
+                            }
+                        });
+                    }
+                },
+                phone: function($input) {
+                    var phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
+                    var $form = $input.closest('form');
+                    var validator = $form.data('bs.validator');
+
+                    try {
+                        var phone = phoneUtil.parse($input.val());
+
+                        if ( !phoneUtil.isValidNumber(phone) ) {
+                            throw new Error();
+                        }
+
+                    } catch (exception) {
+                        return config.messages.errors.validation.invalidPhone;
+                    }
                 }
             }
         }).on('submit', function(event) {
@@ -97,7 +176,8 @@
                 return false;
             }
 
-            var $form = $(this);
+            var _self = this;
+            var $form = $(_self);
             var hasOverlay = false;
             var $overlayedBlock = null;
             var $overlay = null;
@@ -117,7 +197,7 @@
             var data = form2Data($form);
             event.preventDefault();
 
-            var optionsResponse = $.ajax({
+            $.ajax({
                 url: $form.prop('action'),
                 dataType: 'json',
                 method: 'OPTIONS',
@@ -146,30 +226,10 @@
                             400: function(jqXHR, textStatus, errorThrown) {
                                 try {
                                     $.each(JSON.parse(jqXHR.responseText), function(fieldName, errors) {
-                                        var $formGroup = $('[name="' + fieldName + '"]', $form).closest('.form-group');
+                                        var $input = $('[name="' + fieldName + '"]', $form);
 
-                                        $formGroup.addClass('has-error');
-                                        $formGroup.addClass('has-danger');
-
-                                        var $errorBlock = $('.help-block.with-errors', $formGroup);
-
-                                        var $list = $('ul', $errorBlock);
-
-                                        if ( $list.length === 0 ) {
-                                            $list = $('<ul class="list-unstyled">');
-                                            $errorBlock.append($list);
-                                        }
-
-                                        $('li.js-request-validation', $list).remove();
-
-                                        for (var i in errors) {
-                                            if ( !errors.hasOwnProperty(i) ){
-                                                continue;
-                                            }
-
-                                            var error = errors[i];
-                                            $list.append($('<li class="js-request-validation">').text(error));
-                                        }
+                                        $input.data('bs.validator.errors', errors);
+                                        $form.data('bs.validator').showErrors($input);
                                     });
 
                                     formFinalSettings.badRequest($form, jqXHR, textStatus, errorThrown);

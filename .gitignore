@@ -1,3 +1,4 @@
 .idea
 dist
+!dist/assets/js/config.js
 node_modules

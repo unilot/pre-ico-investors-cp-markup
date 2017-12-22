@@ -5,6 +5,7 @@
     var $referralLinkCopyButton = $('.js-copy-referral-link');
     var $buyCopyTokensContractNumber = $('.js-buy-tokens-copy-contract-number');
     var $timeCounterBlock = $('#js-time-counter');
+    var $signUpWizard = $('#signupWizard');
 
     var calculator = new Calculator($UNTAmountInput, $etherAmountInput, 536.700000);
     var isReferralLinkCopyButtonPopoverShown = false;
@@ -40,19 +41,39 @@
         document.execCommand('copy');
     });
 
-    web3.setProvider(new web3.providers.HttpProvider(
-        config.web3.schema + '://' + config.web3.host + ':' + config.web3.port
-    ));
+    // web3.setProvider(new web3.providers.HttpProvider(
+    //     config.web3.schema + '://' + config.web3.host + ':' + config.web3.port
+    // ));
 
+    $signUpWizard.bootstrapWizard({'tabClass': 'nav nav-tabs'});
 
-    try{
+    $('.js-wizard-next-step').on('click', function() {
+        var self = $(this);
+        var $stepBody = self.closest('.tab-pane');
+        var validator = $stepBody.closest('form').data('bs.validator');
+        var nextTab = parseInt($stepBody.attr('tabindex')) + 1;
 
-    } catch(error) {
+        var GoToNextStep = function () {
+            $signUpWizard.bootstrapWizard('enable', nextTab);
+            $signUpWizard.bootstrapWizard('next', nextTab);
+        };
 
-    }
+        var $inputs = $('input, select', $stepBody);
+
+        if ( $inputs.length > 0 ) {
+            $.when($inputs.map(function(el){
+                return validator.validateInput($(this), false);
+            })).then(function() {
+                if ( validator.hasErrors() ) {
+                    validator.focusError();
+                } else {
+                    GoToNextStep();
+                }
+            });
+        } else {
+            GoToNextStep();
+        }
+
+        return false;
+    });
 })();
-
-// Wizard
-$(document).ready(function() {
-    $('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs'});
-});

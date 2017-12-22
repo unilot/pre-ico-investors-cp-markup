@@ -19,7 +19,7 @@ block content
                     .tab-content
                         #auth-sign-up.tab-pane.active.js-has-overlay(role='tabpanel')
                             include lib/overlay-loader
-                            form#signUpForm(role='form', data-toggle="validator", action='http://pre-ico.unilot.loc:8680/ru-ru/cp/sign-up.json', method='POST', data-url='http://pre-ico.unilot.loc:8680/ru-ru/cp/auth.html')
+                            form#signUpForm(role='form', data-toggle="validator", action='http://pre-ico.unilot.loc:8180/ru-ru/cp/sign-up.json', method='POST', data-url='http://pre-ico.unilot.loc:8680/ru-ru/cp/auth.html')
                                 .row
                                     .col-xs-12
                                         .alert.hidden.js-form-alert.text-center
@@ -38,7 +38,7 @@ block content
                                 include lib/auth-terms-and-conditions-modal
                         #auth-sign-in.tab-pane.js-has-overlay(role='tabpanel')
                             include lib/overlay-loader
-                            form.js-generic-form(role='form', data-toggle="validator", action='http://pre-ico.unilot.loc:8680/ru-ru/cp/sign-in.json', method='POST')
+                            form.js-generic-form(role='form', data-toggle="validator", action='http://pre-ico.unilot.loc:8180/ru-ru/cp/sign-in.json', method='POST')
                                 .row
                                     .col-xs-12
                                         .alert.hidden.js-form-alert.text-center
