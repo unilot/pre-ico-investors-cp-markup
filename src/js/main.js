@@ -9,7 +9,10 @@
 
     var calculator = new Calculator($UNTAmountInput, $etherAmountInput, 536.700000);
     var isReferralLinkCopyButtonPopoverShown = false;
-    var web3 = new Web3();
+
+    calculator.setFiatExchangeRate(config.eth.fiatExchangeRate);
+    calculator.setTokenPrice(config.token.price);
+    calculator.setBonusAmount(config.token.bonus);
 
     $('.js-submit').on('click', function(event){
         $(this).closest('form').submit();

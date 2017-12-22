@@ -23,7 +23,7 @@ Calculator.prototype = {
     minTokenValue: 0,
     maxTokenValue: 10000,
 
-    bonusTokenAmount: 400,
+    bonusTokenAmount: 1,
     bonusAmount: 0.4, //40%
 
     calculateEthAmount: function (tokenAmount) {
@@ -143,6 +143,22 @@ Calculator.prototype = {
 
         if ( !isNaN(_exchangeRate) ) {
             this.fiatExchangeRate = _exchangeRate;
+        }
+    },
+
+    setTokenPrice: function(tokenPrice) {
+        var _tokenPrice = parseFloat(tokenPrice);
+
+        if ( !isNaN(_tokenPrice) && _tokenPrice > 0 ) {
+            this.tokenPrice = _tokenPrice;
+        }
+    },
+
+    setBonusAmount: function(bonusAmount) {
+        var _bonusAmount = parseFloat(bonusAmount);
+
+        if ( !isNaN(_bonusAmount) && _bonusAmount >= 0 ) {
+            this.bonusAmount = _bonusAmount;
         }
     },
 
