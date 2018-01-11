@@ -97,6 +97,10 @@
                     var validator = $form.data('bs.validator');
                     var data = {};
 
+                    if ( $input.val().trim().length === 0 ) {
+                        return false;
+                    }
+
                     data[$input.attr('name')] = $input.val();
 
                     //TODO a lot of code duplication. This part should probably be refactored
@@ -138,6 +142,9 @@
                                         }
                                     },
                                     error: function (jqXHR, textStatus, errorThrown) {
+                                        if (jqXHR.status === 400)
+                                            return true;
+
                                         var error = config.messages.errors.validation.requestFailed;
 
                                         $input.data('bs.validator.errors', [error]);

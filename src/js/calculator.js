@@ -15,10 +15,11 @@ Calculator.prototype = {
     totalEthContainerEl: $('.js-eth-total-amount'),
     totalBonusContainerEl: $('.js-token-total-bonus'),
     totalFiatContainerEl: $('.js-fiat-total-amount'),
+    tokenPriceEl: $('.js-token-price'),
 
     tokenAmount: 0,
     ethAmount: 0,
-    tokenPrice: parseFloat((0.5/200).toFixed(4)),
+    tokenPrice: parseFloat((0.5/200).toFixed(6)),
     fiatExchangeRate: 0,
     minTokenValue: 0,
     maxTokenValue: 10000,
@@ -51,7 +52,7 @@ Calculator.prototype = {
             this.tokenAmountEl.closest('.form-group').removeClass('has-error');
             this.tokenAmount = _amount;
 
-            this.ethAmount = parseFloat(this.calculateEthAmount().toFixed(4));
+            this.ethAmount = parseFloat(this.calculateEthAmount().toFixed(6));
             var value = this.ethAmount;
 
             this.ethAmountEl.val(value);
@@ -97,6 +98,14 @@ Calculator.prototype = {
     },
 
     _setup: function () {
+        this.tokenAmountEl.off('input', this.events().tokenAmountChanged);
+        this.ethAmountEl.off('input', this.events().ethAmountChanged);
+
+        $('.js-value-up', this.tokenAmountEl.closest('.input-group'))
+            .off('click', this.events().incrementTokenAmount);
+        $('.js-value-down', this.tokenAmountEl.closest('.input-group'))
+            .off('click', this.events().decreaseTokenAmount);
+
         this.tokenAmountEl.on('input', this.events().tokenAmountChanged);
         this.ethAmountEl.on('input', this.events().ethAmountChanged);
 
@@ -104,6 +113,8 @@ Calculator.prototype = {
             .on('click', this.events().incrementTokenAmount);
         $('.js-value-down', this.tokenAmountEl.closest('.input-group'))
             .on('click', this.events().decreaseTokenAmount);
+
+        this.setTokenPrice(this.tokenPrice);
     },
 
     _hasBonus: function () {
@@ -151,6 +162,8 @@ Calculator.prototype = {
 
         if ( !isNaN(_tokenPrice) && _tokenPrice > 0 ) {
             this.tokenPrice = _tokenPrice;
+            this.tokenPriceEl.text(this.tokenPrice + ' ETH');
+            this.setTokenAmount(this.tokenAmount);
         }
     },
 
@@ -159,6 +172,22 @@ Calculator.prototype = {
 
         if ( !isNaN(_bonusAmount) && _bonusAmount >= 0 ) {
             this.bonusAmount = _bonusAmount;
+        }
+    },
+
+    setMinTokenAmount: function(minTokenAmount) {
+        var _minTokenAmount = parseInt(minTokenAmount);
+
+        if ( !isNaN(_minTokenAmount) && _minTokenAmount >= 0 ) {
+            this.minTokenValue = _minTokenAmount;
+        }
+    },
+
+    setMaxTokenAmount: function(maxTokenAmount) {
+        var _maxTokenAmount = parseInt(maxTokenAmount);
+
+        if ( !isNaN(_maxTokenAmount) && _maxTokenAmount > 0 ) {
+            this.maxTokenValue = _maxTokenAmount;
         }
     },
 

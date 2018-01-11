@@ -21,11 +21,11 @@ var jsSrc = [
     nodeModules + '/jquery/dist/jquery.js',
     nodeModules + '/jquery-countdown/dist/jquery.countdown.js',
     nodeModules + '/jsrender/jsrender.js',
-    nodeModules + '/bootstrap/dist/js/bootstrap.js',
+    nodeModules + '/bootstrap/dist/js/bootstrap.min.js',
     nodeModules + '/web3/dist/web3.js',
     nodeModules + '/bootstrap-validator/dist/validator.min.js',
     nodeModules + '/js-cookie/src/js.cookie.js',
-    nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js',
+    nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js',
     nodeModules + '/twitter-bootstrap-wizard/prettify.js',
     nodeModules + '/google-libphonenumber/dist/libphonenumber.js',
     srcDir + '/js/*.js'

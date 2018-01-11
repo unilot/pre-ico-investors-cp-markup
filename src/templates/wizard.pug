@@ -9,27 +9,17 @@ block content
         include lib/overlay-loader
         .row
             #signupWizard.col-md-12.tabbable.tabs-left
-                ul
+                ul.nav.nav-tabs
                     li
-                        a(href='#citizenshipInquery' data-toggle='tab')
-                            span.hidden-xs Citizenship enquiry
-                            span.visible-xs-block 1
+                        a(href='#citizenshipInquery', data-toggle='tab') Citizenship enquiry
                     li.disabled
-                        a(href='#termsAndConditions' data-toggle='tab')
-                            span.hidden-xs Terms
-                            span.visible-xs-block 2
+                        a(href='#termsAndConditions', data-toggle='tab') Terms
                     li.disabled
-                        a(href='#userData' data-toggle='tab')
-                            span.hidden-xs Notification email
-                            span.visible-xs-block 3
+                        a(href='#userData', data-toggle='tab') Notification email
                     li.disabled
-                        a(href='#profileData' data-toggle='tab')
-                            span.hidden-xs Buyer information
-                            span.visible-xs-block 4
+                        a(href='#profileData', data-toggle='tab') Buyer information
                     li.disabled
-                        a(href='#deposit' data-toggle='tab')
-                            span.hidden-xs Deposit
-                            span.visible-xs-block 5
+                        a(href='#deposit', data-toggle='tab') Buyer information
 
                 .tab-content
                     .tab-pane#citizenshipInquery(tabindex=0)
@@ -69,9 +59,9 @@ block content
                                     .help-block.with-errors
                         .row.row-controls
                             .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
                             .col-md-6
-                                a.btn.btn-primary.btn-lg.btn-block(href='#' role='button').text-uppercase.js-wizard-next-step Accept and continue
+                                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Accept and continue
 
                     .tab-pane#userData(tabindex=2)
                         .row
@@ -101,7 +91,7 @@ block content
                                     .help-block.with-errors
                         .row.row-controls
                             .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
                             .col-md-6
                                 a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Submit and continue
 
@@ -139,7 +129,7 @@ block content
                                     .help-block.with-errors
                         .row.row-controls
                             .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
                             .col-md-6
                                 a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Submit and continue
 
@@ -163,11 +153,12 @@ block content
                                     aria-describedby='walletHelp', data-wallet=true, data-online='http://pre-ico.unilot.loc:8180/en-us/cp/validate/user/wallet.json')
                                     span#walletHelp.help-block.has-warning.bg-warning This is wallet that will be used for investment. See warnings above and check carefully before submit.
                                     .help-block.with-errors
+                            .col-xs-12
                                 include lib/token-calculator
 
                         .row.row-controls
                             .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block(href='#' role='button').text-uppercase Back
+                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
                             .col-md-6
                                 button.btn.btn-primary.btn-lg.btn-block(type='submit', role='button').text-uppercase Go to the Dashboard
 
