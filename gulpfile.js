@@ -21,19 +21,19 @@ var jsSrc = [
     nodeModules + '/jquery/dist/jquery.js',
     nodeModules + '/jquery-countdown/dist/jquery.countdown.js',
     nodeModules + '/jsrender/jsrender.js',
-    nodeModules + '/bootstrap/dist/js/bootstrap.js',
+    nodeModules + '/bootstrap/dist/js/bootstrap.min.js',
     nodeModules + '/web3/dist/web3.js',
     nodeModules + '/bootstrap-validator/dist/validator.min.js',
     nodeModules + '/js-cookie/src/js.cookie.js',
-    nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js',
+    nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js',
     nodeModules + '/twitter-bootstrap-wizard/prettify.js',
+    nodeModules + '/google-libphonenumber/dist/libphonenumber.js',
     srcDir + '/js/*.js'
 ];
 
 var cssSrc = [
     nodeModules + '/normalize.css/normalize.css',
     nodeModules + '/bootstrap/dist/css/bootstrap.css',
-    nodeModules + '/twitter-bootstrap-wizard/bootstrap/css/bootstrap.css',
     nodeModules + '/twitter-bootstrap-wizard/prettify.css',
     srcDir + '/css/*.css'
 ];
@@ -54,8 +54,6 @@ gulp.task('html', function(){
 gulp.task('webserver', function(){
     gulp.src(distDir)
         .pipe(webserver({
-            livereload: true,
-            directoryListing: false,
             open: true,
             host: '0.0.0.0',
             port: 8030,
