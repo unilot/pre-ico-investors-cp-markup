@@ -57,7 +57,7 @@ gulp.task('webserver', function(){
     gulp.src(distDir)
         .pipe(webserver({
             open: true,
-            host: '0.0.0.0',
+            host: '127.0.0.1',
             port: 8030,
             fallback: 'index.html'
         }))
