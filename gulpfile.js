@@ -6,6 +6,7 @@ var concat = require('gulp-concat');
 var hash = require('gulp-hash-filename');
 var minifyCSS = require('gulp-csso');
 var clean = require('gulp-clean');
+var sass = require('gulp-sass');
 
 
 //Config
@@ -37,8 +38,14 @@ var cssSrc = [
     nodeModules + '/normalize.css/normalize.css',
     nodeModules + '/bootstrap/dist/css/bootstrap.css',
     nodeModules + '/twitter-bootstrap-wizard/prettify.css',
+    srcDir + '/css/sass/sass.css',
     srcDir + '/css/*.css'
 ];
+
+var sassSrc = [
+    srcDir + '/sass/*.sass',
+    srcDir + '/sass/**/*.sass',
+]
 
 var fontsSrc = [
     nodeModules + '/bootstrap/dist/fonts/*',
@@ -77,13 +84,20 @@ gulp.task('js:prod', function(){
         .pipe(gulp.dest(distDir + '/assets/js/'))
 });
 
-gulp.task('css:dev', function () {
+gulp.task('sass', function(){
+    return gulp.src(sassSrc)
+        .pipe(sass({}).on('error', sass.logError))
+        .pipe(concat('sass.css'))
+        .pipe(gulp.dest(srcDir + '/css/sass'));
+});
+
+gulp.task('css:dev', ['sass'], function () {
     return gulp.src(cssSrc)
         .pipe(concat('main.css'))
         .pipe(gulp.dest(distDir + '/assets/css/'))
 });
 
-gulp.task('css:prod', function () {
+gulp.task('css:prod', ['sass'], function () {
     return gulp.src(cssSrc)
         .pipe(concat('main.min.css'))
         .pipe(hash())
@@ -103,6 +117,7 @@ gulp.task('watch', function(){
     gulp.watch(htmlWatch, ['html']);
     gulp.watch(jsSrc, ['js:dev']);
     gulp.watch(cssSrc, ['css:dev']);
+    gulp.watch(sassSrc, ['css:dev']);
 });
 
 gulp.task('clean', function () {

@@ -1,5 +1,7 @@
 .idea
 dist
 !dist/assets/js/config.js
+distassets
+src/css/sass
 node_modules
 npm-debug.log
