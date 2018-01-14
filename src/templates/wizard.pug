@@ -1,164 +1,164 @@
 extends base/base
 
 block vars
-    -var pageTitle = 'Investors control panel';
-    -var isAuthorized = false;
+  -var pageTitle = 'Investors control panel';
+  -var isAuthorized = false;
 
 block content
-    form.js-generic-form.js-has-overlay
-        include lib/overlay-loader
-        .row
-            #signupWizard.col-md-12.tabbable.tabs-left
-                ul.nav.nav-tabs
-                    li
-                        a(href='#citizenshipInquery', data-toggle='tab') Citizenship enquiry
-                    li.disabled
-                        a(href='#termsAndConditions', data-toggle='tab') Terms
-                    li.disabled
-                        a(href='#userData', data-toggle='tab') Notification email
-                    li.disabled
-                        a(href='#profileData', data-toggle='tab') Buyer information
-                    li.disabled
-                        a(href='#deposit', data-toggle='tab') Buyer information
+  form.js-generic-form.js-has-overlay
+    include lib/overlay-loader
+    .row
+      #signupWizard.col-md-12.tabbable.tabs-left
+        ul.nav.nav-tabs
+          li
+            a(href='#citizenshipInquery', data-toggle='tab') Citizenship enquiry
+          li.disabled
+            a(href='#termsAndConditions', data-toggle='tab') Terms
+          li.disabled
+            a(href='#userData', data-toggle='tab') Notification email
+          li.disabled
+            a(href='#profileData', data-toggle='tab') Buyer information
+          li.disabled
+            a(href='#deposit', data-toggle='tab') Buyer information
 
-                .tab-content
-                    .tab-pane#citizenshipInquery(tabindex=0)
-                        .row
-                            .col-md-8.col-md-offset-2
-                                h2.text-uppercase Citizenship enquiry
-                                hr
-                                p.lead Are you a resident in or are you holding a passport issued by any of the following countries?
-                                ul.lead
-                                    li United States
-                                    li Canada
-                        .row.row-controls
-                            .col-md-4.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block(href='/index.html' role='button').text-uppercase Yes
-                            .col-md-4
-                                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase No
+        .tab-content
+          .tab-pane#citizenshipInquery(tabindex=0)
+            .row
+              .col-md-8.col-md-offset-2
+                h2.text-uppercase Citizenship enquiry
+                hr
+                p.lead Are you a resident in or are you holding a passport issued by any of the following countries?
+                ul.lead
+                  li United States
+                  li Canada
+            .row.row-controls
+              .col-md-4.col-md-offset-2
+                a.btn.btn-default.btn-lg.btn-block(href='/index.html' role='button').text-uppercase Yes
+              .col-md-4
+                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase No
 
-                    .tab-pane#termsAndConditions(tabindex=1)
-                        .row
-                            .col-md-12
-                                h2.text-uppercase Terms and conditions
-                                hr
-                                pre.terms.pre-scrollable
-                                    p Token Pre-Sale Program Agreement
-                                    p Between Unilot Limited and ...
-                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
-                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
-                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
-                                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
-                        .row.row-controls
-                            .col-md-8.col-md-offset-2
-                                .form-group
-                                    .checkbox
-                                        label
-                                            input(type='checkbox', name='agreed_to_terms', required=true)
-                                            | I agree and accept these terms and conditions
-                                    .help-block.with-errors
-                        .row.row-controls
-                            .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
-                            .col-md-6
-                                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Accept and continue
+          .tab-pane#termsAndConditions(tabindex=1)
+            .row
+              .col-md-12
+                h2.text-uppercase Terms and conditions
+                hr
+                pre.terms.pre-scrollable
+                  p Token Pre-Sale Program Agreement
+                  p Between Unilot Limited and ...
+                  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+                  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+                  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+                  p Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque error eius exercitationem. Distinctio provident maiores blanditiis quaerat dignissimos quod quo illum vitae repellendus. Veniam enim aperiam assumenda asperiores odio quo.
+            .row.row-controls
+              .col-md-8.col-md-offset-2
+                .form-group
+                  .checkbox
+                    label
+                      input(type='checkbox', name='agreed_to_terms', required=true)
+                      | I agree and accept these terms and conditions
+                  .help-block.with-errors
+            .row.row-controls
+              .col-md-2.col-md-offset-2
+                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
+              .col-md-6
+                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Accept and continue
 
-                    .tab-pane#userData(tabindex=2)
-                        .row
-                            .col-md-8.col-md-offset-2
-                                h2.text-uppercase Notification email
-                                hr
-                                .form-group
-                                    label(for='email') Your email address
-                                    input.form-control#email(type='email' placeholder='example@example.org'
-                                                            aria-describedby='email-help', name='email', required=true,
-                                                            data-online="http://pre-ico.unilot.loc:8180/en-us/cp/validate/user/email.json")
-                                    span.help-block#email-help You will be notified when your tokens are available. We won't disclose your email to third parties.
-                                    .help-block.with-errors
-                                .form-group
-                                    label(for='password') Password
-                                    input.form-control#password(type='password'
-                                    aria-describedby='password-help', name='password', required=true,
-                                    data-minlength=8)
-                                    span.help-block#password-help Password length should be at least 8 symbols
-                                    .help-block.with-errors
-                                .form-group
-                                    label(for='password') Repeate Password
-                                    input.form-control#passwordConfirm(type='password'
-                                    aria-describedby='password-help', name='passwordConfirm', required=true,
-                                    data-match='#password')
-                                    span.help-block#passwordConfirm-help Repeate password
-                                    .help-block.with-errors
-                        .row.row-controls
-                            .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
-                            .col-md-6
-                                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Submit and continue
+          .tab-pane#userData(tabindex=2)
+            .row
+              .col-md-8.col-md-offset-2
+                h2.text-uppercase Notification email
+                hr
+                .form-group
+                  label(for='email') Your email address
+                  input.form-control#email(type='email' placeholder='example@example.org'
+                              aria-describedby='email-help', name='email', required=true,
+                              data-online="http://pre-ico.unilot.loc:8180/en-us/cp/validate/user/email.json")
+                  span.help-block#email-help You will be notified when your tokens are available. We won't disclose your email to third parties.
+                  .help-block.with-errors
+                .form-group
+                  label(for='password') Password
+                  input.form-control#password(type='password'
+                  aria-describedby='password-help', name='password', required=true,
+                  data-minlength=8)
+                  span.help-block#password-help Password length should be at least 8 symbols
+                  .help-block.with-errors
+                .form-group
+                  label(for='password') Repeate Password
+                  input.form-control#passwordConfirm(type='password'
+                  aria-describedby='password-help', name='passwordConfirm', required=true,
+                  data-match='#password')
+                  span.help-block#passwordConfirm-help Repeate password
+                  .help-block.with-errors
+            .row.row-controls
+              .col-md-2.col-md-offset-2
+                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
+              .col-md-6
+                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Submit and continue
 
-                    .tab-pane#profileData(tabindex=3)
-                        .row
-                            .col-md-8.col-md-offset-2
-                                h2.text-uppercase Buyer information
-                                hr
-                                .form-group
-                                    label(for='firstName') Your First Name
-                                    input.form-control#firstName(type='text', name='first_name', required=true)
-                                    .help-block.with-errors
-                                .form-group
-                                    label(for='secondName') Your Last Name
-                                    input.form-control#secondName(type='text', name='last_name', required=true)
-                                    .help-block.with-errors
-                                .form-group
-                                    label(for='companyName') Company name
-                                    input.form-control#companyName(type='text' aria-describedby='companyNameHelp',
-                                    name='company_name', required=false)
-                                    span.help-block#companyNameHelp For incorporated buyers only, otherwise leave empty
-                                    .help-block.with-errors
-                                .form-group
-                                    label(for='phone') Phone number
-                                    input.form-control#phone(type='tel', name='phone', data-phone='true',
-                                    required=true, placeholder='+123123123')
-                                    .help-block.with-errors
-                                .form-group
-                                    label(for='country') Country
-                                    select.form-control#country(aria-describedby='countryHelp', name='country', required=true)
-                                        option
-                                        option(value='dominican-republic') Dominican Republic
-                                        option(value='other') Other countries
-                                    span.help-block#countryHelp This information is collected for contractual purposes only
-                                    .help-block.with-errors
-                        .row.row-controls
-                            .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
-                            .col-md-6
-                                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Submit and continue
+          .tab-pane#profileData(tabindex=3)
+            .row
+              .col-md-8.col-md-offset-2
+                h2.text-uppercase Buyer information
+                hr
+                .form-group
+                  label(for='firstName') Your First Name
+                  input.form-control#firstName(type='text', name='first_name', required=true)
+                  .help-block.with-errors
+                .form-group
+                  label(for='secondName') Your Last Name
+                  input.form-control#secondName(type='text', name='last_name', required=true)
+                  .help-block.with-errors
+                .form-group
+                  label(for='companyName') Company name
+                  input.form-control#companyName(type='text' aria-describedby='companyNameHelp',
+                  name='company_name', required=false)
+                  span.help-block#companyNameHelp For incorporated buyers only, otherwise leave empty
+                  .help-block.with-errors
+                .form-group
+                  label(for='phone') Phone number
+                  input.form-control#phone(type='tel', name='phone', data-phone='true',
+                  required=true, placeholder='+123123123')
+                  .help-block.with-errors
+                .form-group
+                  label(for='country') Country
+                  select.form-control#country(aria-describedby='countryHelp', name='country', required=true)
+                    option
+                    option(value='dominican-republic') Dominican Republic
+                    option(value='other') Other countries
+                  span.help-block#countryHelp This information is collected for contractual purposes only
+                  .help-block.with-errors
+            .row.row-controls
+              .col-md-2.col-md-offset-2
+                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
+              .col-md-6
+                a.btn.btn-primary.btn-lg.btn-block.js-wizard-next-step(href='#' role='button').text-uppercase Submit and continue
 
-                    .tab-pane#deposit(tabindex=4)
-                        .row
-                            .col-md-8.col-md-offset-2
-                                h2.text-uppercase Deposit
-                                hr
-                                .form-group
-                                    .alert.alert-warning
-                                        ul.list-unstyled
-                                            li
-                                                = 'This is wallet that you can use to buy tokens with.'
-                                                strong Wallet can NOT be changed later.
-                                            li
-                                                strong DO NOT use wallet that is stored on exchange.
-                                                a(href='#') See
-                                                = ' details on valid wallets for investment'
-                                    label(for='firstName') Wallet
-                                    input.form-control#wallet(type='text', name='wallet', required=true,
-                                    aria-describedby='walletHelp', data-wallet=true, data-online='http://pre-ico.unilot.loc:8180/en-us/cp/validate/user/wallet.json')
-                                    span#walletHelp.help-block.has-warning.bg-warning This is wallet that will be used for investment. See warnings above and check carefully before submit.
-                                    .help-block.with-errors
-                            .col-xs-12
-                                include lib/token-calculator
+          .tab-pane#deposit(tabindex=4)
+            .row
+              .col-md-8.col-md-offset-2
+                h2.text-uppercase Deposit
+                hr
+                .form-group
+                  .alert.alert-warning
+                    ul.list-unstyled
+                      li
+                        = 'This is wallet that you can use to buy tokens with.'
+                        strong Wallet can NOT be changed later.
+                      li
+                        strong DO NOT use wallet that is stored on exchange.
+                        a(href='#') See
+                        = ' details on valid wallets for investment'
+                  label(for='firstName') Wallet
+                  input.form-control#wallet(type='text', name='wallet', required=true,
+                  aria-describedby='walletHelp', data-wallet=true, data-online='http://pre-ico.unilot.loc:8180/en-us/cp/validate/user/wallet.json')
+                  span#walletHelp.help-block.has-warning.bg-warning This is wallet that will be used for investment. See warnings above and check carefully before submit.
+                  .help-block.with-errors
+              .col-xs-12
+                include lib/token-calculator
 
-                        .row.row-controls
-                            .col-md-2.col-md-offset-2
-                                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
-                            .col-md-6
-                                button.btn.btn-primary.btn-lg.btn-block(type='submit', role='button').text-uppercase Go to the Dashboard
+            .row.row-controls
+              .col-md-2.col-md-offset-2
+                a.btn.btn-default.btn-lg.btn-block.js-wizard-back(href='#' role='button').text-uppercase Back
+              .col-md-6
+                button.btn.btn-primary.btn-lg.btn-block(type='submit', role='button').text-uppercase Go to the Dashboard
 

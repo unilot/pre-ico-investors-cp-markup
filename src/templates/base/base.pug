@@ -1,125 +1,125 @@
 block vars
-    - var pageTitle = 'Unilot landing prototype. (For development purposes only!)'
-    - var isAuthorized = true;
+  - var pageTitle = 'Unilot landing prototype. (For development purposes only!)'
+  - var isAuthorized = true;
 doctype html
 html(lang='en')
-    head
-        meta(charset='utf-8')
-        meta(http-equiv='content-type', content='text/html;charset=UTF-8')
-        meta(http-equiv='X-UA-Compatible', content='IE=edge')
-        meta(name='viewport' content='width=device-width, initial-scale=1')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='content-type', content='text/html;charset=UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
 
-        title Unilot | #{pageTitle}
+    title Unilot | #{pageTitle}
 
-        link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
+    link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
 
-        <!--[if lt IE 9]>
-        script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-        script(src='http://webnextbd.net/demo/js/respond.min.js')
-        <![endif]-->
+    <!--[if lt IE 9]>
+    script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+    script(src='http://webnextbd.net/demo/js/respond.min.js')
+    <![endif]-->
 
-        <!--[if lt IE 11]>
-        link(rel='stylesheet', type='text/css', href='http://webnextbd.net/demo/css/ie.css')
-        <![endif]-->
-    body
-        .container
-            header
-                nav(class='navbar navbar-default')
-                    .container-fluid
-                        .navbar-header
-                            a(href='#', class='navbar-brand')
-                                img(id='logo', src='/assets/images/logo.png', alt='Logo', height='100%')
-                            a(href='#', class='navbar-brand') Unilot
-                            // Social links
-                        ul(class='nav navbar-nav navbar-right')
-                            li
-                                a(href='#')
-                                    i(class='icon-facebook-squared')
-                            li
-                                a(href='#')
-                                    i(class='icon-twitter')
-                            li
-                                a(href='#')
-                                    i(class='icon-reddit-alien')
-                            li
-                                a(href='#')
-                                    i(class='icon-telegram')
-                        ul.nav.nav-pills.navbar-nav.navbar-right
-                            li.dropdown(role='presentation')
-                                a#locale.dropdown-toggle(href='#', type='button', data-toggle='dropdown',
-                                aria-haspopup='true', aria-expanded='false') EN
-                                    span.caret
-                                ul.dropdown-menu(aria-labelledby='locale')
-                                    li.active
-                                        a(href='#') EN
-                                    li
-                                        form
-                                            input(type='hidden', name='next', value='')
-                                            input(type='hidden', name='language', value='ru-ru')
-                                            a(href='#', class='submit') RU
+    <!--[if lt IE 11]>
+    link(rel='stylesheet', type='text/css', href='http://webnextbd.net/demo/css/ie.css')
+    <![endif]-->
+  body
+    .container
+      header
+        nav(class='navbar navbar-default')
+          .container-fluid
+            .navbar-header
+              a(href='#', class='navbar-brand')
+                img(id='logo', src='/assets/images/logo.png', alt='Logo', height='100%')
+              a(href='#', class='navbar-brand') Unilot
+              // Social links
+            ul(class='nav navbar-nav navbar-right')
+              li
+                a(href='#')
+                  i(class='icon-facebook-squared')
+              li
+                a(href='#')
+                  i(class='icon-twitter')
+              li
+                a(href='#')
+                  i(class='icon-reddit-alien')
+              li
+                a(href='#')
+                  i(class='icon-telegram')
+            ul.nav.nav-pills.navbar-nav.navbar-right
+              li.dropdown(role='presentation')
+                a#locale.dropdown-toggle(href='#', type='button', data-toggle='dropdown',
+                aria-haspopup='true', aria-expanded='false') EN
+                  span.caret
+                ul.dropdown-menu(aria-labelledby='locale')
+                  li.active
+                    a(href='#') EN
+                  li
+                    form
+                      input(type='hidden', name='next', value='')
+                      input(type='hidden', name='language', value='ru-ru')
+                      a(href='#', class='submit') RU
 
-                nav(class='navbar')
-                    ul(class='nav navbar-nav navbar-left')
-                        li(class='active')
-                            a(href='#') Dashboard
+        nav(class='navbar')
+          ul(class='nav navbar-nav navbar-left')
+            li(class='active')
+              a(href='#') Dashboard
+            li
+              a(href='#') Distribution
+            li
+              a(href='#') Unilot ICO
+            li
+              a(href='#') FAQ
+          ul(class='nav navbar-nav navbar-right')
+            li
+              a(href='#') Profile
+            li
+              a(href='#') Payments
+            li
+              a(href="wizard.html") Sign up (Wizard)
+            li
+              a(href='auth.html') Logout
+      content
+        .row
+          .col-md-8
+            block content
+          .col-md-4
+            include right-column.pug
+
+      footer
+        if isAuthorized
+          .row
+            .col-xs-8
+              .panel.panel-default
+                .panel-body
+                  .row
+                    .col-xs-12
+                      h2.text-uppercase
+                        strong Your referral link
+                  .row
+                    .col-xs-12
+                      form.form-inline
+                        .form-group
+                          input.form-control.js-referral-link-container(type='url', id='referralLink', name='referralLink', value='https://pre-ico.unilot.io/sign-up/8sd8dd8sd8',readonly=true)
+                        a.btn.btn-default.js-copy-referral-link(role='button', tabindex=0, data-toggle='focus', data-trigger='focus', data-content='Link copied') Copy Link
+                  .row
+                    .col-xs-12
+                      br
+                      p This is your unilot referral link. Share it with your contacts to get free UNIT coint for every purchased one by your referrer.
+                  .row
+                    .col-xs-12.text-2x
+                      ul.list-inline
                         li
-                            a(href='#') Distribution
+                          a(href='#')
+                            i.icon-facebook-squared
                         li
-                            a(href='#') Unilot ICO
+                          a(href='#')
+                            i.icon-twitter
                         li
-                            a(href='#') FAQ
-                    ul(class='nav navbar-nav navbar-right')
+                          a(href='#')
+                            i.icon-reddit-alien
                         li
-                            a(href='#') Profile
-                        li
-                            a(href='#') Payments
-                        li
-                            a(href="wizard.html") Sign up (Wizard)
-                        li
-                            a(href='auth.html') Logout
-            content
-                .row
-                    .col-md-8
-                        block content
-                    .col-md-4
-                        include right-column.pug
-
-            footer
-                if isAuthorized
-                    .row
-                        .col-xs-8
-                            .panel.panel-default
-                                .panel-body
-                                    .row
-                                        .col-xs-12
-                                            h2.text-uppercase
-                                                strong Your referral link
-                                    .row
-                                        .col-xs-12
-                                            form.form-inline
-                                                .form-group
-                                                    input.form-control.js-referral-link-container(type='url', id='referralLink', name='referralLink', value='https://pre-ico.unilot.io/sign-up/8sd8dd8sd8',readonly=true)
-                                                a.btn.btn-default.js-copy-referral-link(role='button', tabindex=0, data-toggle='focus', data-trigger='focus', data-content='Link copied') Copy Link
-                                    .row
-                                        .col-xs-12
-                                            br
-                                            p This is your unilot referral link. Share it with your contacts to get free UNIT coint for every purchased one by your referrer.
-                                    .row
-                                        .col-xs-12.text-2x
-                                            ul.list-inline
-                                                li
-                                                    a(href='#')
-                                                        i.icon-facebook-squared
-                                                li
-                                                    a(href='#')
-                                                        i.icon-twitter
-                                                li
-                                                    a(href='#')
-                                                        i.icon-reddit-alien
-                                                li
-                                                    a(href='#')
-                                                        i.icon-telegram
+                          a(href='#')
+                            i.icon-telegram
 
 
-        script(type='application/javascript', src='/assets/js/config.js')
-        script(type='application/javascript', src='/assets/js/main.js')
+    script(type='application/javascript', src='/assets/js/config.js')
+    script(type='application/javascript', src='/assets/js/main.js')
