@@ -1,2 +1,159 @@
-.hello-world
-  width: 100%
+// color variables
+$white: #fff
+$gray-darker: #111
+$gray-light: #999
+$gray-lighter: #cbcbcb
+$gray-nav: #777
+$gold: #c9ab81
+$bg-color: #e9eaed
+$purple: #4d2ce0
+$link-blue: #4481d5
+$blood-orange: #ff4500
+
+// font variables
+$roboto: 'Roboto', sans-serif
+$roboto-light: 'Roboto Light', sans-serif
+$roboto-medium: 'Roboto Medium', sans-serif
+$gotham: 'GothamPro', sans-serif
+
+// size variables
+$base-font-size: 14px
+$nav-height: 75px
+
+// general typographics
+html
+  font-size: $base-font-size
+#new
+  font-family: $roboto
+  h1, h2, h3
+    font-family: $gotham
+  h3
+    font-size: 1.6rem
+  a
+    color: $link-blue
+    &:hover, &:focus
+      color: $link-blue
+
+// structural styles
+#new
+  display: flex
+  flex-direction: column
+  background-color: $bg-color
+  min-height: 100vh
+  header, footer
+    background-color: $gray-darker
+  footer
+    height: 130px
+  .grow
+    flex-grow: 1
+    main
+      background-color: darken(lightblue, 20%)
+    aside
+      background-color: darken(lightblue, 10%)
+
+  // header styles
+  header
+    height: 170px
+    color: $gray-light
+    h3, .lead
+      color: $white
+    .lead 
+      .tokens
+        color: $gold
+      .question:before
+        content: '?'
+        background-color: $blood-orange
+        font-family: $roboto-medium
+        font-style: normal
+        font-size: 0.9rem
+        display: inline-block
+        width: 20px
+        height: 20px
+        line-height: 21px
+        text-align: center
+        border-radius: 100%
+        position: relative
+        top: -4px
+        color: $white
+        margin-right: 9px
+    .text-right
+      font-family: $roboto-light
+      font-size: 1.14rem
+      strong
+        font-weight: normal
+        font-family: $roboto
+      small
+        font-family: $roboto
+        font-size: 0.86rem
+    .lead
+      font-size: 1.71rem
+    p
+      margin-bottom: 0
+
+  // button styles
+  .btn
+    border-radius: 25px
+    padding-left: 1.5rem
+    padding-right: 1.5rem
+    transition: 0.5s all
+  .btn-default
+    border: solid 1px $gray-lighter
+    background-color: transparent
+    &:hover
+      border-color: $purple
+  .nav-btn
+    border-color: $gray-nav
+    color: $gray-nav
+    font-size: 0.86rem
+    height: 40px
+    &:hover
+      background-color: rgba(255, 255, 255, 0.02)
+    .action
+      color: $white
+    .glyphicon
+      margin-left: 0.5rem
+      // font-size: 1.28rem
+      position: relative
+      top: 0
+  .nav-btn-icon-right
+    padding-left: 1.5rem
+    padding-right: 1rem
+    display: flex
+    align-items: center
+
+  // custom navbar styles
+  .flexbox-nav
+    height: $nav-height
+    ul
+      font-family: $gotham
+      list-style-type: none
+      height: $nav-height
+      padding: 0
+      display: flex
+      justify-content: space-between
+      li
+        display: flex
+        flex-direction: column
+        justify-content: center
+        margin: 0 1rem
+      li:not(.nav-brand) a
+          line-height: $nav-height
+          color: $gray-nav
+      li:first-child
+        margin-left: 0
+      li:last-child
+        margin-right: 0
+      li.nav-brand
+        font-size: 1.3rem
+        font-family: $roboto-light
+        margin: 0 auto
+        a
+          color: #9a9a9a
+          text-align: center
+        a:hover, a:focus
+          text-decoration: none
+        img
+          height: 20px //26px
+      
+      li.active a
+        color: $gold
