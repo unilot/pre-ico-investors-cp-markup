@@ -52,7 +52,7 @@ html(lang='en')
               p Thank you for participation in our project. This area is your personal account of Unilot token sale.
             .col-md-4
               p.lead.text-right 
-                a(href="#") #[i.question]
+                a(href="#") #[span.question]
                 | My Tokens: 
                 span.tokens #[strong.text-nowrap 0.0000] UNIT
                 //- span.tokens #[strong.text-nowrap 150 753.0000] UNIT
@@ -68,5 +68,25 @@ html(lang='en')
       
       footer
         .container
-          .row 
-            .col-md-12 Footer
+          .row
+            .col-md-6
+              .flexbox-nav.social-nav
+                ul
+                  li
+                    a(href='#')
+                      img(src='assets/img/unilot-logo.png', alt='Unilot')
+                  li
+                    a(href='#' title='See our code on GitHub')
+                      span.icon-github
+                  li
+                    a(href='#' title='Join our Telegram group')
+                      span.icon-telegram
+                  li
+                    a(href='#' title='Visit our subreddit')
+                      span.icon-reddit
+                  li
+                    a(href='#' title='Follow us on Twitter')
+                      span.icon-twitter
+                  li
+                    a(href='#' title='Follow us on Facebook')
+                      span.icon-facebook
