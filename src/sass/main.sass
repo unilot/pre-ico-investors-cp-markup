@@ -1,6 +1,7 @@
 // Contents:
 //   Variables
 //     Color variables
+//     Gradient variables
 //     Font variables
 //     Size variables
 //   General typographics
@@ -9,10 +10,12 @@
 //   Custom navbar styles
 //   Header styles
 //   Footer styles
+//   Sidebar styles
 
 // Color variables
 $white: #fff
 $gray-darker: #111
+$gray-dark: #333
 $gray: #666
 $gray-light: #999
 $gray-lighter: #cbcbcb
@@ -20,12 +23,19 @@ $gray-nav: #777
 $gold: #c9ab81
 $bg-color: #e9eaed
 $purple: #4d2ce0
+$purple-light: #8453f7
+$darkish-pink: #d83278
+$coral: #ff5b4e
 $link-blue: #4481d5
 $blood-orange: #ff4500
 $telegram-blue: #2da5e1
 $twitter-blue: #50abf1
 $facebook-blue: #3a559f
 $social-border: #222222
+
+// Gradient variables
+$purple-gradient: linear-gradient(to right, $purple, $purple-light)
+$pink-gradient: linear-gradient(to right, $darkish-pink, $coral)
 
 // Font variables
 $roboto: 'Roboto', sans-serif
@@ -36,9 +46,13 @@ $gotham: 'GothamPro', sans-serif
 // Size variables
 $base-font-size: 14px
 $header-height: 170px
+$footer-height: 130px
+$aside-width: 300px
 $logo-height: 44px
 $nav-height: 75px
 $social-icon-size: 30px
+$buy-button-margin-y: 30px
+$buy-button-font-size: 20px
 
 // General typographics
 html
@@ -49,6 +63,7 @@ html
     font-family: $gotham
   h3
     font-size: 1.6rem
+    margin: 0
   a
     color: $link-blue
     &:hover, &:focus
@@ -63,13 +78,20 @@ html
   header, footer
     background-color: $gray-darker
   footer
-    height: 130px
+    height: $footer-height
   .grow
     flex-grow: 1
+    padding: $buy-button-margin-y 0 70px
+    .row
+      padding-right: 15px
+      padding-left: 15px
     main
       background-color: darken(lightblue, 20%)
-    aside
-      background-color: darken(lightblue, 10%)
+  section
+    background-color: $white
+    box-shadow: 0px 14px 16px 0 rgba(0, 0, 0, 0.06)
+    border-radius: 15px
+    padding: 25px
 
   // Button styles
   .btn
@@ -82,6 +104,14 @@ html
     background-color: transparent
     &:hover
       border-color: $purple
+  .btn-primary
+    color: $white
+    background-image: $purple-gradient
+    border: none
+    &:hover, &:focus
+      color: $white
+      background: #876bff
+      border: none
   .nav-btn
     border-color: $gray-nav
     color: $gray-nav
@@ -93,7 +123,6 @@ html
       color: $white
     .glyphicon
       margin-left: 0.5rem
-      // font-size: 1.28rem
       position: relative
       top: 0
   .nav-btn-icon-right
@@ -105,6 +134,39 @@ html
     border: solid 1px $social-border
     padding: 10px
     border-radius: 20px
+  #buy-tokens
+    margin-bottom: $buy-button-margin-y
+    font-family: $gotham
+    font-size: $buy-button-font-size
+    position: relative
+  .btn-bonus:after
+    content: '40 % Bonus'
+    font-family: $roboto
+    font-size: $base-font-size
+    position: absolute
+    background-image: $pink-gradient
+    background-color: $darkish-pink
+    border-radius: 10px
+    padding: 2px 10px
+    transform: translateY(-50%)
+    top: 0
+    right: 1.5rem
+  .btn-increment
+    margin-left: 10px
+    border-radius: 2px
+    border: solid 1px $gray-lighter
+    background-color: transparent
+    padding: 5px 10px
+    color: $purple
+    font-size: 0.6rem
+    &:hover
+      border-color: $purple
+  .btn-up
+    position: absolute
+    top: -20px
+  .btn-down
+    position: relative
+    top: 5px
 
   // Custom navbar styles
   .flexbox-nav
@@ -144,6 +206,8 @@ html
       margin: 0 1rem
     h3, .lead
       color: $white
+    h3
+      margin-top: 2rem
     .lead 
       .tokens
         color: $gold
@@ -216,3 +280,53 @@ html
         .icon-facebook
           font-size: 0.9rem
           background-color: $facebook-blue
+
+  // Sidebar styles
+  aside
+    width: $aside-width
+    h3, div.form-group:not(:nth-child(4))
+      margin-bottom: 30px
+    .horizontal
+      display: flex
+      justify-content: space-between
+      align-items: baseline
+      *
+        margin: 0
+        padding: 0
+    hr
+      border-color: $gray-lighter
+    input, output, #eth-amount + span
+      color: $gray-dark
+      font-family: $gotham
+      font-size: 1.14rem
+    input, .input-group-addon
+      border-radius: 0
+      background-color: transparent
+      box-shadow: none
+      border: none
+    input
+      border-bottom: solid 2px #e0e0e0
+    .input-primary
+      border-color: $purple
+      border-image: $purple-gradient 10
+    input[type="number"]
+      appearance: textfield
+      -moz-appearance: textfield
+      -webkit-appearance: textfield
+    label, output:not(#usd-amount) span
+      color: $gray
+      text-transform: uppercase
+      font-family: $roboto
+      font-weight: normal
+      font-size: 0.86rem
+    .input-group-addon
+      padding-right: 0
+    #total-amount
+      color: $purple
+      font-size: 1.86rem
+      padding-top: 0
+    label[for='total-amount']
+      margin-bottom: 0
+    output#total-amount span
+      color: $purple
+      font-size: 1.43rem
