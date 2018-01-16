@@ -43,7 +43,7 @@ html(lang='en')
                   a(href='#') Profile
                 li
                   //- button.btn.btn-default.nav-btn(type='button') #[span.action Sign in] or #[span.action Sign up]
-                  button.btn.btn-default.nav-btn.nav-btn-icon-right(type='button')
+                  a.btn.btn-default.nav-btn.nav-btn-icon-right(role='button' href='#')
                     span.action Sign out
                     span.glyphicon.glyphicon-log-out
           .row
@@ -69,24 +69,24 @@ html(lang='en')
       footer
         .container
           .row
-            .col-md-6
+            .col-md-6.col-md-offset-3
               .flexbox-nav.social-nav
                 ul
                   li
                     a(href='#')
                       img(src='assets/img/unilot-logo.png', alt='Unilot')
                   li
-                    a(href='#' title='See our code on GitHub')
-                      span.icon-github
+                    a.btn.btn-default.social-btn(href='#' title='See our code on GitHub')
+                      span.icon.icon-github
                   li
-                    a(href='#' title='Join our Telegram group')
-                      span.icon-telegram
+                    a.btn.btn-default.social-btn(href='#' title='Join our Telegram group')
+                      span.icon.icon-telegram
                   li
-                    a(href='#' title='Visit our subreddit')
-                      span.icon-reddit
+                    a.btn.btn-default.social-btn(href='#' title='Visit our subreddit')
+                      span.icon.icon-reddit
                   li
-                    a(href='#' title='Follow us on Twitter')
-                      span.icon-twitter
+                    a.btn.btn-default.social-btn(href='#' title='Follow us on Twitter')
+                      span.icon.icon-twitter
                   li
-                    a(href='#' title='Follow us on Facebook')
-                      span.icon-facebook
+                    a.btn.btn-default.social-btn(href='#' title='Follow us on Facebook')
+                      span.icon.icon-facebook

@@ -1,6 +1,19 @@
-// color variables
+// Contents:
+//   Variables
+//     Color variables
+//     Font variables
+//     Size variables
+//   General typographics
+//   Structural styles
+//   Button styles
+//   Custom navbar styles
+//   Header styles
+//   Footer styles
+
+// Color variables
 $white: #fff
 $gray-darker: #111
+$gray: #666
 $gray-light: #999
 $gray-lighter: #cbcbcb
 $gray-nav: #777
@@ -9,18 +22,25 @@ $bg-color: #e9eaed
 $purple: #4d2ce0
 $link-blue: #4481d5
 $blood-orange: #ff4500
+$telegram-blue: #2da5e1
+$twitter-blue: #50abf1
+$facebook-blue: #3a559f
+$social-border: #222222
 
-// font variables
+// Font variables
 $roboto: 'Roboto', sans-serif
 $roboto-light: 'Roboto Light', sans-serif
 $roboto-medium: 'Roboto Medium', sans-serif
 $gotham: 'GothamPro', sans-serif
 
-// size variables
+// Size variables
 $base-font-size: 14px
+$header-height: 170px
+$logo-height: 44px
 $nav-height: 75px
+$social-icon-size: 30px
 
-// general typographics
+// General typographics
 html
   font-size: $base-font-size
 #new
@@ -34,7 +54,7 @@ html
     &:hover, &:focus
       color: $link-blue
 
-// structural styles
+// Structural styles
 #new
   display: flex
   flex-direction: column
@@ -51,10 +71,77 @@ html
     aside
       background-color: darken(lightblue, 10%)
 
-  // header styles
+  // Button styles
+  .btn
+    border-radius: 25px
+    padding-left: 1.5rem
+    padding-right: 1.5rem
+    transition: 0.5s all
+  .btn-default
+    border: solid 1px $gray-lighter
+    background-color: transparent
+    &:hover
+      border-color: $purple
+  .nav-btn
+    border-color: $gray-nav
+    color: $gray-nav
+    font-size: 0.86rem
+    height: 40px
+    &:hover
+      background-color: rgba(255, 255, 255, 0.02)
+    .action
+      color: $white
+    .glyphicon
+      margin-left: 0.5rem
+      // font-size: 1.28rem
+      position: relative
+      top: 0
+  .nav-btn-icon-right
+    padding-left: 1.5rem
+    padding-right: 1rem
+    display: flex
+    align-items: center
+  .social-btn
+    border: solid 1px $social-border
+    padding: 10px
+    border-radius: 20px
+
+  // Custom navbar styles
+  .flexbox-nav
+    ul
+      font-family: $gotham
+      list-style-type: none
+      padding: 0
+      display: flex
+      justify-content: space-between
+      li
+        display: flex
+        flex-direction: column
+        justify-content: center
+      li:not(.nav-brand) a
+          color: $gray-nav
+          white-space: nowrap
+      li:first-child
+        margin-left: 0
+      li:last-child
+        margin-right: 0
+      li.nav-brand
+        margin: 0 auto
+        img
+          height: $logo-height
+      li.active a
+        color: $gold
+
+  // Header styles
   header
-    height: 170px
+    height: $header-height
     color: $gray-light
+    .flexbox-nav, .flexbox-nav ul
+      height: $nav-height
+    .flexbox-nav li:not(.nav-brand) a
+      line-height: $nav-height
+    .flexbox-nav li
+      margin: 0 1rem
     h3, .lead
       color: $white
     .lead 
@@ -89,62 +176,43 @@ html
     p
       margin-bottom: 0
 
-  // button styles
-  .btn
-    border-radius: 25px
-    padding-left: 1.5rem
-    padding-right: 1.5rem
-    transition: 0.5s all
-  .btn-default
-    border: solid 1px $gray-lighter
-    background-color: transparent
-    &:hover
-      border-color: $purple
-  .nav-btn
-    border-color: $gray-nav
-    color: $gray-nav
-    font-size: 0.86rem
-    height: 40px
-    &:hover
-      background-color: rgba(255, 255, 255, 0.02)
-    .action
-      color: $white
-    .glyphicon
-      margin-left: 0.5rem
-      // font-size: 1.28rem
-      position: relative
-      top: 0
-  .nav-btn-icon-right
-    padding-left: 1.5rem
-    padding-right: 1rem
-    display: flex
-    align-items: center
-
-  // custom navbar styles
-  .flexbox-nav
-    height: $nav-height
-    ul
-      font-family: $gotham
-      list-style-type: none
-      height: $nav-height
-      padding: 0
-      display: flex
-      justify-content: space-between
-      li
+  // Footer styles
+  footer
+    padding-top: 40px
+    .social-nav
+      ul
         display: flex
-        flex-direction: column
         justify-content: center
-        margin: 0 1rem
-      li:not(.nav-brand) a
-          line-height: $nav-height
-          color: $gray-nav
-      li:first-child
-        margin-left: 0
-      li:last-child
-        margin-right: 0
-      li.nav-brand
-        margin: 0 auto
-        img
-          height: 44px //26px
-      li.active a
-        color: $gold
+        li
+          margin: 0 0.5rem
+        li:first-child
+          margin-right: 1rem
+        a:hover
+          text-decoration: none
+        .icon
+          background-color: $gray
+          display: inline-block
+          width: $social-icon-size
+          height: $social-icon-size
+          line-height: $social-icon-size
+          text-align: center
+          font-size: 1.14rem
+          color: $white
+          border-radius: 100%
+          display: flex
+          justify-content: center
+          align-items: center
+        .icon-github
+          font-size: $social-icon-size
+          background-color: transparent
+        .icon-telegram
+          font-size: 0.8rem
+          background-color: $telegram-blue
+        .icon-reddit
+          background-color: $blood-orange
+        .icon-twitter
+          font-size: 0.8rem
+          background-color: $twitter-blue
+        .icon-facebook
+          font-size: 0.9rem
+          background-color: $facebook-blue
