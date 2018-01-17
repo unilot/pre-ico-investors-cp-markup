@@ -218,3 +218,95 @@
 #rootwizard .active .visible-xs-block:before {
     content: 'Step ';
 }
+
+/*Document and counters*/
+
+.document .row
+{
+    counter-reset: section;
+}
+.document .row h4.numbered::before
+{
+    content: counter(section) '. ';
+    counter-increment: section;
+}
+
+ol.numbered
+{
+    counter-reset: section;
+}
+
+ol,
+ol.numbered,
+ol#wp-toc-continue
+{
+    list-style-type: none;
+}
+
+ol.numbered > li::before,
+ol#wp-toc-continue > li::before
+{
+    font-weight: bolder;
+
+    content: counter(section) '. ';
+    counter-increment: section;
+}
+
+ol.nested
+{
+    counter-reset: subsection;
+}
+ol.nested > li::before
+{
+    font-weight: bolder;
+
+    content: counter(section) '.' counter(subsection) '. ';
+    counter-increment: subsection;
+}
+
+ol.latin
+{
+    counter-reset: latin;
+}
+ol.latin li::before
+{
+    content: counter(latin, lower-alpha) '. ';
+    counter-increment: latin;
+}
+
+ol.roman
+{
+    counter-reset: roman;
+}
+ol.roman li::before
+{
+    content: counter(roman, lower-roman) '. ';
+    counter-increment: roman;
+}
+
+ul.bulleted
+{
+    padding-left: 2em;
+
+    list-style-type: disc;
+}
+
+ul.bulleted > li > ul.bulleted
+{
+    list-style-type: circle;
+}
+
+ol.numbered li,
+ol.latin li,
+ol.roman li,
+ol.nested li,
+ul.bulleted li,
+ol#wp-toc-continue li
+{
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 2em;
+
+    margin-top: 0;
+    margin-bottom: .5em;
+}

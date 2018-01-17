@@ -30,6 +30,8 @@
     "jquery-countdown": "^2.2.0",
     "js-cookie": "^2.2.0",
     "jsrender": "^0.9.90",
+    "moment": "^2.20.1",
+    "moment-timezone": "^0.5.14",
     "normalize.css": "^7.0.0",
     "twitter-bootstrap-wizard": "^1.2.0",
     "web3": "^0.20.2",

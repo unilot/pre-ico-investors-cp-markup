@@ -19,6 +19,8 @@ var htmlSrc = [
 
 var jsSrc = [
     nodeModules + '/jquery/dist/jquery.js',
+    nodeModules + '/moment/min/moment.min.js',
+    nodeModules + '/moment-timezone/builds/moment-timezone-with-data.min.js',
     nodeModules + '/jquery-countdown/dist/jquery.countdown.js',
     nodeModules + '/jsrender/jsrender.js',
     nodeModules + '/bootstrap/dist/js/bootstrap.min.js',
