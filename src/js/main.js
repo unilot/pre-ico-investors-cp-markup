@@ -1,4 +1,6 @@
 (function(){
+    var url = document.location.toString();
+
     //Calculator
     var $UNTAmountInput = $('.js-calculator-token-amount-input');
     var $etherAmountInput = $('.js-calculator-eth-amount-input');
@@ -6,6 +8,8 @@
     var $buyCopyTokensContractNumber = $('.js-buy-tokens-copy-contract-number');
     var $timeCounterBlock = $('#js-time-counter');
     var $signUpWizard = $('#signupWizard');
+    var $icoProgressBars = $('.ico-sale-progress');
+    var $ethRaisedContainer = $('.eth-raised-container');
 
     var calculator = new Calculator($UNTAmountInput, $etherAmountInput, config.token.price);
     var isReferralLinkCopyButtonPopoverShown = false;
@@ -16,6 +20,11 @@
     calculator.setMaxTokenAmount(config.token.maxTokenAmount);
     calculator.setTokenPrice(config.token.price);
 
+    $icoProgressBars.width((config.token.saleProgress * 100) + '%');
+
+    //Filling all containers with ether info
+    $ethRaisedContainer.text(config.token.saleAmount + ' ETH');
+
     $('.js-submit').on('click', function(event){
         $(this).closest('form').submit();
 
@@ -25,7 +34,9 @@
     //Timer
     var counterTmpl = $.templates('#timeCounterTemplate');
 
-    $timeCounterBlock.countdown('01/11/2018', function(event){
+    var milestone = moment.tz('2018-02-17 19:00', 'UTC');
+
+    $timeCounterBlock.countdown(milestone.toDate(), function(event){
         $(this).html(event.strftime(counterTmpl.render()));
     });
 
@@ -110,4 +121,13 @@
 
         return false;
     });
+
+    $('.popover-trigger').popover();
+
+    if ( url.match('#') ) {
+        var hash = url.split('#')[1];
+
+        $('#questions .panel-collapse.in').removeClass('in');
+        $('#'+hash).addClass('in');
+    }
 })();
