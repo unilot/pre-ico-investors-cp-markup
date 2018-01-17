@@ -63,40 +63,7 @@ html(lang='en')
 
       .container.grow
         .row
-          main.col-md-8 Main content
-          aside.col-md-4.pull-right
-            a.btn.btn-primary.btn-block.btn-lg#buy-tokens.btn-bonus(href='#' role='button') Buy Tokens
-            section
-              h3 Calculator
-              form
-                .form-group
-                  label(for='unit-amount') # of UNIT tokens
-                  .input-group
-                    input(type='number' placeholder='1000' value='1000').form-control.input-primary#unit-amount
-                    span.input-group-btn
-                      button.btn.btn-increment.btn-up(onclick='changeUnitValue(1); return false;')
-                        span.glyphicon.glyphicon-chevron-up
-                      button.btn.btn-increment.btn-down(onclick='changeUnitValue(-1); return false;')
-                        span.glyphicon.glyphicon-chevron-down
-                .form-group
-                  label(for='eth-amount') Amount of ETH
-                  .input-group
-                    input(type='number' value='0.079' readonly).form-control#eth-amount 
-                    span.input-group-addon ETH
-                .form-group
-                  .horizontal
-                    label(for='purchase-amount') You'll receive:
-                    output#purchase-amount 1 000 000 #[span UNIT]
-                  .horizontal
-                    label(for='bonus-amount') 40% bonus:
-                    output#bonus-amount 400 000 #[span UNIT]
-                .form-group.output.text-center
-                  label(for='total-amount') Total:
-                  output#total-amount 1 400 000 #[span UNIT]
-                hr
-                .form-group.output.text-center
-                  label(for='usd-amount') Approximate $US amount:
-                  output#usd-amount #[span $]9.52
+          block content
       
       footer
         .container

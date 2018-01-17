@@ -1,0 +1,12 @@
+extends base/new-base
+
+block vars
+  -var pageTitle = 'Investors control panel';
+  -var isAuthorized = true;
+
+block content
+  main.col-md-8
+    p PreICO ends in
+  aside.col-md-4.pull-right
+    include partials/btn-buy-tokens
+    include partials/new-calculator
