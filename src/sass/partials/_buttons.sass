@@ -1,0 +1,51 @@
+// Button styles
+.btn
+  border-radius: 25px
+  font-family: $gotham
+  padding-left: 1.5rem
+  padding-right: 1.5rem
+  transition: .5s all
+
+.btn-default
+  background-color: transparent
+  border: solid 1px $gray-lighter
+
+  &:hover,
+  &:focus
+    background-color: transparent
+    border-color: $purple
+
+.btn-primary
+  background-image: $purple-gradient
+  border: 0
+  color: $white
+
+  &:hover,
+  &:focus
+    background-color: $btn-hover-bg
+    border: 0
+    color: $white
+
+.btn-extra
+  &::after
+    // content should be specified for each button in particular
+    background-color: $darkish-pink
+    background-image: $pink-gradient
+    border-radius: 10px
+    font-family: $roboto
+    font-size: $base-font-size
+    padding: 2px 10px
+    position: absolute
+    right: 1.5rem
+    top: 0
+    transform: translateY(-50%)
+
+.btn-increment
+  border-radius: 2px
+  color: $purple
+  font-size: .6rem
+  padding: 5px 10px
+  width: 100%
+
+.btn-up
+  margin-bottom: 5px

@@ -4,17 +4,20 @@ section
     .form-group
       label(for='unit-amount') # of UNIT tokens
       .input-group
-        input(type='number' placeholder='1000' value='1000').form-control.input-primary#unit-amount
+        input(type='number' placeholder='1000' value='1000')#unit-amount.form-control.input-primary
         span.input-group-btn
-          button.btn.btn-increment.btn-up(onclick='changeUnitValue(1); return false;')
-            span.glyphicon.glyphicon-chevron-up
-          button.btn.btn-increment.btn-down(onclick='changeUnitValue(-1); return false;')
-            span.glyphicon.glyphicon-chevron-down
+          .input-group-increment
+            button.btn.btn-default.btn-increment.btn-up(onclick='changeUnitValue(1); return false;')
+              span.glyphicon.glyphicon-chevron-up
+            button.btn.btn-default.btn-increment.btn-down(onclick='changeUnitValue(-1); return false;')
+              span.glyphicon.glyphicon-chevron-down
+
     .form-group
       label(for='eth-amount') Amount of ETH
       .input-group
-        input(type='number' value='0.079' readonly).form-control#eth-amount 
+        input(type='number' value='0.079' readonly)#eth-amount.form-control.eth-amount
         span.input-group-addon ETH
+
     .form-group
       .horizontal
         label(for='purchase-amount') You'll receive:
@@ -22,10 +25,13 @@ section
       .horizontal
         label(for='bonus-amount') 40% bonus:
         output#bonus-amount 400 000 #[span UNIT]
+
     .form-group.output.text-center
       label(for='total-amount') Total:
-      output#total-amount 1 400 000 #[span UNIT]
+      output#total-amount.total-amount 1 400 000 #[span UNIT]
+
     hr
+
     .form-group.output.text-center
       label(for='usd-amount') Approximate $US amount:
-      output#usd-amount #[span $]9.52
+      output#usd-amount.usd-amount #[span $]9.52

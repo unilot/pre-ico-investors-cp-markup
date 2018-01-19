@@ -6,39 +6,21 @@ block vars
   -var progress = 30
 
 block content
-  main.col-md-8
-    .jumbotron.timer
-      h4 PreICO ends in:
-      time(datetime='2018-02-17T19:00:00')
-        span.time-value.days 30
-        span.time-value.hours 08
-        span.time-value.minutes 14
-        span.time-value.seconds 49
-        span.time-label.days Days
-        span.time-label.hours Hours
-        span.time-label.minutes Mins
-        span.time-label.seconds Secs
-      .progress
-        .progress-goal Goal: 1 975 ETH (25 000 000 UNIT)
-        .progress-bar(role='progressbar' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100' style='width: 30%')
-          if progress >= 30
-            span.amount 592.5 ETH Raised
-          span.percentage 30%
-      .info
-        .info-block
-          span.info-label Current bonus
-          span.info-value 40%
-        .info-block
-          span.info-label Min commitment
-          span.info-value 0.5 ETH
-        .info-block
-          span.info-label Max cap
-          span.info-value 1 975 ETH
-    section
-      h3 UNIT Tokens Information
-      p To participate in the UNIT Token distribution, you will need to send ETH to Unilot wallet. Unilot wallet is the Ethereum UNIT Token distribution smart contract. You will automatically receive tokens after the transaction is successfully finished. You can always check your UNIT Tokens amount on the right sidebar of your account.
-      p Please use the calculator down below to evaluate how many UNIT Tokens you get for specific amount of ETH. Keep in mind that there is a special offer during ICO presale: if you invest during this period you will get 40% bonus of UNIT Tokens.
-      p Unilot gives extra bonuses to people who help to spread the word about the project. You can share the news about the project through Bitcointalk, Facebook, Twitter, Youtube, Reddit, Telegram, LinkedIn, Mass media and Blogs, or contribute to the project development by translating or community management. Please see more detailed info at Bounty Program.
-  aside.col-md-4.pull-right
-    include partials/btn-buy-tokens
-    include partials/new-calculator
+  //- Main content
+  .col-md-8
+    main
+      .ico
+        include partials/timer
+        include partials/progress
+        include partials/ico-info
+      section
+        h3 UNIT Tokens Information
+        p To participate in the UNIT Token distribution, you will need to send ETH to Unilot wallet. Unilot wallet is the Ethereum UNIT Token distribution smart contract. You will automatically receive tokens after the transaction is successfully finished. You can always check your UNIT Tokens amount on the right sidebar of your account.
+        p Please use the calculator down below to evaluate how many UNIT Tokens you get for specific amount of ETH. Keep in mind that there is a special offer during ICO presale: if you invest during this period you will get 40% bonus of UNIT Tokens.
+        p Unilot gives extra bonuses to people who help to spread the word about the project. You can share the news about the project through Bitcointalk, Facebook, Twitter, Youtube, Reddit, Telegram, LinkedIn, Mass media and Blogs, or contribute to the project development by translating or community management. Please see more detailed info at Bounty Program.
+  
+  //- Sidebar
+  .col-md-4
+    aside.pull-right
+      include partials/buy-tokens
+      include partials/calculator

@@ -10,84 +10,15 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
 
     title Unilot | #{pageTitle}
-
     link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
-
-    <!--[if lt IE 9]>
-    script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
-    script(src='http://webnextbd.net/demo/js/respond.min.js')
-    <![endif]-->
-
-    <!--[if lt IE 11]>
-    link(rel='stylesheet', type='text/css', href='http://webnextbd.net/demo/css/ie.css')
-    <![endif]-->
+  
   body
-    #new
-      header
-        .container
-          .row
-            nav.flexbox-nav.col-md-12
-              ul
-                li.active
-                  a(href='#') Dashboard #[span.sr-only (current)]
-                li
-                  a(href='#') Affiliate &amp; Bounty programs
-                li
-                  a(href='#') FAQ
-                li.nav-brand
-                  a(href='#')
-                    img(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
-                li
-                  a(href='#') Unilot ICO
-                li
-                  a(href='#') Profile
-                li
-                  //- button.btn.btn-default.nav-btn(type='button') #[span.action Sign in] or #[span.action Sign up]
-                  a.btn.btn-default.nav-btn.nav-btn-icon-right(role='button' href='#')
-                    span.action Sign out
-                    span.glyphicon.glyphicon-log-out
-          .row
-            .col-md-8
-              h3 Welcome, Alex!
-              p Thank you for participation in our project. This area is your personal account of Unilot token sale.
-            .col-md-4
-              p.lead.text-right 
-                a(href='#') #[span.question]
-                | My Tokens: 
-                span.tokens #[strong.text-nowrap 0.0000] UNIT
-                //- span.tokens #[strong.text-nowrap 150 753.0000] UNIT
-              p.text-right Referral Tokens: #[strong.text-nowrap 0.0000] UNIT
-              p.text-right
-                small
-                  a(href='#') Get more Tokens for free
+    include ../partials/header
 
-      .container.grow
-        .row
-          block content
+    .container.grow
+      .row
+        block content
+    
+    include ../partials/footer
       
-      footer
-        .container
-          .row
-            .col-md-6.col-md-offset-3
-              .flexbox-nav.social-nav
-                ul
-                  li
-                    a(href='#')
-                      img(src='assets/img/unilot-logo.png', alt='Unilot')
-                  li
-                    a.btn.btn-default.social-btn(href='#' title='See our code on GitHub')
-                      span.icon.icon-github
-                  li
-                    a.btn.btn-default.social-btn(href='#' title='Join our Telegram group')
-                      span.icon.icon-telegram
-                  li
-                    a.btn.btn-default.social-btn(href='#' title='Visit our subreddit')
-                      span.icon.icon-reddit
-                  li
-                    a.btn.btn-default.social-btn(href='#' title='Follow us on Twitter')
-                      span.icon.icon-twitter
-                  li
-                    a.btn.btn-default.social-btn(href='#' title='Follow us on Facebook')
-                      span.icon.icon-facebook
-
     script(type='application/javascript', src='/assets/js/main.js')

@@ -1,0 +1,45 @@
+// Styles for custom bar illustrating the progress of Unilot (pre)ICO
+
+// Variables
+$progress-bar-bg: #d9dbe0
+$progress-bar-shadow: rgba(0, 0, 0, .1)
+$progress-bar-height: 35px
+$progress-bar-margin: 20px
+$progress-bar-offset: 10px
+$progress-bar-radius: 22.5px
+
+// Styles
+.progress
+  background-color: $progress-bar-bg
+  border-radius: 17.5px
+  box-shadow: inset 1.4px 1.4px 2px 0 $progress-bar-shadow
+  height: $progress-bar-height
+  margin: ($progress-bar-margin + ($progress-bar-offset / 2)) 0
+  overflow: visible
+  position: relative
+
+  .progress-goal
+    font-size: 1.07rem
+    position: absolute
+    right: 0
+    top: -2rem
+
+  .progress-bar
+    @extend %flex-spaced-between
+    background-image: $pink-gradient
+    border-radius: $progress-bar-radius
+    height: $progress-bar-height + $progress-bar-offset
+    line-height: $progress-bar-height + $progress-bar-offset
+    min-width: 2rem
+    padding-left: $progress-bar-radius
+    padding-right: $progress-bar-radius
+    position: absolute
+    top: -($progress-bar-offset / 2)
+
+    .amount
+      font-size: 1.07rem
+
+    .percentage
+      flex-grow: 1
+      font-size: 1.43rem
+      text-align: right

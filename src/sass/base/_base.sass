@@ -1,0 +1,32 @@
+// Variables
+$base-font-size: 14px
+$section-shadow: rgba(0, 0, 0, .06)
+
+// Styles
+html
+  font-size: $base-font-size
+
+body
+  @extend %flex-column-layout
+  background-color: $bg-color
+  font-family: $roboto
+  min-height: 100vh
+
+.grow
+  flex-grow: 1
+  padding: 30px 0 70px
+
+  .row
+    padding-left: 15px
+    padding-right: 15px
+
+section
+  background-color: $white
+  border-radius: 15px
+  box-shadow: 0 14px 16px 0 $section-shadow
+  padding: 25px
+  
+.ico
+  padding: 0
+  color: $black
+  margin-bottom: 40px

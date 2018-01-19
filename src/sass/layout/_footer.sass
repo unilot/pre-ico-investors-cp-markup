@@ -1,0 +1,65 @@
+// Styles for footer and links to social networks
+
+// Variables
+$footer-height: 130px
+$footer-nav-width: 500px
+$footer-padding-y: 40px
+$social-icon-size: 30px
+$social-border: #222
+
+// Styles
+footer
+  background-color: $gray-darker
+  height: $footer-height
+  padding-top: $footer-padding-y
+
+.social-nav
+  max-width: $footer-nav-width
+
+  ul
+    @extend %flex-centered
+
+    li
+      margin: 0 .5rem
+
+      &:first-child
+        margin-right: 1rem
+
+  .social-btn
+    border: solid 1px $social-border
+    border-radius: 20px
+    padding: 10px
+
+    &:hover
+      text-decoration: none
+
+    .icon
+      @extend %flex-fully-centered
+      border-radius: 100%
+      color: $white
+      display: inline-block
+      font-size: 1.14rem
+      height: $social-icon-size
+      line-height: $social-icon-size
+      width: $social-icon-size
+
+      &::before
+        margin: 0   // IE11 fix
+
+    .icon-github
+      font-size: $social-icon-size
+
+    .icon-telegram
+      background-color: $telegram-blue
+      font-size: .8rem
+
+    .icon-reddit
+      background-color: $blood-orange
+
+    .icon-twitter
+      background-color: $twitter-blue
+      font-size: .8rem
+
+    .icon-facebook
+      background-color: $facebook-blue
+      font-size: .9rem

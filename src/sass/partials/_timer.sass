@@ -1,0 +1,59 @@
+// Styles for countdown timer to Unilot (pre)ICO finish date and time
+
+// Variables
+$timer-gap-width: 2rem
+
+// Styles
+.timer
+  time
+    display: grid
+    grid-column-gap: $timer-gap-width
+    grid-template-columns: repeat(4, min-content)
+
+    .time-value
+      font-family: $roboto-medium
+      font-size: 2.86rem
+      line-height: 1em
+      position: relative
+
+      &:not(.seconds)::after
+        content: ':'
+        display: inline-block
+        font-family: $gotham
+        font-weight: bolder
+        position: absolute
+        text-align: center
+        width: $timer-gap-width
+
+    .time-label
+      color: $gray
+      font-family: $roboto-light
+      font-size: 1rem
+
+// IE 10+ fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  time
+    -ms-grid-columns: min-content $timer-gap-width min-content $timer-gap-width min-content $timer-gap-width min-content
+    -ms-grid-rows: min-content min-content
+    display: -ms-grid
+
+    span
+      display: inline-block
+
+    .time-value
+      -ms-grid-row: 1
+
+    .time-label
+      -ms-grid-row: 2
+
+    .days
+      -ms-grid-column: 1
+
+    .hours
+      -ms-grid-column: 3
+
+    .minutes
+      -ms-grid-column: 5
+
+    .seconds
+      -ms-grid-column: 7

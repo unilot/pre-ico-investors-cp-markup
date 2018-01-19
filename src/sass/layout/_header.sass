@@ -1,0 +1,113 @@
+// Variables
+$header-height: 170px
+$nav-height: 75px
+$nav-text-color: #777
+$nav-btn-height: 40px
+$logo-height: 44px
+$nav-btn-hover-color: rgba(255, 255, 255, .02)
+$question-icon-size: 20px
+
+// Styles
+header
+  background-color: $gray-darker
+  color: $gray-light
+  height: $header-height
+
+  // Navigation
+  .flexbox-nav
+    height: $nav-height
+
+    ul
+      font-family: $gotham
+      height: $nav-height
+
+    li
+      margin: 0 1rem
+
+    a
+      color: $nav-text-color
+
+    .active
+      a
+        color: $gold
+
+    .nav-brand
+      margin: 0 auto
+
+    .logo
+      height: $logo-height
+
+  .nav-btn
+    border-color: $nav-text-color
+    color: $nav-text-color
+    font-size: .86rem
+    height: $nav-btn-height
+    line-height: $nav-btn-height
+    padding-bottom: 0
+    padding-top: 0
+
+    &:hover
+      background-color: $nav-btn-hover-color
+      color: $nav-text-color
+
+    .btn-action
+      color: $white
+
+    .glyphicon
+      margin-left: .5rem
+      position: relative
+      top: 0
+
+  .btn-icon
+    @extend %flex-fully-centered
+    padding-left: 1.5rem
+    padding-right: 1rem
+
+  // Typographics
+  h3
+    color: $white
+    margin: 2rem 0 0
+
+  p
+    margin: 0
+
+  .tokens-info
+    p
+      font-family: $roboto-light
+      font-size: 1.14rem
+
+    strong
+      font-family: $roboto
+      font-weight: normal
+
+    small
+      font-family: $roboto
+      font-size: .86rem
+
+    .lead
+      color: $white
+      font-size: 1.43rem
+      margin-bottom: 10px
+
+      .tokens
+        color: $gold
+
+    .tokens-amount
+      white-space: nowrap
+
+    .tokens-question
+      &::before
+        background-color: $blood-orange
+        border-radius: 100%
+        color: $white
+        content: '?'
+        display: inline-block
+        font-family: $roboto-medium
+        font-size: .9rem
+        height: $question-icon-size
+        line-height: $question-icon-size + 1px
+        margin-right: 9px
+        position: relative
+        text-align: center
+        top: -4px
+        width: $question-icon-size

@@ -1,0 +1,40 @@
+header
+  .container
+    .row
+      nav.flexbox-nav.col-md-12
+        ul
+          li.active
+            a(href='#') Dashboard #[span.sr-only (current)]
+          li
+            a(href='#') Affiliate &amp; Bounty programs
+          li
+            a(href='#') FAQ
+          li.nav-brand
+            a(href='#')
+              img.logo(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
+          li
+            a(href='#') Unilot ICO
+          li
+            a(href='#') Profile
+          li
+            a.btn.btn-default.nav-btn(role='button' href='#') #[span.btn-action Sign in] or #[span.btn-action Sign up]
+            //- a.btn.btn-default.nav-btn.btn-icon(role='button' href='#')
+            //-   span.btn-action Sign out
+            //-   span.glyphicon.glyphicon-log-out
+    .row
+      .col-md-8
+        h3 Welcome, Alex!
+        p Thank you for participation in our project. This area is your personal account of Unilot token sale.
+      .col-md-4.tokens-info
+        p.lead.text-right
+          a(href='#') #[span.tokens-question]
+          | My Tokens: 
+          span.tokens #[strong.tokens-amount 0.0000] UNIT
+          //- span.tokens #[strong.tokens-amount 150 753.0000] UNIT
+
+        p.text-right Referral Tokens: 
+          span.tokens #[strong.tokens-amount 0.0000] UNIT
+
+        p.text-right
+          small
+            a(href='#') Get more Tokens for free
