@@ -17,3 +17,8 @@
   font-family: 'GothamPro';
   src: url('../fonts/GothamPro.otf')
 }
+
+@font-face {
+  font-family: 'GothamProBold';
+  src: url('../fonts/GothamProBold.otf')
+}

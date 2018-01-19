@@ -11,9 +11,11 @@
 //   Header styles
 //   Footer styles
 //   Sidebar styles
+//   Timer styles
 
 // Color variables
 $white: #fff
+$black: #000
 $gray-darker: #111
 $gray-dark: #333
 $gray: #666
@@ -42,6 +44,7 @@ $roboto: 'Roboto', sans-serif
 $roboto-light: 'Roboto Light', sans-serif
 $roboto-medium: 'Roboto Medium', sans-serif
 $gotham: 'GothamPro', sans-serif
+$gotham-bold: 'GothamProBold', sans-serif
 
 // Size variables
 $base-font-size: 14px
@@ -53,17 +56,24 @@ $nav-height: 75px
 $social-icon-size: 30px
 $buy-button-margin-y: 30px
 $buy-button-font-size: 20px
+$timer-gap-width: 2rem
+$progress-bar-height: 35px
+$progress-bar-margin: 20px
+$progress-bar-offset: 10px
+$progress-bar-radius: 22.5px
 
 // General typographics
 html
   font-size: $base-font-size
 #new
   font-family: $roboto
-  h1, h2, h3
+  h1, h2, h3, h4
     font-family: $gotham
   h3
     font-size: 1.6rem
     margin: 0
+  h4
+    font-size: 1.43rem
   a
     color: $link-blue
     &:hover, &:focus
@@ -85,8 +95,6 @@ html
     .row
       padding-right: 15px
       padding-left: 15px
-    main
-      background-color: darken(lightblue, 20%)
   section
     background-color: $white
     box-shadow: 0px 14px 16px 0 rgba(0, 0, 0, 0.06)
@@ -330,3 +338,83 @@ html
     output#total-amount span
       color: $purple
       font-size: 1.43rem
+
+  // Timer styles
+  .timer
+    padding: 0
+    background-color: transparent
+    color: $black
+    time
+      display: grid
+      grid-template-columns: repeat(4, min-content)
+      grid-column-gap: $timer-gap-width
+      .value
+        font-family: $roboto-medium
+        font-size: 2.86rem
+        line-height: 1em
+        position: relative
+      .value:not(.seconds):after
+        content: ':'
+        position: absolute
+        display: inline-block
+        width: $timer-gap-width
+        text-align: center
+        font-family: $gotham
+        font-weight: bolder
+      .time-label
+        color: $gray
+        font-family: $roboto-light
+        font-size: 1rem
+    .progress
+      height: $progress-bar-height
+      border-radius: 17.5px
+      background-color: #d9dbe0
+      box-shadow: inset 1.4px 1.4px 2px 0 rgba(0, 0, 0, 0.1)
+      position: relative
+      overflow: visible
+      margin: ($progress-bar-margin + ($progress-bar-offset / 2)) 0
+      .progress-goal
+        position: absolute
+        top: -2rem
+        right: 0
+        font-size: 1.07rem
+      .progress-bar
+        min-width: 2rem
+        height: $progress-bar-height + $progress-bar-offset
+        line-height: $progress-bar-height + $progress-bar-offset
+        border-radius: $progress-bar-radius
+        background-image: $pink-gradient
+        position: absolute
+        top: -($progress-bar-offset / 2)
+        display: flex
+        justify-content: space-between
+        padding-left: $progress-bar-radius
+        padding-right: $progress-bar-radius
+        .amount
+          font-size: 1.07rem
+        .percentage
+          font-size: 1.43rem
+          flex-grow: 1
+          text-align: right
+    .info
+      display: flex
+      .info-block
+        width: 190px
+        height: 65px
+        background-color: lighten($bg-color, 3%)
+        margin-right: 20px
+        border: solid 1px $white
+        border-radius: 10px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        text-align: center
+        color: $gray-dark
+        &:not(:last-child)
+          margin-right: 20px
+        .info-label
+          text-transform: uppercase
+        .info-value
+          font-family: $gotham-bold
+          font-size: 1.57rem
+          line-height: 1em

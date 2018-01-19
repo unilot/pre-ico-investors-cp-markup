@@ -3,10 +3,38 @@ extends base/new-base
 block vars
   -var pageTitle = 'Investors control panel';
   -var isAuthorized = true;
+  -var progress = 30
 
 block content
   main.col-md-8
-    p PreICO ends in
+    .jumbotron.timer
+      h4 PreICO ends in:
+      time(datetime='2018-02-17T19:00:00')
+        span.value.days 30
+        span.value.hours 08
+        span.value.minutes 14
+        span.value.seconds 49
+        span.time-label Days
+        span.time-label Hours
+        span.time-label Mins
+        span.time-label Secs
+      .progress
+        .progress-goal Goal: 1 975 ETH (25 000 000 UNIT)
+        .progress-bar(role='progressbar' aria-valuenow='30' aria-valuemin='0' aria-valuemax='100' style='width: 30%')
+          if progress >= 30
+            span.amount 592.5 ETH Raised
+          span.percentage 30%
+      .info
+        .info-block
+          span.info-label Current bonus
+          span.info-value 40%
+        .info-block
+          span.info-label Min commitment
+          span.info-value 0.5 ETH
+        .info-block
+          span.info-label Max cap
+          span.info-value 1 975 ETH
+
   aside.col-md-4.pull-right
     include partials/btn-buy-tokens
     include partials/new-calculator
