@@ -264,21 +264,20 @@ html
         a:hover
           text-decoration: none
         .icon
-          background-color: $gray
           display: inline-block
           width: $social-icon-size
           height: $social-icon-size
           line-height: $social-icon-size
-          text-align: center
           font-size: 1.14rem
           color: $white
           border-radius: 100%
           display: flex
           justify-content: center
           align-items: center
+        .icon:before
+          margin: 0   // IE11 fix
         .icon-github
           font-size: $social-icon-size
-          background-color: transparent
         .icon-telegram
           font-size: 0.8rem
           background-color: $telegram-blue
