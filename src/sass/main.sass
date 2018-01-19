@@ -350,12 +350,31 @@ html
       display: grid
       grid-template-columns: repeat(4, min-content)
       grid-column-gap: $timer-gap-width
-      .value
+      // IE11 fix
+      display: -ms-grid
+      -ms-grid-columns: min-content $timer-gap-width min-content $timer-gap-width min-content $timer-gap-width min-content
+      -ms-grid-rows: min-content min-content
+      span
+        display: inline-block
+      .time-value
+        -ms-grid-row: 1
+      .time-label
+        -ms-grid-row: 2
+      .days
+        -ms-grid-column: 1
+      .hours
+        -ms-grid-column: 3
+      .minutes
+        -ms-grid-column: 5
+      .seconds
+        -ms-grid-column: 7
+      // IE11 fix end
+      .time-value
         font-family: $roboto-medium
         font-size: 2.86rem
         line-height: 1em
         position: relative
-      .value:not(.seconds):after
+      .time-value:not(.seconds):after
         content: ':'
         position: absolute
         display: inline-block
