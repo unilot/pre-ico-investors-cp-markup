@@ -14,11 +14,15 @@
 }
 
 @font-face {
-  font-family: 'GothamPro';
-  src: url('../fonts/GothamPro.otf')
+	font-family: 'GothamPro';
+	src: url('../fonts/GothamProRegular.eot?iefix') format('eot'),
+	     url('../fonts/GothamProRegular.woff') format('woff'), 
+	     url('../fonts/GothamProRegular.ttf')  format('truetype');
 }
 
 @font-face {
-  font-family: 'GothamProBold';
-  src: url('../fonts/GothamProBold.otf')
+	font-family: 'GothamProBold';
+	src: url('../fonts/GothamProBold.eot?#iefix') format('eot'),
+	     url('../fonts/GothamProBold.woff') format('woff'), 
+	     url('../fonts/GothamProBold.ttf')  format('truetype');
 }
