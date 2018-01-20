@@ -22,6 +22,7 @@ header
       height: $nav-height
 
     li
+      line-height: $nav-height
       margin: 0 1rem
 
     a
@@ -31,8 +32,13 @@ header
       a
         color: $gold
 
-    .nav-brand
-      margin: 0 auto
+    @media (max-width: 992px)
+      .nav-profile
+        margin-left: auto
+
+    @media (min-width: 992px)
+      .nav-brand
+        margin: 0 auto
 
     .logo
       height: $logo-height
@@ -55,21 +61,19 @@ header
 
     .glyphicon
       margin-left: .5rem
-      position: relative
-      top: 0
 
   .btn-icon
-    @extend %flex-fully-centered
     padding-left: 1.5rem
     padding-right: 1rem
 
   // Typographics
-  h3
-    color: $white
-    margin: 2rem 0 0
-
   p
     margin: 0
+
+  .welcome
+    h3
+      color: $white
+      margin: 2rem 0 0
 
   .tokens-info
     p

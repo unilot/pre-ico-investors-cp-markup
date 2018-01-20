@@ -1,8 +1,23 @@
 header
   .container
     .row
-      nav.flexbox-nav.col-md-12
-        ul
+      nav.flexbox-nav.col-md-12.col-sm-12.col-xs-12
+        ul.hidden-md.hidden-lg
+          li.nav-toggle
+            a(href='#')
+              span.glyphicon.glyphicon-menu-hamburger
+          li.nav-brand
+            a(href='#')
+              img.logo(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
+          li.nav-profile
+            a(href='#') Profile
+          li
+            //- a.btn.btn-default.nav-btn(role='button' href='#') #[span.btn-action Sign in] or #[span.btn-action Sign up]
+            a.btn.btn-default.nav-btn.btn-icon(role='button' href='#')
+              span.btn-action Sign out
+              span.glyphicon.glyphicon-log-out
+
+        ul.hidden-sm.hidden-xs
           li.active
             a(href='#') Dashboard #[span.sr-only (current)]
           li
@@ -17,15 +32,16 @@ header
           li
             a(href='#') Profile
           li
-            a.btn.btn-default.nav-btn(role='button' href='#') #[span.btn-action Sign in] or #[span.btn-action Sign up]
-            //- a.btn.btn-default.nav-btn.btn-icon(role='button' href='#')
-            //-   span.btn-action Sign out
-            //-   span.glyphicon.glyphicon-log-out
+            //- a.btn.btn-default.nav-btn(role='button' href='#') #[span.btn-action Sign in] or #[span.btn-action Sign up]
+            a.btn.btn-default.nav-btn.btn-icon(role='button' href='#')
+              span.btn-action Sign out
+              span.glyphicon.glyphicon-log-out
     .row
-      .col-md-8
+      .welcome.col-md-8.col-sm-6.hidden-xs
         h3 Welcome, Alex!
         p Thank you for participation in our project. This area is your personal account of Unilot token sale.
-      .col-md-4.tokens-info
+      
+      .tokens-info.col-md-4.col-sm-6.col-xs-12
         p.lead.text-right
           a(href='#') #[span.tokens-question]
           | My Tokens: 
