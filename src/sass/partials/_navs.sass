@@ -1,0 +1,75 @@
+.flexbox-nav
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+    z-index: 2  // IE fix for .nav-brand, .nav-toggle
+
+  ul
+    @extend %flex-spaced-between
+    list-style-type: none
+    padding: 0
+
+  li
+    display: inline-block
+
+    @media (min-width: 992px)
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+
+    &:first-child
+      margin-left: 0
+
+    &:last-child
+      margin-right: 0
+
+    a
+      white-space: nowrap
+
+  .nav-toggle
+    a
+      color: $white
+      font-size: 1.5rem
+
+  .nav-brand,
+  .nav-toggle
+    z-index: 2
+
+  $navbar-collapse-bg: #181a22
+  .navbar-collapse
+    border-top: 0
+    box-shadow: none
+    background-color: $navbar-collapse-bg
+    position: absolute
+    top: 0
+    left: 0
+    padding: 80px 0 0
+    width: 270px
+    z-index: 1
+
+    @media (min-width: 992px)
+      display: none !important
+
+  .collapse
+    display: none !important
+  .collapse.in
+    display: block !important
+
+  .side-nav
+    flex-direction: column
+    height: auto
+    margin-bottom: 0
+
+    li
+      height: auto
+      margin: 0
+      line-height: 1
+      a
+        color: $white
+        padding: 0 1rem
+        display: inline-block
+        width: 100%
+        line-height: 50px
+        &:hover
+          color: $link-color
+          background-color: darken($navbar-collapse-bg, 5%)
+          text-decoration: none

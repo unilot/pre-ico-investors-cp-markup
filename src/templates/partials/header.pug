@@ -4,7 +4,7 @@ header
       nav.flexbox-nav.col-md-12.col-sm-12.col-xs-12
         ul.hidden-md.hidden-lg
           li.nav-toggle
-            a(href='#')
+            a.collapsed(href='#' data-toggle='collapse' data-target='#nav-collapse' aria-expanded='false')
               span.glyphicon.glyphicon-menu-hamburger
           li.nav-brand
             a(href='#')
@@ -16,6 +16,17 @@ header
             a.btn.btn-default.nav-btn.btn-icon(role='button' href='#')
               span.btn-action Sign out
               span.glyphicon.glyphicon-log-out
+
+        #nav-collapse.navbar-collapse.collapse
+          ul.side-nav
+            li
+              a(href='#') Dashboard
+            li
+              a(href='#') Affiliate &amp; Bounty programs
+            li
+              a(href='#') FAQ
+            li
+              a(href='#') Unilot ICO
 
         ul.hidden-sm.hidden-xs
           li.active
@@ -36,6 +47,7 @@ header
             a.btn.btn-default.nav-btn.btn-icon(role='button' href='#')
               span.btn-action Sign out
               span.glyphicon.glyphicon-log-out
+    
     .row
       .welcome.col-md-8.col-sm-6.hidden-xs
         h3 Welcome, Alex!

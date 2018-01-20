@@ -12,8 +12,28 @@ header
   background-color: $gray-darker
   color: $gray-light
   height: $header-height
+  transition: .5s all
 
-  // Navigation
+  @media (max-width: 767px)
+    height: 300px
+
+
+  .container
+    height: 100%
+    @extend %flex-column-layout
+    justify-content: flex-start
+
+  .row
+    &:last-child
+      flex-grow: 1
+      padding-bottom: .5rem
+      align-items: flex-end
+      display: flex
+
+      @media (max-width: 767px)
+        align-items: center
+
+  // 1st row - navigation
   .flexbox-nav
     height: $nav-height
 
@@ -66,16 +86,20 @@ header
     padding-left: 1.5rem
     padding-right: 1rem
 
-  // Typographics
+  // 2nd row
+  h3,
   p
     margin: 0
 
-  .welcome
-    h3
-      color: $white
-      margin: 2rem 0 0
+  h3
+    color: $white
 
   .tokens-info
+    @media (max-width: 767px)
+      p
+        text-align: center
+
+
     p
       font-family: $roboto-light
       font-size: 1.14rem
