@@ -6,6 +6,7 @@ $nav-btn-height: 40px
 $logo-height: 44px
 $nav-btn-hover-color: rgba(255, 255, 255, .02)
 $question-icon-size: 20px
+$tall-header-max-width: 767px
 
 // Styles
 header
@@ -14,7 +15,7 @@ header
   height: $header-height
   transition: .5s all
 
-  @media (max-width: 767px)
+  @media (max-width: $tall-header-max-width)
     height: 300px
 
 
@@ -30,7 +31,7 @@ header
       align-items: flex-end
       display: flex
 
-      @media (max-width: 767px)
+      @media (max-width: $tall-header-max-width)
         align-items: center
 
   // 1st row - navigation
@@ -87,15 +88,17 @@ header
     padding-right: 1rem
 
   // 2nd row
-  h3,
-  p
-    margin: 0
+  .welcome
+    h3,
+    p
+      margin: 0
 
-  h3
-    color: $white
+    h3
+      color: $white
+
 
   .tokens-info
-    @media (max-width: 767px)
+    @media (max-width: $tall-header-max-width)
       p
         text-align: center
 
@@ -103,6 +106,10 @@ header
     p
       font-family: $roboto-light
       font-size: 1.14rem
+      margin: 0
+      @media (max-width: $tall-header-max-width)
+        font-size: 21px
+        margin-bottom: .5em
 
     strong
       font-family: $roboto
@@ -111,19 +118,28 @@ header
     small
       font-family: $roboto
       font-size: .86rem
+      @media (max-width: $tall-header-max-width)
+        font-size: 18px
+
 
     .lead
       color: $white
       font-size: 1.43rem
       margin-bottom: 10px
+      @media (max-width: $tall-header-max-width)
+        font-size: 30px
+        margin-bottom: 1em
+
 
       .tokens
         color: $gold
-
-    .tokens-amount
-      white-space: nowrap
+        white-space: nowrap
 
     .tokens-question
+      @media (max-width: $tall-header-max-width)
+        display: none
+
+
       &::before
         background-color: $blood-orange
         border-radius: 100%

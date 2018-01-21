@@ -12,7 +12,7 @@ h4
   font-size: 1.43rem
 
 p
-  line-height: 1.57rem
+  line-height: 1.57em
 
 a
   color: $link-color
@@ -20,3 +20,22 @@ a
   &:hover,
   &:focus
     color: $link-color
+
+@media (max-width: $max-width-sm)
+  h3
+    font-size: 32.6px
+
+  p
+    font-family: $roboto-light
+    font-size: 26px
+    margin-bottom: 2em
+
+  .welcome,
+  .tokens-info
+    h3
+      font-size: 1.6rem
+
+    p
+      font-family: $roboto
+      font-size: 1rem
+      margin-bottom: 0

@@ -1,0 +1,123 @@
+// Placeholders
+%dark-gotham-text
+  color: $gray-dark
+  font-family: $gotham
+  font-size: 1.14rem
+  @media (max-width: $max-width-sm)
+    font-size: 35.7px
+
+
+%input-reset
+  background-color: transparent
+  border: 0
+  border-radius: 0
+  box-shadow: none
+
+%small-gray-label
+  color: $gray
+  font-family: $roboto
+  font-size: .86rem
+  font-weight: normal
+  text-transform: uppercase
+  @media (max-width: $max-width-sm)
+    font-size: 24px
+
+
+// Calculator
+.calculator
+  h3
+    margin-bottom: $sidebar-margin-y
+    @media (max-width: $max-width-sm)
+      font-size: 52px
+
+
+  .form-group
+    &:not(:nth-child(4))
+      margin-bottom: $sidebar-margin-y
+
+    label
+      @extend %small-gray-label
+
+      &[for='total-amount']
+        margin-bottom: 0
+
+    input
+      @extend %dark-gotham-text
+      @extend %input-reset
+      border-bottom: solid 2px $input-border
+      @media (max-width: $max-width-sm)
+        height: 2em
+
+
+      &[type='number']
+        -moz-appearance: textfield
+        -webkit-appearance: textfield
+        appearance: textfield
+
+      &[readonly]
+        background-color: transparent
+        border-color: $readonly-input-border
+
+    .input-primary
+      border-color: $purple
+      border-image: $purple-gradient 10
+
+    .input-group
+      width: 100%
+
+      .input-group-addon
+        @extend %input-reset
+        padding-right: 0
+
+      .input-group-btn,
+      .input-group-addon
+        width: 3rem
+
+      .input-group-btn
+        position: relative
+
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+        .input-group-btn
+          background-color: $todo-bg
+
+
+      .input-group-increment
+        @extend %flex-column-layout
+        bottom: 0
+        position: absolute
+        right: 0
+        width: 34px
+
+    hr
+      border-color: $gray-lighter
+
+    output
+      @extend %dark-gotham-text
+      white-space: nowrap
+
+      &:not(.total-amount, .usd-amount)
+        span
+          @extend %small-gray-label
+
+    .eth-amount + span
+      @extend %dark-gotham-text
+
+    .horizontal
+      @extend %flex-spaced-between
+      align-items: baseline
+
+      *
+        margin: 0
+        padding: 0
+
+    .total-amount
+      color: $purple
+      font-size: 1.86rem
+      padding-top: 0
+      @media (max-width: $max-width-sm)
+        font-size: 58.1px
+
+
+      span
+        color: $purple
+        font-size: .7em

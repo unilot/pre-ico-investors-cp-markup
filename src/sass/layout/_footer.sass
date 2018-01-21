@@ -14,16 +14,20 @@ footer
   padding-top: $footer-padding-y
 
 .social-nav
+  margin: 0 auto
   max-width: $footer-nav-width
 
   ul
     @extend %flex-centered
 
-    li
-      margin: 0 .5rem
+  li
+    margin: 0 .5rem
 
-      &:first-child
-        margin-right: 1rem
+  .footer-logo
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-right: 1rem
 
   .social-btn
     border: solid 1px $social-border

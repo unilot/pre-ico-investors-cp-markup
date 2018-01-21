@@ -26,9 +26,19 @@
     border: 0
     color: $white
 
+.btn-buy
+  font-size: $buy-tokens-font-size
+  margin-bottom: $sidebar-margin-y
+  position: relative
+  @media (max-width: $max-width-sm)
+    border-radius: 55.7px
+    font-size: 44.6px
+    line-height: 2em
+
+
 .btn-extra
   &::after
-    // content should be specified for each button in particular
+    content: '40% Bonus'
     background-color: $darkish-pink
     background-image: $pink-gradient
     border-radius: 10px
@@ -39,6 +49,13 @@
     right: 1.5rem
     top: 0
     transform: translateY(-50%)
+    @media (max-width: $max-width-sm)
+      font-size: 20px
+      line-height: 2em
+      border-radius: 20.5px
+      padding: 0 1em
+      right: 3em
+
 
 .btn-increment
   border-radius: 2px

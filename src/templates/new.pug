@@ -3,16 +3,19 @@ extends base/new-base
 block vars
   -var pageTitle = 'Investors control panel';
   -var isAuthorized = true;
-  -var progress = 30
+  -var progress = 35
 
 block content
   //- Main content
-  .col-md-8
+  .col-md-8.col-sm-12.col-xs-12
     main
       .ico
         include partials/timer
         include partials/progress
         include partials/ico-info
+      .hidden-md.hidden-lg
+        include partials/buy-tokens
+        include partials/calculator
       section
         h3 UNIT Tokens Information
         p To participate in the UNIT Token distribution, you will need to send ETH to Unilot wallet. Unilot wallet is the Ethereum UNIT Token distribution smart contract. You will automatically receive tokens after the transaction is successfully finished. You can always check your UNIT Tokens amount on the right sidebar of your account.
@@ -20,7 +23,7 @@ block content
         p Unilot gives extra bonuses to people who help to spread the word about the project. You can share the news about the project through Bitcointalk, Facebook, Twitter, Youtube, Reddit, Telegram, LinkedIn, Mass media and Blogs, or contribute to the project development by translating or community management. Please see more detailed info at Bounty Program.
   
   //- Sidebar
-  .col-md-4
+  .col-md-4.hidden-sm.hidden-xs
     aside.pull-right
       include partials/buy-tokens
       include partials/calculator

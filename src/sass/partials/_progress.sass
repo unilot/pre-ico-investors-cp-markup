@@ -17,29 +17,53 @@ $progress-bar-radius: 22.5px
   margin: ($progress-bar-margin + ($progress-bar-offset / 2)) 0
   overflow: visible
   position: relative
+  @media (max-width: $max-width-sm)
+    height: 64px
+    bacgkround-color: wheat
+    border-radius: 31.5px
 
-  .progress-goal
-    font-size: 1.07rem
-    position: absolute
-    right: 0
-    top: -2rem
 
-  .progress-bar
-    @extend %flex-spaced-between
-    background-image: $pink-gradient
-    border-radius: $progress-bar-radius
-    height: $progress-bar-height + $progress-bar-offset
-    line-height: $progress-bar-height + $progress-bar-offset
-    min-width: 2rem
-    padding-left: $progress-bar-radius
-    padding-right: $progress-bar-radius
-    position: absolute
-    top: -($progress-bar-offset / 2)
+.progress-bar
+  @extend %flex-spaced-between
+  background-image: $pink-gradient
+  border-radius: $progress-bar-radius
+  height: $progress-bar-height + $progress-bar-offset
+  line-height: $progress-bar-height + $progress-bar-offset
+  min-width: 2rem
+  padding-left: $progress-bar-radius
+  padding-right: $progress-bar-radius
+  position: absolute
+  top: -($progress-bar-offset / 2)
+  @media (max-width: $max-width-sm)
+    height: 64px + ($progress-bar-offset * 2)
+    line-height: 64px + ($progress-bar-offset * 2)
+    border-radius: 40.5px
+    top: -($progress-bar-offset)
 
-    .amount
-      font-size: 1.07rem
 
-    .percentage
-      flex-grow: 1
-      font-size: 1.43rem
-      text-align: right
+.progress-goal
+  font-size: 1.07rem
+  position: absolute
+  right: 0
+  top: -2rem
+  @media (max-width: $max-width-sm)
+    font-size: 20px
+    position: relative
+    text-align: center
+    top: -2.5em
+    width: 100%
+
+
+.progress-amount
+  font-size: 1.07rem
+  white-space: nowrap
+  @media (max-width: $max-width-sm)
+    font-size: 20px
+  @media (max-width: 435px)
+    visibility: hidden
+
+
+.progress-percentage
+  flex-grow: 1
+  font-size: 1.43rem
+  text-align: right
