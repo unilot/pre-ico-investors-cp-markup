@@ -1,24 +1,8 @@
-// Variables
-@import 'partials/_colors'
-@import 'partials/_fonts'
+// Abstract values
+@import 'abstract/_colors'
+@import 'abstract/_fonts'
 @import 'abstract/_variables'
-
-// Placeholders
-%flex-spaced-between
-  display: flex
-  justify-content: space-between
-
-%flex-centered
-  display: flex
-  justify-content: center
-
-%flex-fully-centered
-  @extend %flex-centered
-  align-items: center
-
-%flex-column-layout
-  display: flex
-  flex-direction: column
+@import 'abstract/_placeholders'
 
 // Base
 @import 'base/_base'
@@ -35,4 +19,3 @@
 // Layout
 @import 'layout/_header'
 @import 'layout/_footer'
-@import 'layout/_sidebar'
