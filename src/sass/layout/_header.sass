@@ -1,24 +1,24 @@
 header
-  background-color: $gray-darker
-  color: $gray-light
   height: $header-height
   transition: .5s all
+  background-color: $gray-darker
+  color: $gray-light
 
   @media (max-width: $tall-header-max-width)
     height: 300px
 
 
   .container
-    height: 100%
     @extend %flex-column-layout
     justify-content: flex-start
+    height: 100%
 
   .row
     &:last-child
-      flex-grow: 1
-      padding-bottom: .5rem
-      align-items: flex-end
       display: flex
+      flex-grow: 1
+      align-items: flex-end
+      padding-bottom: .5rem
 
       @media (max-width: $tall-header-max-width)
         align-items: center
@@ -29,12 +29,12 @@ header
     height: $nav-height
 
     ul
-      font-family: $gotham
       height: $nav-height
+      font-family: $gotham
 
     li
-      line-height: $nav-height
       margin: 0 1rem
+      line-height: $nav-height
 
     a
       color: $nav-text-color
@@ -51,17 +51,18 @@ header
       .nav-brand
         margin: 0 auto
 
+
     .logo
       height: $logo-height
 
   .nav-btn
+    height: $nav-btn-height
+    padding-top: 0
+    padding-bottom: 0
     border-color: $nav-text-color
     color: $nav-text-color
     font-size: .86rem
-    height: $nav-btn-height
     line-height: $nav-btn-height
-    padding-bottom: 0
-    padding-top: 0
 
     &:hover
       background-color: $nav-btn-hover-color
@@ -74,8 +75,8 @@ header
       margin-left: .5rem
 
   .btn-icon
-    padding-left: 1.5rem
     padding-right: 1rem
+    padding-left: 1.5rem
 
   // 2nd row
   .welcome
@@ -94,12 +95,13 @@ header
 
 
     p
+      margin: 0
       font-family: $roboto-light
       font-size: 1.14rem
-      margin: 0
       @media (max-width: $tall-header-max-width)
-        font-size: 21px
         margin-bottom: .5em
+        font-size: 21px
+
 
     strong
       font-family: $roboto
@@ -113,12 +115,12 @@ header
 
 
     .lead
+      margin-bottom: 10px
       color: $white
       font-size: 1.43rem
-      margin-bottom: 10px
       @media (max-width: $tall-header-max-width)
-        font-size: 30px
         margin-bottom: 1em
+        font-size: 30px
 
 
       .tokens
@@ -131,17 +133,17 @@ header
 
 
       &::before
-        background-color: $blood-orange
-        border-radius: 100%
-        color: $white
-        content: '?'
         display: inline-block
-        font-family: $roboto-medium
-        font-size: .9rem
-        height: $question-icon-size
-        line-height: $question-icon-size + 1px
-        margin-right: 9px
         position: relative
-        text-align: center
         top: -4px
         width: $question-icon-size
+        height: $question-icon-size
+        margin-right: 9px
+        border-radius: 100%
+        background-color: $blood-orange
+        color: $white
+        font-family: $roboto-medium
+        font-size: .9rem
+        line-height: $question-icon-size + 1px
+        text-align: center
+        content: '?'

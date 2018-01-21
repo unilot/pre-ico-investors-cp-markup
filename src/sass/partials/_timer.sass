@@ -7,9 +7,8 @@
     margin-bottom: 100px
 
     h4
-      font-size: 38.5px
       margin-bottom: 30px
-
+      font-size: 38.5px
 
   time
     display: grid
@@ -17,23 +16,23 @@
     grid-template-columns: repeat(4, min-content)
 
   .time-value
+    position: relative
     font-family: $roboto-medium
     font-size: 2.86rem
     line-height: 1em
-    position: relative
     @media (max-width: $max-width-sm)
       font-size: 55.5px
 
 
     &:not(.seconds)
       &::after
-        content: ':'
         display: inline-block
+        position: absolute
+        width: $timer-gap-width
         font-family: $gotham
         font-weight: bolder
-        position: absolute
         text-align: center
-        width: $timer-gap-width
+        content: ':'
 
   .time-label
     color: $gray
@@ -46,9 +45,9 @@
 // IE 10+ fix
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
   time
+    display: -ms-grid
     -ms-grid-columns: min-content $timer-gap-width min-content $timer-gap-width min-content $timer-gap-width min-content
     -ms-grid-rows: min-content min-content
-    display: -ms-grid
 
     span
       display: inline-block

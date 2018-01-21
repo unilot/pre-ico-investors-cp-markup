@@ -4,14 +4,14 @@
 
   .info-block
     @extend %flex-column-layout
-    background-color: lighten($bg-color, 3%)
+    justify-content: center
+    width: $info-block-width
+    height: $info-block-height
     border: solid 1px $white
     border-radius: $info-block-radius
+    background-color: lighten($bg-color, 3%)
     color: $gray-dark
-    height: $info-block-height
-    justify-content: center
     text-align: center
-    width: $info-block-width
 
     &:not(:last-child)
       margin-right: $info-block-gap

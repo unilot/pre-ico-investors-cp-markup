@@ -1,47 +1,46 @@
 // Styles for custom progress bar illustrating the progress of Unilot (pre)ICO
 .progress
-  background-color: $progress-bar-bg
-  border-radius: 17.5px
-  box-shadow: inset 1.4px 1.4px 2px 0 $progress-bar-shadow
+  position: relative
   height: $progress-bar-height
   margin: ($progress-bar-margin + ($progress-bar-offset / 2)) 0
+  border-radius: 17.5px
+  background-color: $progress-bar-bg
+  box-shadow: inset 1.4px 1.4px 2px 0 $progress-bar-shadow
   overflow: visible
-  position: relative
   @media (max-width: $max-width-sm)
     height: 64px
-    bacgkround-color: wheat
     border-radius: 31.5px
 
 
 .progress-bar
   @extend %flex-spaced-between
-  background-image: $pink-gradient
-  border-radius: $progress-bar-radius
-  height: $progress-bar-height + $progress-bar-offset
-  line-height: $progress-bar-height + $progress-bar-offset
-  min-width: 2rem
-  padding-left: $progress-bar-radius
-  padding-right: $progress-bar-radius
   position: absolute
   top: -($progress-bar-offset / 2)
+  min-width: 2rem
+  height: $progress-bar-height + $progress-bar-offset
+  padding-right: $progress-bar-radius
+  padding-left: $progress-bar-radius
+  border-radius: $progress-bar-radius
+  background-image: $pink-gradient
+  line-height: $progress-bar-height + $progress-bar-offset
   @media (max-width: $max-width-sm)
-    height: 64px + ($progress-bar-offset * 2)
-    line-height: 64px + ($progress-bar-offset * 2)
-    border-radius: 40.5px
     top: -($progress-bar-offset)
+    height: 64px + ($progress-bar-offset * 2)
+    border-radius: 40.5px
+    line-height: 64px + ($progress-bar-offset * 2)
 
 
 .progress-goal
-  font-size: 1.07rem
   position: absolute
-  right: 0
   top: -2rem
+  right: 0
+  font-size: 1.07rem
   @media (max-width: $max-width-sm)
-    font-size: 20px
     position: relative
-    text-align: center
     top: -2.5em
     width: 100%
+    font-size: 20px
+    text-align: center
 
 
 .progress-amount

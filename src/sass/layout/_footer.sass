@@ -1,11 +1,11 @@
 footer
-  background-color: $gray-darker
   height: $footer-height
   padding-top: $footer-padding-y
+  background-color: $gray-darker
 
 .social-nav
-  margin: 0 auto
   max-width: $footer-nav-width
+  margin: 0 auto
 
   ul
     @extend %flex-centered
@@ -20,22 +20,22 @@ footer
     margin-right: 1rem
 
   .social-btn
+    padding: 10px
     border: solid 1px $social-border
     border-radius: 20px
-    padding: 10px
 
     &:hover
       text-decoration: none
 
     .icon
       @extend %flex-fully-centered
+      display: inline-block
+      width: $social-icon-size
+      height: $social-icon-size
       border-radius: 100%
       color: $white
-      display: inline-block
       font-size: 1.14rem
-      height: $social-icon-size
       line-height: $social-icon-size
-      width: $social-icon-size
 
       &::before
         margin: 0   // IE11 fix

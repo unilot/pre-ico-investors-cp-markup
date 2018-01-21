@@ -29,8 +29,8 @@
         appearance: textfield
 
       &[readonly]
-        background-color: transparent
         border-color: $readonly-input-border
+        background-color: transparent
 
     .input-primary
       border-color: $purple
@@ -57,9 +57,9 @@
 
       .input-group-increment
         @extend %flex-column-layout
-        bottom: 0
         position: absolute
         right: 0
+        bottom: 0
         width: 34px
 
     hr
@@ -85,9 +85,9 @@
         padding: 0
 
     .total-amount
+      padding-top: 0
       color: $purple
       font-size: 1.86rem
-      padding-top: 0
       @media (max-width: $max-width-sm)
         font-size: 58.1px
 
