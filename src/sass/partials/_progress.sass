@@ -56,3 +56,18 @@
   flex-grow: 1
   font-size: 1.43rem
   text-align: right
+
+aside
+  .progress
+    height: $progress-small-height
+    border-radius: 5.8px
+
+    .progress-bar
+      top: -($progress-small-offset / 2)
+      height: $progress-small-height + $progress-small-offset
+      border-radius: 7.5px
+
+    .progress-goal,
+    .progress-amount,
+    .progress-percentage
+      display: none

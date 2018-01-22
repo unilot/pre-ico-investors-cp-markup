@@ -41,6 +41,21 @@
     @media (max-width: $max-width-sm)
       font-size: 16px
 
+$timer-small-gap-width: 1.5rem
+aside
+  .timer
+    time
+      grid-column-gap: $timer-small-gap-width
+
+      .time-value
+        font-size: 2.9rem
+
+        &:not(.seconds)
+          &::after
+            width: $timer-small-gap-width
+
+    .time-label
+      font-size: 0.9rem !important
 
 // IE 10+ fix
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
@@ -69,3 +84,7 @@
 
     .seconds
       -ms-grid-column: 7
+
+  aside
+    time
+      -ms-grid-columns: min-content $timer-small-gap-width min-content $timer-small-gap-width min-content $timer-small-gap-width min-content

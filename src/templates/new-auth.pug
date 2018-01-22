@@ -12,10 +12,10 @@ block content
       section
         h3 #{pageTitle}
         ul.nav.nav-tabs
+          li(role='presentation')
+            a(href='signup.html') Sign up
           li.active(role='presentation')
             a(href='#auth-sign-in', role='tab', aria-controls='auth-sign-in', data-toggle='tab') Sign in
-          li(role='presentation')
-            a(href='#auth-sign-up', role='tab', aria-controls='auth-sign-up', data-toggle='tab') Sign up
           li(role='presentation')
             a(href='#auth-recover-access', role='tab', aria-controls='auth-recover-access', data-toggle='tab') Forgot password
         
@@ -29,12 +29,12 @@ block content
                   
                   .form-group
                     label.control-label(for='signInEmail') Email
-                    input#signInEmail.form-control(type='email', placeholder='Email', required=true, name='email')
+                    input#signInEmail.form-control(type='email', placeholder='Email', required, name='email')
                     .help-block.with-errors
                   
                   .form-group
                     label.control-label(for='signInPassword') Password
-                    input#signInPassword.form-control(type='password', placeholder='Password', required=true, name='password')
+                    input#signInPassword.form-control(type='password', placeholder='Password', required, name='password')
                     .help-block.with-errors
                   
               .row
@@ -42,26 +42,22 @@ block content
                 .col-xs-12
                   button.btn.btn-primary.btn-lg.pull-right(role='submit') Sign In
           
-          #auth-sign-up.tab-pane.js-has-overlay(role='tabpanel')
+          #auth-recover-access.tab-pane(role='tabpanel')
             include lib/overlay-loader
-            form#signUpForm
+            form.js-generic-form
               .row
-                .col-xs-12
+                .col-md-12
                   .alert.hidden.js-form-alert.text-center
-              .row
-                .col-xs-12
-                    .form-group
-                      label.control-label(for='signUpEmail') Email
-                      input#signUpEmail.form-control.focus(type='email', placeholder='Email', required=true, name='email').help-block.with-errors
+                  
+                  .form-group
+                    label.control-label(for='recoverEmail') Email
+                    input#recoverEmail.form-control(type='email', placeholder='Email', required, name='email')
+                    .help-block.with-errors
+                  
               .row
                 include lib/overlay-loader
                 .col-xs-12
-                  button.btn.btn-primary.btn-lg.pull-right(type='button', data-toggle='modal', data-target='#termsAndConditions') Sign up
-
-              include lib/auth-terms-and-conditions-modal
-          
-          #auth-recover-access.tab-pane(role='tabpanel')
-            p Wharrgarbl
+                  button.btn.btn-primary.btn-lg.pull-right(role='submit') Recover
 
     //- Sidebar
     .col-md-4.hidden-sm.hidden-xs
