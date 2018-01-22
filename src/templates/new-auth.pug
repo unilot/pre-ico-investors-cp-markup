@@ -1,0 +1,72 @@
+extends base/new-base
+
+block vars
+  -var pageTitle = 'Sign in or Sign up';
+  -var isAuthorised = false;
+
+block content
+  .row
+
+    //- Main content
+    .col-md-8.col-sm-12.col-xs-12
+      section
+        h3 #{pageTitle}
+        ul.nav.nav-tabs
+          li.active(role='presentation')
+            a(href='#auth-sign-in', role='tab', aria-controls='auth-sign-in', data-toggle='tab') Sign in
+          li(role='presentation')
+            a(href='#auth-sign-up', role='tab', aria-controls='auth-sign-up', data-toggle='tab') Sign up
+          li(role='presentation')
+            a(href='#auth-recover-access', role='tab', aria-controls='auth-recover-access', data-toggle='tab') Forgot password
+        
+        .tab-content
+          #auth-sign-in.tab-pane.active.js-has-overlay(role='tabpanel')
+            include lib/overlay-loader
+            form.js-generic-form
+              .row
+                .col-xs-12
+                  .alert.hidden.js-form-alert.text-center
+              .row
+                .col-xs-12
+                  .form-group
+                    label.control-label(for='signInEmail') Email
+                    input#signInEmail.form-control(type='email', placeholder='Email', required=true, name='email')
+                    .help-block.with-errors
+              .row
+                .col-xs-12
+                  .form-group
+                    label.control-label(for='signInPassword') Password
+                    input#signInPassword.form-control(type='password', placeholder='Password', required=true, name='password')
+                    .help-block.with-errors
+              .row
+                include lib/overlay-loader
+                .col-xs-12
+                  button.btn.btn-primary.pull-right(role='submit') Sign in
+          
+          #auth-sign-up.tab-pane.js-has-overlay(role='tabpanel')
+            include lib/overlay-loader
+            form#signUpForm
+              .row
+                .col-xs-12
+                  .alert.hidden.js-form-alert.text-center
+              .row
+                .col-xs-12
+                    .form-group
+                      label.control-label(for='signUpEmail') Email
+                      input#signUpEmail.form-control.focus(type='email', placeholder='Email', required=true, name='email').help-block.with-errors
+              .row
+                include lib/overlay-loader
+                .col-xs-12
+                  button.btn.btn-primary.pull-right(type='button', data-toggle='modal', data-target='#termsAndConditions') Sign up
+
+              include lib/auth-terms-and-conditions-modal
+          
+          #auth-recover-access.tab-pane(role='tabpanel')
+            p Wharrgarbl
+
+    //- Sidebar
+    .col-md-4.hidden-sm.hidden-xs
+      aside.pull-right
+        section
+          include partials/timer
+          include partials/progress

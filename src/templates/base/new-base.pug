@@ -1,5 +1,6 @@
 block vars
   - var pageTitle = 'Unilot landing prototype. (For development purposes only!)'
+  - var isAuthorised = false
 
 doctype html
 html(lang='en')
@@ -16,8 +17,7 @@ html(lang='en')
     include ../partials/header
 
     .container.grow
-      .row
-        block content
+      block content
     
     include ../partials/footer
       
