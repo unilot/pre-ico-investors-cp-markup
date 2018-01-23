@@ -5,7 +5,6 @@ dist/lib
 dist/partials
 dist/assets/css/*
 dist/assets/fonts/*
-dist/assets/img/*
 dist/assets/js/*
 !dist/assets/js/config.js
 distassets
