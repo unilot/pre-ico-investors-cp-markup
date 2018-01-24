@@ -1,56 +1,8 @@
 header
   .container
     .row
-      nav.flexbox-nav.col-md-12.col-sm-12.col-xs-12
-        ul.hidden-md.hidden-lg
-          li.nav-toggle
-            a.collapsed(href='#' data-toggle='collapse' data-target='#nav-collapse' aria-expanded='false')
-              span.glyphicon.glyphicon-menu-hamburger
-          li.nav-brand
-            a(href='#')
-              img.logo(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
-          li.nav-profile
-            a(href='#') Profile
-          li
-            if isAuthorised
-              a.btn.btn-default.nav-btn.btn-icon(role='button' href='new-auth.html')
-                  span.btn-action Sign out
-                  span.glyphicon.glyphicon-log-out
-            else
-              a.btn.btn-default.nav-btn(role='button' href='new-auth.html') #[span.btn-action Sign in] or #[span.btn-action Sign up]    
-
-        #nav-collapse.navbar-collapse.collapse
-          ul.side-nav
-            li
-              a(href='new.html') Dashboard
-            li
-              a(href='#') Affiliate &amp; Bounty programs
-            li
-              a(href='#') FAQ
-            li
-              a(href='#') Unilot ICO
-
-        ul.hidden-sm.hidden-xs
-          li.active
-            a(href='new.html') Dashboard #[span.sr-only (current)]
-          li
-            a(href='#') Affiliate &amp; Bounty programs
-          li
-            a(href='#') FAQ
-          li.nav-brand
-            a(href='#')
-              img.logo(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
-          li
-            a(href='#') Unilot ICO
-          li
-            a(href='#') Profile
-          li
-            if isAuthorised
-              a.btn.btn-default.nav-btn.btn-icon(role='button' href='new-auth.html')
-                  span.btn-action Sign out
-                  span.glyphicon.glyphicon-log-out
-            else
-              a.btn.btn-default.nav-btn(role='button' href='new-auth.html') #[span.btn-action Sign in] or #[span.btn-action Sign up]
+      //- include flexbox-nav
+      include nav
     
     .row
       .welcome.col-md-7.col-sm-6.hidden-xs
