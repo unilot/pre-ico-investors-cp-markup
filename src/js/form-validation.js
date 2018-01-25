@@ -63,9 +63,25 @@
                 return true;
             },
             valid: function($form) {
+                var $formAlert = $('.js-form-alert', $form);
+
                 if ($form.data('url')) {
                     window.location.replace($form.data('url'))
-                } else {
+                } else if ( $formAlert.length > 0 && $form.data('success-replace-form-message') ) {
+                    showAlertMessage($form, 'success', $form.data('success-replace-form-message'));
+
+                    var alertElement = $formAlert[0];
+                    var $previous = $form.prev();
+                    var $parent = $form.parent();
+
+                    $form.remove();
+
+                    if ( $previous.length > 0 ) {
+                        $(alertElement).insertAfter($previous);
+                    } else {
+                        $parent.prepend($(alertElement));
+                    }
+                }else {
                     showAlertMessage($form, 'success', $form.data('success-message'));
                 }
             },
