@@ -1,0 +1,44 @@
+$wb-border-radius: 15px
+.slideout-panel
+  .tab-content
+    @extend %white-block
+
+  .nav-tabs
+    border: 0
+
+    li,
+    li > a
+      border-radius: $wb-border-radius $wb-border-radius 0 0
+
+    li
+      a
+        margin: 0
+        border: 0
+        color: $gray-light
+        font-family: $gotham-medium
+        font-size: 1.78rem
+
+    li:not(.active)
+      a
+        &:hover
+          background-color: $gray-lighter
+
+    .active
+      a
+        background-color: $white
+        color: $black
+
+        &:hover,
+        &:focus
+          border: 0
+
+    // cover rounded corner if active or hovered tab is above
+    .active::after,
+    li:hover::after
+      display: block
+      position: absolute
+      width: 100%
+      height: $wb-border-radius
+      background-color: $white
+      content: ''
+      z-index: -1

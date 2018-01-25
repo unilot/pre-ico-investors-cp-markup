@@ -26,3 +26,10 @@
 	     url('../fonts/GothamProBold.woff') format('woff'), 
 	     url('../fonts/GothamProBold.ttf')  format('truetype');
 }
+
+@font-face {
+	font-family: 'GothamProMedium';
+	src: url('../fonts/GothamProMedium.eot?#iefix') format('eot'),
+	     url('../fonts/GothamProMedium.woff') format('woff'), 
+	     url('../fonts/GothamProMedium.ttf')  format('truetype');
+}
