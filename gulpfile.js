@@ -25,18 +25,21 @@ var jsSrc = [
     nodeModules + '/jquery-countdown/dist/jquery.countdown.js',
     nodeModules + '/jsrender/jsrender.js',
     nodeModules + '/bootstrap/dist/js/bootstrap.min.js',
+    // nodeModules + '/bootstrap-material-design/dist/js/bootstrap-material-design.min.js',
     nodeModules + '/web3/dist/web3.js',
     nodeModules + '/bootstrap-validator/dist/validator.min.js',
     nodeModules + '/js-cookie/src/js.cookie.js',
     nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js',
     nodeModules + '/twitter-bootstrap-wizard/prettify.js',
     nodeModules + '/google-libphonenumber/dist/libphonenumber.js',
+    nodeModules + '/slideout/dist/slideout.min.js',
     srcDir + '/js/*.js'
 ];
 
 var cssSrc = [
     nodeModules + '/normalize.css/normalize.css',
     nodeModules + '/bootstrap/dist/css/bootstrap.css',
+    // nodeModules + '/bootstrap-material-design/dist/css/bootstrap-material-design.min.css',
     nodeModules + '/twitter-bootstrap-wizard/prettify.css',
     srcDir + '/css/sass/sass.css',
     srcDir + '/css/*.css'

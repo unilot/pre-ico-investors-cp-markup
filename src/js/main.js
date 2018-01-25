@@ -131,3 +131,43 @@
         $('#'+hash).addClass('in');
     }
 })();
+
+// enable custom increment buttons for calculator (don't work in IE11)
+function changeUnitValue(number) {
+    document.getElementById('unit-amount').stepUp(number);
+}
+
+function slideoutInit() {
+    // initialize slideout
+    var slideout = new Slideout({
+        'panel': document.getElementById('main-body'),
+        'menu': document.getElementById('slideout'),
+        'padding': 256,
+        'tolerance': 70
+    });
+
+    // initialize toggle button
+    document.querySelector('.toggle-menu').addEventListener('click', function() {
+        slideout.toggle();
+    });
+
+    // set overlay to close slideout menu on click
+    function close(eve) {
+        eve.preventDefault();
+        slideout.close();
+    }
+
+    slideout
+        .on('beforeopen', function() {
+            this.panel.classList.add('panel-open');
+        })
+        .on('open', function() {
+            this.panel.addEventListener('click', close);
+        })
+        .on('beforeclose', function() {
+            this.panel.classList.remove('panel-open');
+            this.panel.removeEventListener('click', close);
+        });
+}
+
+slideoutInit();

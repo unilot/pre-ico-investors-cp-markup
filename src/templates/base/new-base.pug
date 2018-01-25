@@ -14,11 +14,17 @@ html(lang='en')
     link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
   
   body
-    include ../partials/header
+    #slideout
+      include ../partials/slideout-nav
 
-    .container.grow
-      block content
-    
-    include ../partials/footer
+    #main-body
+      include ../partials/header
+
+      .container.grow
+        block content
       
+      include ../partials/footer
+      
+    script(type='application/javascript', src='/assets/js/config.js')
     script(type='application/javascript', src='/assets/js/main.js')
+    

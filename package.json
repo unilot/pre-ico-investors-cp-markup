@@ -39,6 +39,7 @@
     "web3-utils": "^1.0.0-beta.26"
   },
   "devDependencies": {
-    "gulp-webserver": "^0.9.1"
+    "gulp-webserver": "^0.9.1",
+    "slideout": "^1.0.1"
   }
 }
