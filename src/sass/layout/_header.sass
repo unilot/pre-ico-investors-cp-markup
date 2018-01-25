@@ -25,64 +25,13 @@ header
       display: flex
       flex-grow: 1
       align-items: flex-end
+      height: $header-height - $nav-height
       padding-bottom: .5rem
 
       @media (max-width: $tall-header-max-width)
         align-items: center
 
 
-  // 1st row - navigation
-  .flexbox-nav
-    height: $nav-height
-
-    ul
-      height: $nav-height
-      font-family: $gotham
-
-    li
-      margin: 0 1rem
-      line-height: $nav-height
-
-    a
-      color: $nav-text-color
-
-    .active
-      a
-        color: $gold
-
-    @media (max-width: 992px)
-      .nav-profile
-        margin-left: auto
-
-    @media (min-width: 992px)
-      .nav-brand
-        margin: 0 auto
-
-
-  .nav-btn
-    height: $nav-btn-height
-    padding-top: 0
-    padding-bottom: 0
-    border-color: $nav-text-color
-    color: $nav-text-color
-    font-size: .86rem
-    line-height: $nav-btn-height
-
-    &:hover
-      background-color: $nav-btn-hover-color
-      color: $nav-text-color
-
-    .btn-action
-      color: $white
-
-    .glyphicon
-      margin-left: .5rem
-
-  .btn-icon
-    padding-right: 1rem
-    padding-left: 1.5rem
-
-  // 2nd row
   .welcome,
   .tokens-info
     h3,

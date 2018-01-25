@@ -25,6 +25,31 @@
     background-color: $btn-hover-bg
     color: $white
 
+// Navbar button (sign in/out)
+.nav-btn
+  height: $nav-btn-height
+  padding-top: 0
+  padding-bottom: 0
+  border-color: $nav-text-color
+  color: $nav-text-color
+  font-size: .86rem
+  line-height: $nav-btn-height
+
+  &:hover
+    background-color: $nav-btn-hover-color
+    color: $nav-text-color
+
+  .btn-action
+    color: $white
+
+  .glyphicon
+    margin-left: .5rem
+
+.btn-icon
+  padding-right: 1rem
+  padding-left: 1.5rem
+
+// Buy Tokens button
 .btn-buy
   position: relative
   margin-bottom: $sidebar-margin-y
@@ -35,6 +60,7 @@
     line-height: 2em
 
 
+// Extra bit of information on button
 .btn-extra
   &::after
     position: absolute
@@ -56,6 +82,7 @@
       line-height: 2em
 
 
+// Calculator buttons (arrows)
 .btn-increment
   width: 100%
   padding: 5px 10px
