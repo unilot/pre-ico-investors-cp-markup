@@ -1,11 +1,13 @@
-.timer
-  h4 PreICO ends in:
-  time(datetime='2018-02-17T19:00:00')
-    span.time-value.days 30
-    span.time-value.hours 08
-    span.time-value.minutes 14
-    span.time-value.seconds 49
-    span.time-label.days Days
-    span.time-label.hours Hours
-    span.time-label.minutes Minutes
-    span.time-label.seconds Seconds
+#js-time-counter
+script#timeCounterTemplate(type='text/x-jsrender')
+  .timer
+    h4 PreICO ends in:
+    time(datetime='2018-02-17T19:00:00')
+      span.time-value.days %D
+      span.time-value.hours %H
+      span.time-value.minutes %M
+      span.time-value.seconds %S
+      span.time-label.days Days
+      span.time-label.hours Hours
+      span.time-label.minutes Minutes
+      span.time-label.seconds Seconds

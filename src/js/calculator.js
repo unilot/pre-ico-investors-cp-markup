@@ -12,6 +12,8 @@ Calculator.prototype = {
     tokenAmountEl: null,
     ethAmountEl: null,
     totalTokenContainerEl: $('.js-token-total-amount'),
+    tokenContainerEl: $('.js-token-amount'),
+    bonusTokenContainerEl: $('.js-token-bonus-amount'),
     totalEthContainerEl: $('.js-eth-total-amount'),
     totalBonusContainerEl: $('.js-token-total-bonus'),
     totalFiatContainerEl: $('.js-fiat-total-amount'),
@@ -58,6 +60,8 @@ Calculator.prototype = {
             this.ethAmountEl.val(value);
             this.totalBonusContainerEl.text(this.getBonus());
             this.totalTokenContainerEl.text(this.getTokenTotalAmount());
+            this.tokenContainerEl.text(this.getTokenAmount());
+            this.bonusTokenContainerEl.text(this.getTokenBonusAmount());
             this.totalEthContainerEl.text(this.ethAmount);
             this.totalFiatContainerEl.text(this.getFiatAmount());
         }
@@ -121,11 +125,19 @@ Calculator.prototype = {
         return ( this.tokenAmount >= this.bonusTokenAmount );
     },
 
+    getTokenAmount: function() {
+        return this.tokenAmount;
+    },
+
+    getTokenBonusAmount: function() {
+        return Math.floor(this.getTokenAmount() * this.bonusAmount)
+    },
+
     getTokenTotalAmount: function() {
         var result = this.tokenAmount;
 
         if ( this._hasBonus() ) {
-            result = Math.floor(this.tokenAmount * (1 + this.bonusAmount));
+            result = this.getTokenAmount() + this.getTokenBonusAmount();
         }
 
         return result;

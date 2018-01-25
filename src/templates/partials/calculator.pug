@@ -4,38 +4,38 @@ section.calculator
     .form-group
       label(for='unit-amount') # of UNIT tokens
       .input-group
-        input(type='number' placeholder='1000' value='1000')#unit-amount.form-control.input-primary
+        input(type='number' placeholder='1000' value='1000')#unit-amount.form-control.input-primary.js-calculator-token-amount-input
         span.input-group-btn
           .input-group-increment
-            button.btn.btn-default.btn-increment.btn-up(onclick='changeUnitValue(1); return false;')
+            button.btn.btn-default.btn-increment.btn-up.js-value-up(onclick='changeUnitValue(1); return false;')
               span.glyphicon.glyphicon-chevron-up
-            button.btn.btn-default.btn-increment.btn-down(onclick='changeUnitValue(-1); return false;')
+            button.btn.btn-default.btn-increment.btn-down.js-value-down(onclick='changeUnitValue(-1); return false;')
               span.glyphicon.glyphicon-chevron-down
 
     .form-group
       label(for='eth-amount') Amount of ETH
       .input-group
-        input(type='number' value='0.079' readonly)#eth-amount.form-control.eth-amount
+        input(type='number' value='0.079' readonly)#eth-amount.form-control.eth-amount.js-calculator-eth-amount-input
         span.input-group-addon ETH
 
     .form-group
       .horizontal
         label(for='purchase-amount') You'll receive:
         output#purchase-amount
-          span 10 
+          span.js-token-amount 10
           //- span 1 000 000 
           span.unit UNIT
       .horizontal
-        label(for='bonus-amount') 40% bonus:
+        label(for='bonus-amount') #[span.js-token-total-bonus 40]% bonus:
         output#bonus-amount
-          span 4 
+          span.js-token-bonus-amount 4
           //- span 400 000 
           span.unit UNIT
 
     .form-group.output.text-center
       label(for='total-amount') Total:
       output#total-amount.total-amount
-        span 14 
+        span.js-token-total-amount 14
         //- span 1 400 000 
         span.unit UNIT
 
@@ -45,5 +45,5 @@ section.calculator
       label(for='usd-amount') Approximate $US amount:
       output#usd-amount.usd-amount
         span.unit $
-        span 0.00000952
+        span.js-fiat-total-amount 0.00000952
         //- span 9.52
