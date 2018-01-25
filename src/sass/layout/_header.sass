@@ -1,5 +1,6 @@
 header
-  height: $header-height
+  min-height: $nav-height
+  max-height: $header-height
   transition: .5s all
   background-color: $gray-darker
   background-image: url('../img/map.png')
@@ -8,7 +9,7 @@ header
   color: $gray-light
 
   @media (max-width: $tall-header-max-width)
-    height: 300px
+    max-height: $header-height-tall
     background-position: 55%
 
 
@@ -21,11 +22,12 @@ header
     height: 100%
 
   .row
-    &:last-child
+    &:nth-child(2)
       display: flex
       flex-grow: 1
       align-items: flex-end
-      height: $header-height - $nav-height
+      min-height: $header-height - $nav-height
+      max-height: $header-height-tall - $nav-height
       padding-bottom: .5rem
 
       @media (max-width: $tall-header-max-width)
