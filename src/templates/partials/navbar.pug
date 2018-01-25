@@ -6,13 +6,17 @@ nav.navbar.navbar-inverse.navbar-unilot(role='navigation')
         span.sr-only Toggle navigation
         span.glyphicon.glyphicon-menu-hamburger
 
-    li.item-collapsible.collapsible-1.active
-      a(href='new.html') Dashboard #[span.sr-only (current)]
+    if isAuthorised
+      li.item-collapsible.active
+        a(href='new.html') Dashboard #[span.sr-only (current)]
     
-    li.item-collapsible.collapsible-2
-      a(href='#') Affiliate &amp; Bounty programs
-    
-    li.item-collapsible.collapsible-3
+      li.item-collapsible
+        a(href='#') Affiliate &amp; Bounty programs
+    else
+      li.item-collapsible
+        a(href='#') Unilot ICO
+
+    li.item-collapsible
       a(href='#') FAQ
     
     //- should be in center
@@ -20,12 +24,14 @@ nav.navbar.navbar-inverse.navbar-unilot(role='navigation')
       a(href='#')
         img.logo(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
     
-    //- items to the right
-    li.item-right.item-collapsible.collapsible-4
-      a(href='#') Unilot ICO
     
-    li.item-right.item-collapsible-xs.collapsible-5
-      a(href='#') Profile
+    //- items to the right
+    if isAuthorised
+      li.item-right.item-collapsible
+        a(href='#') Unilot ICO
+      
+      li.item-right.item-collapsible-xs
+        a(href='#') Profile
     
     li.item-right.item-btn
       if isAuthorised

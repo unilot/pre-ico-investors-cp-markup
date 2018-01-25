@@ -37,7 +37,6 @@
     height: $nav-height
 
     li
-      flex-grow: 1
       margin: 0 1rem
 
       &:first-child
@@ -52,15 +51,13 @@
         line-height: $nav-height
 
     .item-toggle
-      flex-grow: 0
-
       a
         padding: 0 1rem
         color: $white
         font-size: 1.5rem
 
     .item-brand
-      z-index: 3
+      margin: 0 auto
 
       a
         display: flex
@@ -87,24 +84,25 @@
         color: $gold
 
 @media (max-width: $max-width-sm)
-  .navbar-nav
-    margin: 0
+  .navbar-unilot
+    .navbar-nav
+      margin: 0
 
-    .item-toggle
-      display: inline-block
-      position: relative
-      z-index: 3
+      .item-toggle
+        display: inline-block
+        position: relative
+        z-index: 3
 
-    // increase rule specificity by adding 'li' to its selector
-    li.item-brand
-      margin-right: auto
-      margin-left: inherit
+      // increase rule specificity by adding 'li' to its selector
+      li.item-brand
+        margin-right: auto
+        margin-left: inherit
 
-    .item-btn
-      padding-right: 1rem
+      .item-btn
+        padding-right: 1rem
 
-    .item-collapsible
-      display: none
+      .item-collapsible
+        display: none
 
 @media (max-width: 450px)
   .navbar-nav
