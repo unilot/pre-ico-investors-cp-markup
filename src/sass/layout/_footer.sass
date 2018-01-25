@@ -4,11 +4,9 @@ footer
   background-color: $gray-darker
 
 .nav-social
+  @extend %flex-centered
   max-width: $footer-nav-width
   margin: 0 auto
-
-  ul
-    @extend %flex-centered
 
   li
     margin: 0 .5rem
@@ -18,6 +16,9 @@ footer
     flex-direction: column
     justify-content: center
     margin-right: 1rem
+
+    a:hover
+      background-color: transparent
 
   .icon
     @extend %flex-fully-centered

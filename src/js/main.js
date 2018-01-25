@@ -132,12 +132,7 @@
     }
 })();
 
-// enable custom increment buttons for calculator (don't work in IE11)
-function changeUnitValue(number) {
-    document.getElementById('unit-amount').stepUp(number);
-}
-
-function slideoutInit() {
+    // Slideout
     // initialize slideout
     var slideout = new Slideout({
         'panel': document.getElementById('main-body'),
@@ -168,6 +163,7 @@ function slideoutInit() {
             this.panel.classList.remove('panel-open');
             this.panel.removeEventListener('click', close);
         });
-}
+})();
 
-slideoutInit();
+// initialize Material Design
+// $.material.init()

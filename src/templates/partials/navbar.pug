@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse.navbar-unilot(role='navigation')
+nav.navbar.navbar-unilot(role='navigation')
   ul#navbar.nav.navbar-nav
     //- items to the left
     li.item-toggle
@@ -35,8 +35,8 @@ nav.navbar.navbar-inverse.navbar-unilot(role='navigation')
     
     li.item-right.item-btn
       if isAuthorised
-        a.btn.btn-default.nav-btn.btn-icon(role='button' href='new-auth.html')
+        a.btn.nav-btn.btn-icon(role='button' href='new-auth.html')
             span.btn-action Sign out
             span.glyphicon.glyphicon-log-out
       else
-        a.btn.btn-default.nav-btn(role='button' href='new-auth.html') #[span.btn-action Sign in] or #[span.btn-action Sign up]
+        a.btn.nav-btn(role='button' href='new-auth.html') #[span.btn-action Sign in] or #[span.btn-action Sign up]

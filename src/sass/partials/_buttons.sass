@@ -1,11 +1,13 @@
 .btn
   padding-right: 1.5rem
   padding-left: 1.5rem
-  transition: .5s all
+  transition: border .5s
   border-radius: 25px
+  color: inherit
   font-family: $gotham
+  text-transform: none
 
-.btn-default
+.btn.btn-default
   border: solid 1px $gray-lighter
   background-color: transparent
 
@@ -16,13 +18,13 @@
 
 .btn-primary
   border: 0
-  background-image: $purple-gradient
-  color: $white
+  background: $purple-gradient
+  color: $white !important  // could not override rule from bootstrap-material-design otherwise
 
   &:hover,
   &:focus
     border: 0
-    background-color: $btn-hover-bg
+    background: $btn-hover-bg !important  // could not override rule from bootstrap-material-design otherwise
     color: $white
 
 // Navbar button (sign in/out)
@@ -30,12 +32,14 @@
   height: $nav-btn-height
   padding-top: 0
   padding-bottom: 0
-  border-color: $nav-text-color
+  border: solid 1px $nav-text-color
   color: $nav-text-color
   font-size: .86rem
   line-height: $nav-btn-height
 
-  &:hover
+  &:hover,
+  &:focus
+    border-color: $purple
     background-color: $nav-btn-hover-color
     color: $nav-text-color
 
@@ -50,14 +54,23 @@
   padding-left: 1.5rem
 
 // Buy Tokens button
-.btn-buy
+.btn.btn-buy
+  display: block
   position: relative
   margin-bottom: $sidebar-margin-y
+  background: $purple-gradient
+  color: $white
   font-size: $buy-tokens-font-size
   @media (max-width: $max-width-sm)
     border-radius: 55.7px
     font-size: 44.6px
     line-height: 2em
+
+
+  &:hover,
+  &:focus
+    border: 0
+    background: $btn-hover-bg !important
 
 
 // Extra bit of information on button
@@ -83,7 +96,7 @@
 
 
 // Calculator buttons (arrows)
-.btn-increment
+.btn.btn-increment
   width: 100%
   padding: 5px 10px
   border-radius: 2px

@@ -1,32 +1,35 @@
-$wb-border-radius: 15px
 .slideout-panel
   .tab-content
     @extend %white-block
 
-  .nav-tabs
+  ul.nav.nav-tabs
     border: 0
+    background-color: transparent
 
     li,
     li > a
       border-radius: $wb-border-radius $wb-border-radius 0 0
 
     li
+      margin-bottom: 0
+
       a
         margin: 0
         border: 0
-        color: $gray-light
+        color: $gray-light !important
         font-family: $gotham-medium
         font-size: 1.78rem
 
     li:not(.active)
       a
         &:hover
-          background-color: $gray-lighter
+          background-color: darken($bg-color, 5%) !important
 
-    .active
+    li.active
       a
-        background-color: $white
-        color: $black
+        // have to use !important to override !important values set by bootstrap-material-design
+        background-color: $white !important 
+        color: $black !important
 
         &:hover,
         &:focus
