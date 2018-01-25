@@ -3,7 +3,7 @@ footer
   padding-top: $footer-padding-y
   background-color: $gray-darker
 
-.social-nav
+.nav-social
   max-width: $footer-nav-width
   margin: 0 auto
 
@@ -19,41 +19,33 @@ footer
     justify-content: center
     margin-right: 1rem
 
-  .social-btn
-    padding: 10px
-    border: solid 1px $social-border
-    border-radius: 20px
+  .icon
+    @extend %flex-fully-centered
+    display: inline-block
+    width: $social-icon-size
+    height: $social-icon-size
+    border-radius: 100%
+    color: $white
+    font-size: 1.14rem
+    line-height: $social-icon-size
 
-    &:hover
-      text-decoration: none
+    &::before
+      margin: 0   // IE11 fix
 
-    .icon
-      @extend %flex-fully-centered
-      display: inline-block
-      width: $social-icon-size
-      height: $social-icon-size
-      border-radius: 100%
-      color: $white
-      font-size: 1.14rem
-      line-height: $social-icon-size
+  .icon-github
+    font-size: $social-icon-size
 
-      &::before
-        margin: 0   // IE11 fix
+  .icon-telegram
+    background-color: $telegram-blue
+    font-size: .8rem
 
-    .icon-github
-      font-size: $social-icon-size
+  .icon-reddit
+    background-color: $blood-orange
 
-    .icon-telegram
-      background-color: $telegram-blue
-      font-size: .8rem
+  .icon-twitter
+    background-color: $twitter-blue
+    font-size: .8rem
 
-    .icon-reddit
-      background-color: $blood-orange
-
-    .icon-twitter
-      background-color: $twitter-blue
-      font-size: .8rem
-
-    .icon-facebook
-      background-color: $facebook-blue
-      font-size: .9rem
+  .icon-facebook
+    background-color: $facebook-blue
+    font-size: .9rem
