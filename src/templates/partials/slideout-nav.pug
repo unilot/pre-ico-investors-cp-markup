@@ -1,9 +1,10 @@
 ul.nav
-  li.active
-    a(href='new.html') Dashboard #[span.sr-only (current)]
+  if isAuthorised
+    li.active
+      a(href='new.html') Dashboard #[span.sr-only (current)]
   
-  li
-    a(href='#') Affiliate &amp; Bounty programs
+    li
+      a(href='#') Affiliate &amp; Bounty programs
   
   li
     a(href='#') FAQ
@@ -11,5 +12,6 @@ ul.nav
   li
     a(href='#') Unilot ICO
   
-  li
-    a(href='#') Profile
+  if isAuthorised
+    li
+      a(href='#') Profile
