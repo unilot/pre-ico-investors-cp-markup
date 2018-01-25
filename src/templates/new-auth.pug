@@ -22,42 +22,98 @@ block content
             .row
               .col-md-12
                 .alert.hidden.js-form-alert.text-center
-                
-                .form-group
-                  label.control-label(for='signUpEmail') Email
-                  input#signUpEmail.form-control(type='email', placeholder='Email', required, name='email')
-                  .help-block.with-errors
-                
-                .form-group
-                  label.control-label(for='signUpPassword') Password
-                  input#signUpPassword.form-control(type='password', placeholder='Password', required, name='password')
-                  .help-block.with-errors
-                
+                .row.no-padding
+                  .col-md-6
+                    .form-group.label-floating
+                      label.control-label(for='signUpCountry') Country #[span.required]
+                      select#signUpCountry.form-control(name='country')
+                        option(selected disabled)
+                        option Albania
+                        option Algeria
+                        option Andorra
+                  .col-md-6
+                    .alert.alert-warning(role='alert')
+                      img(src='/assets/img/attention.png').pull-left
+                      p We're unable to sell Unilots to Canada, China, Singapore and USA residents
+            
             .row
-              include lib/overlay-loader
-              .col-xs-12
+              .col-md-6
+                .form-group.label-floating
+                  label.control-label(for='signUpEmail') Email address #[span.required]
+                  input#signUpEmail.form-control(type='email', required, name='email')
+                  .help-block You will be notified when your tokens are available. We won't disclose your email to third parties.
+                  .help-block.with-errors
+            
+            .row
+              .col-md-12
+                .row.no-padding
+                  .col-md-6
+                    .form-group.label-floating
+                      label.control-label(for='signUpFullName') Full name #[span.required]
+                      input#signUpFullName.form-control(type='text', required, name='fullname')
+                      .help-block.with-errors
+                  .col-md-6
+                    .form-group.label-floating
+                      label.control-label(for='signUpCompany') Company name
+                      input#signUpCompany.form-control(type='text', name='company')
+                      .help-block For incorporated buyers only, otherwise leave empty
+                      .help-block.with-errors
+
+            .row
+              .col-md-6
+                .row.no-padding
+                  .col-md-4
+                    .form-group
+                      select#signUpPhoneCode.form-control(name='phonecode')
+                        option +33
+                        option +77
+                        option +998
+                  .col-md-8
+                    .form-group.label-floating
+                      label.control-label(for='signUpPhone') Phone number #[span.required]
+                      input#signUpPhone.form-control(type='tel', required, name='phone')
+                      .help-block.with-errors
+            .row
+              .col-md-6              
+                .form-group
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      span.checkbox-material
+                      | &nbsp;&nbsp;I accept these #[a(href='#') Terms &amp; Conditions]
+              .col-md-6
+                include lib/overlay-loader
                 button.btn.btn-primary.btn-lg.pull-right(role='submit') Sign me up
 
         #auth-sign-in.tab-pane.js-has-overlay(role='tabpanel')
           include lib/overlay-loader
           form.js-generic-form
             .row
-              .col-md-12
+              .col-md-6
                 .alert.hidden.js-form-alert.text-center
                 
-                .form-group
+                .form-group.label-floating
                   label.control-label(for='signInEmail') Email
-                  input#signInEmail.form-control(type='email', placeholder='Email', required, name='email')
+                  input#signInEmail.form-control(type='email', required, name='email')
                   .help-block.with-errors
                 
-                .form-group
+                .form-group.label-floating
                   label.control-label(for='signInPassword') Password
-                  input#signInPassword.form-control(type='password', placeholder='Password', required, name='password')
+                  input#signInPassword.form-control(type='password', required, name='password')
+                  .help-block
+                    a(href='#') Forgot password?
                   .help-block.with-errors
+
+                .form-group
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      span.checkbox-material
+                      | &nbsp;&nbsp;Remember me
                 
             .row
               include lib/overlay-loader
-              .col-xs-12
+              .col-md-6
                 button.btn.btn-primary.btn-lg.pull-right(role='submit') Sign in
 
     //- Sidebar

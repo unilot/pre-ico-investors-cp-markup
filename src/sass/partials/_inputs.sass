@@ -1,81 +1,87 @@
-form
-  .form-group
-    margin-bottom: $sidebar-margin-y
+.required
+  &::before
+    color: red
+    content: '*'
 
-  label
-    @extend %small-gray-label
+.calculator
+  form
+    .form-group
+      margin-bottom: $sidebar-margin-y
 
-    &[for='total-amount']
-      margin-bottom: 0
+    label
+      @extend %small-gray-label
 
-  .form-control
-    @extend %dark-gotham-text
-    @extend %input-reset
-    border-bottom: solid 2px $input-border
+      &[for='total-amount']
+        margin-bottom: 0
 
-    &:focus
-      border-color: $purple
-      box-shadow: none
-      -webkit-box-shadow: none
-      border-image: $purple-gradient 10
-
-    @media (max-width: $max-width-sm)
-      height: 2em
-
-
-    &[type='number']
-      -moz-appearance: textfield
-      -webkit-appearance: textfield
-      appearance: textfield
-
-    &[readonly]
-      border-color: $readonly-input-border
-      background-color: transparent
-
-  .has-error
     .form-control
-      border-bottom-color: $error-color
-      box-shadow: none
+      @extend %dark-gotham-text
+      @extend %input-reset
+      border-bottom: solid 2px $input-border
 
       &:focus
+        border-color: $purple
         box-shadow: none
         -webkit-box-shadow: none
+        border-image: $purple-gradient 10
 
-    .control-label,
-    .help-block
-      color: $error-color
+      @media (max-width: $max-width-sm)
+        height: 2em
 
-    &:focus-within
+
+      &[type='number']
+        -moz-appearance: textfield
+        -webkit-appearance: textfield
+        appearance: textfield
+
+      &[readonly]
+        border-color: $readonly-input-border
+        background-color: transparent
+
+    .has-error
+      .form-control
+        border-bottom-color: $error-color
+        box-shadow: none
+
+        &:focus
+          box-shadow: none
+          -webkit-box-shadow: none
+
       .control-label,
       .help-block
-        color: $gray
+        color: $error-color
 
-  .input-primary
-    border-color: $purple
-    border-image: $purple-gradient 10
+      &:focus-within
+        .control-label,
+        .help-block
+          color: $gray
 
-  .input-group
-    width: 100%
+    .input-primary
+      border-color: $purple
+      border-image: $purple-gradient 10
 
-    .input-group-addon
-      @extend %input-reset
-      padding-right: 0
+    .input-group
+      width: 100%
 
-    .input-group-btn,
-    .input-group-addon
-      width: 3rem
+      .input-group-addon
+        @extend %input-reset
+        padding-right: 0
 
-    .input-group-btn
-      position: relative
+      .input-group-btn,
+      .input-group-addon
+        width: 3rem
 
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
       .input-group-btn
-        background-color: $todo-bg
+        position: relative
+
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+        .input-group-btn
+          background-color: $todo-bg
 
 
-    .input-group-increment
-      @extend %flex-column-layout
-      position: absolute
-      right: 0
-      bottom: 0
-      width: 34px
+      .input-group-increment
+        @extend %flex-column-layout
+        position: absolute
+        right: 0
+        bottom: 0
+        width: 34px

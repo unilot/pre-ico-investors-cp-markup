@@ -57,6 +57,7 @@
         document.execCommand('copy');
     });
 
+    // Wizard
     $signUpWizard.bootstrapWizard();
 
     $('a[data-toggle=tab]', $signUpWizard).on("click", function (e) {
@@ -163,7 +164,7 @@
             this.panel.classList.remove('panel-open');
             this.panel.removeEventListener('click', close);
         });
-})();
 
-// initialize Material Design
-// $.material.init()
+    // Material design
+    $.material.init();
+})();
