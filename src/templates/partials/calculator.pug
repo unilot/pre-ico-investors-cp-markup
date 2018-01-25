@@ -21,17 +21,29 @@ section.calculator
     .form-group
       .horizontal
         label(for='purchase-amount') You'll receive:
-        output#purchase-amount 1 000 000 #[span UNIT]
+        output#purchase-amount
+          span 10 
+          //- span 1 000 000 
+          span.unit UNIT
       .horizontal
         label(for='bonus-amount') 40% bonus:
-        output#bonus-amount 400 000 #[span UNIT]
+        output#bonus-amount
+          span 4 
+          //- span 400 000 
+          span.unit UNIT
 
     .form-group.output.text-center
       label(for='total-amount') Total:
-      output#total-amount.total-amount 1 400 000 #[span UNIT]
+      output#total-amount.total-amount
+        span 14 
+        //- span 1 400 000 
+        span.unit UNIT
 
     hr
 
     .form-group.output.text-center
       label(for='usd-amount') Approximate $US amount:
-      output#usd-amount.usd-amount #[span $]9.52
+      output#usd-amount.usd-amount
+        span.unit $
+        span 0.00000952
+        //- span 9.52
