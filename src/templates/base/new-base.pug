@@ -14,13 +14,15 @@ html(lang='en')
     link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
   
   body
+    include ../lib/buy-token-modal
+    
     #slideout
       include ../partials/slideout-nav
 
     #main-body
       include ../partials/header
-
-      .container.grow
+      
+      .container.grow      
         block content
       
       include ../partials/footer
