@@ -26,11 +26,13 @@ block content
                   .col-md-6
                     .form-group.label-floating
                       label.control-label(for='signUpCountry') Country #[span.required]
-                      select#signUpCountry.form-control(name='country')
+                      span.caret
+                      select#signUpCountry.form-control(required, name='country')
                         option(selected disabled)
                         option Albania
                         option Algeria
                         option Andorra
+                      .help-block.with-errors
                   .col-md-6
                     .alert.alert-warning(role='alert')
                       img(src='/assets/img/attention.png').pull-left
@@ -41,8 +43,8 @@ block content
                 .form-group.label-floating
                   label.control-label(for='signUpEmail') Email address #[span.required]
                   input#signUpEmail.form-control(type='email', required, name='email')
-                  .help-block You will be notified when your tokens are available. We won't disclose your email to third parties.
                   .help-block.with-errors
+                  .help-block You will be notified when your tokens are available. We won't disclose your email to third parties.
             
             .row
               .col-md-12
@@ -62,19 +64,20 @@ block content
             .row
               .col-md-6
                 .row.no-padding
-                  .col-md-4
+                  .col-md-4.col-sm-4.col-xs-4
                     .form-group
+                      span.caret
                       select#signUpPhoneCode.form-control(name='phonecode')
                         option +33
                         option +77
                         option +998
-                  .col-md-8
+                  .col-md-8.col-sm-8.col-xs-8
                     .form-group.label-floating
                       label.control-label(for='signUpPhone') Phone number #[span.required]
                       input#signUpPhone.form-control(type='tel', required, name='phone')
                       .help-block.with-errors
             .row
-              .col-md-6              
+              .col-md-6
                 .form-group
                   .checkbox
                     label
@@ -83,7 +86,8 @@ block content
                       | &nbsp;&nbsp;I accept these #[a(href='#') Terms &amp; Conditions]
               .col-md-6
                 include lib/overlay-loader
-                button.btn.btn-primary.btn-lg.pull-right(role='submit') Sign me up
+                button.btn.btn-primary.btn-lg.btn-auth.pull-right(role='submit') Sign me up
+                  span.glyphicon.glyphicon-menu-right
 
         #auth-sign-in.tab-pane.js-has-overlay(role='tabpanel')
           include lib/overlay-loader
@@ -100,9 +104,9 @@ block content
                 .form-group.label-floating
                   label.control-label(for='signInPassword') Password
                   input#signInPassword.form-control(type='password', required, name='password')
-                  .help-block
+                  .help-block.pull-left.with-errors
+                  .help-block.pull-right
                     a(href='#') Forgot password?
-                  .help-block.with-errors
 
                 .form-group
                   .checkbox
@@ -114,7 +118,8 @@ block content
             .row
               include lib/overlay-loader
               .col-md-6
-                button.btn.btn-primary.btn-lg.pull-right(role='submit') Sign in
+                button.btn.btn-primary.btn-lg.btn-auth(role='submit') Sign in
+                  span.glyphicon.glyphicon-menu-right
 
     //- Sidebar
     .col-md-4.hidden-sm.hidden-xs

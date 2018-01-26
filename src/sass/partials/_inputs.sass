@@ -3,6 +3,27 @@
     color: red
     content: '*'
 
+.help-block
+  position: relative !important
+  margin-bottom: 0
+
+  // avoid painting regular help text with red on errors
+.has-error.has-danger
+  .help-block:not(.with-errors)
+    color: inherit
+
+.form-group
+  .caret
+    position: absolute
+    top: 18px
+    right: 0
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      display: none
+
+
+  .control-label
+    color: $gray-darker
+
 .calculator
   form
     .form-group

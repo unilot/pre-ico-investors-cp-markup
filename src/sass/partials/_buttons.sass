@@ -47,12 +47,26 @@
     .btn-action
       color: $white
 
-    .glyphicon
-      margin-left: .5rem
+    .btn-icon
+      padding-right: 1rem
+      padding-left: 1.5rem
 
-  .btn-icon
-    padding-right: 1rem
-    padding-left: 1.5rem
+      .glyphicon
+        margin-left: .5rem
+
+// Auth buttons
+.btn-auth
+  position: relative
+  width: $btn-auth-width
+  height: $btn-auth-height
+  margin-top: 14px  // margin-top of .form-group / 2
+
+  .glyphicon
+    position: absolute
+    right: 1.5rem
+    height: $btn-auth-height
+    font-size: 1rem
+    line-height: $btn-auth-height
 
 // Buy Tokens button
 .btn-buy

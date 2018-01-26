@@ -1,7 +1,17 @@
 #auth-sign-up
   .alert-warning
+    display: flex
+    align-items: center
     border: 0
     color: $black
+    @media (min-width: $max-width-sm)
+      // take element out of normal flow, so that height 
+      // of containing .row can collapse to the height of
+      // .form-group with 'Country' select element;
+      // do it only on medium/large screens, because on
+      // smaller screens different columns aren't needed
+      position: absolute
+
 
     img
       margin-right: 1rem
