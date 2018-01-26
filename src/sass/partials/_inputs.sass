@@ -26,8 +26,16 @@
 
 .calculator
   form
+    .form-control,
+    .form-group .form-control
+      background-image: linear-gradient($purple, $purple), linear-gradient($input-border, $input-border)
+
     .form-group
       margin-bottom: $sidebar-margin-y
+
+    .form-group.is-focused
+      label
+        color: $purple
 
     label
       @extend %small-gray-label
@@ -38,7 +46,6 @@
     .form-control
       @extend %dark-gotham-text
       @extend %input-reset
-      border-bottom: solid 2px $input-border
 
       &:focus
         border-color: $purple
