@@ -7,7 +7,7 @@
   font-family: $gotham
   text-transform: none
 
-.btn.btn-default
+.btn-default
   border: solid 1px $gray-lighter
   background-color: transparent
 
@@ -19,58 +19,50 @@
 .btn-primary
   border: 0
   background: $purple-gradient
-  color: $white !important  // could not override rule from bootstrap-material-design otherwise
+  color: $white
 
   &:hover,
   &:focus
     border: 0
-    background: $btn-hover-bg !important  // could not override rule from bootstrap-material-design otherwise
+    background: $btn-hover-bg
     color: $white
 
 // Navbar button (sign in/out)
-.nav-btn
-  height: $nav-btn-height
-  padding-top: 0
-  padding-bottom: 0
-  border: solid 1px $nav-text-color
-  color: $nav-text-color
-  font-size: .86rem
-  line-height: $nav-btn-height
-
-  &:hover,
-  &:focus
-    border-color: $purple
-    background-color: $nav-btn-hover-color
+.nav
+  .nav-btn
+    height: $nav-btn-height
+    padding-top: 0
+    padding-bottom: 0
+    border: solid 1px $nav-text-color
     color: $nav-text-color
+    font-size: .86rem
+    line-height: $nav-btn-height
 
-  .btn-action
-    color: $white
+    &:hover,
+    &:focus
+      border-color: $purple
+      background: $nav-btn-hover-color
+      color: $nav-text-color
 
-  .glyphicon
-    margin-left: .5rem
+    .btn-action
+      color: $white
 
-.btn-icon
-  padding-right: 1rem
-  padding-left: 1.5rem
+    .glyphicon
+      margin-left: .5rem
+
+  .btn-icon
+    padding-right: 1rem
+    padding-left: 1.5rem
 
 // Buy Tokens button
-.btn.btn-buy
-  display: block
+.btn-buy
   position: relative
   margin-bottom: $sidebar-margin-y
-  background: $purple-gradient
-  color: $white
   font-size: $buy-tokens-font-size
   @media (max-width: $max-width-sm)
     border-radius: 55.7px
     font-size: 44.6px
     line-height: 2em
-
-
-  &:hover,
-  &:focus
-    border: 0
-    background: $btn-hover-bg !important
 
 
 // Extra bit of information on button
@@ -96,17 +88,17 @@
 
 
 // Calculator buttons (arrows)
-.btn.btn-increment
+.btn-increment
   width: 100%
   padding: 5px 10px
   border-radius: 2px
-  color: $purple !important
+  color: $purple
   font-size: .6rem
 
 .btn-up
   margin-bottom: 5px
 
-// Social buttons (Facebook, Twitter, etc.) - .btn to increase specificity
+// Social buttons (Facebook, Twitter, etc.)
 .btn.btn-social
   padding: 10px
   border: solid 1px $social-border
