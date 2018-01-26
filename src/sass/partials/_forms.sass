@@ -1,3 +1,6 @@
+form
+  margin-bottom: 1rem
+
 .required
   &::before
     color: red
@@ -21,21 +24,47 @@
       display: none
 
 
+#auth-sign-up,
+#auth-sign-in
   .control-label
     color: $gray-darker
 
-.calculator
+// label[for='beta-id']
+//   text-transform: uppercase
+//   color: blue
+
+.check
+  margin-right: 1rem
+
+.calculator,
+.beta-invite
   form
     .form-control,
     .form-group .form-control
-      background-image: linear-gradient($purple, $purple), linear-gradient($input-border, $input-border)
+        background-image: linear-gradient($purple, $purple), linear-gradient($input-border, $input-border)
 
-    .form-group
-      margin-bottom: $sidebar-margin-y
 
+.calculator
+  form
     .form-group.is-focused
       label
         color: $purple
+
+.beta-invite
+  form
+    .form-group,
+    .form-group.is-focused
+      label
+        color: $gray
+
+.checkbox
+  label:not(:first-child)
+    margin-left: 2rem
+
+.calculator
+  form
+    .form-group
+      margin-bottom: $sidebar-margin-y
 
     label
       @extend %small-gray-label

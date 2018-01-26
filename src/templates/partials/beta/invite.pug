@@ -1,0 +1,25 @@
+section.beta-invite
+  h3 Take your chance to Win #[span.text-nowrap 100 000] Tokens in App Beta-Testing
+  p Take part in any drawing and you automatically participate in drawing for price of #[span.text-nowrap 100 000] UNIT
+
+  form
+    .form-group.label-floating
+      label.control-label(for='beta-id') Apple ID or email
+      input#beta-id.form-control(type='text', required, name='beta-id')
+      .help-block.with-errors
+
+    .form-group
+      .checkbox
+        label
+          input(type='checkbox' name='android')
+          span.checkbox-material
+          small Android
+          
+        label
+          input(type='checkbox' name='ios')
+          span.checkbox-material
+          small iOS
+
+    button.btn.btn-default.btn-lg.btn-block Participate
+  
+  p.text-center #[span.text-nowrap Winners will be announced] #[span.text-nowrap on March 5th, 2018]

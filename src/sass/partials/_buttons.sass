@@ -27,6 +27,10 @@
     background: $btn-hover-bg
     color: $white
 
+.btn-lg
+  min-height: $btn-lg-height
+  max-height: 2rem
+
 // Navbar button (sign in/out)
 .nav
   .nav-btn
@@ -58,21 +62,23 @@
 .btn-auth
   position: relative
   width: $btn-auth-width
-  height: $btn-auth-height
+  height: $btn-lg-height
   margin-top: 14px  // margin-top of .form-group / 2
 
   .glyphicon
     position: absolute
     right: 1.5rem
-    height: $btn-auth-height
+    height: $btn-lg-height
     font-size: 1rem
-    line-height: $btn-auth-height
+    line-height: $btn-lg-height
 
 // Buy Tokens button
 .btn-buy
   position: relative
   margin-bottom: $sidebar-margin-y
+  padding: 0
   font-size: $buy-tokens-font-size
+  line-height: $btn-lg-height
   @media (max-width: $max-width-sm)
     border-radius: 55.7px
     font-size: 44.6px
@@ -85,13 +91,14 @@
     position: absolute
     top: 0
     right: 1.5rem
-    padding: 2px 10px
+    padding: 0 10px
     transform: translateY(-50%)
     border-radius: 10px
     background-color: $darkish-pink
     background-image: $pink-gradient
     font-family: $roboto
     font-size: $base-font-size
+    line-height: 22px
     content: '40% Bonus'
     @media (max-width: $max-width-sm)
       right: 3em
