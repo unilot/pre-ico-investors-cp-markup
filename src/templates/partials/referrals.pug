@@ -1,0 +1,28 @@
+section.referrals
+  h3.no-margin My UNIT Referral Tokens
+  output#referral-amount
+    span.space-after 0.00
+    span.unit UNIT
+
+  h3.no-margin Your Referral Links
+  form
+    .form-group
+      .input-group
+        input#referral-link.form-control(type='text', value='https://unilot.io/en-us/12345qwerty', readonly)
+        span.input-group-addon
+          a(href='#').text-uppercase Copy link 
+  p.subtle This is your Unilot referral link. Share it with your contacts to get free UNIT coin for every purchased one by your referrer.
+  
+  ul.nav.nav-pills.nav-social
+    li
+      a.btn(href='#' target='_blank' title='Share to Telegram')
+        span.icon.icon-telegram
+    li
+      a.btn(href='#' target='_blank' title='Share to Reddit')
+        span.icon.icon-reddit
+    li
+      a.btn(href='#' target='_blank' title='Share to Twitter')
+        span.icon.icon-twitter
+    li
+      a.btn(href='#' target='_blank' title='Share to Facebook')
+        span.icon.icon-facebook
