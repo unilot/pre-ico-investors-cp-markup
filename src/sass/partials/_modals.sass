@@ -5,11 +5,12 @@ $modal-padding: 40px
 
 $modal-title-img-size: 49px
 
-$modal-line-red: #f15039
+$modal-error: #f15039
+$modal-success: #35b344
 $modal-line-height: 8px
 
 .modal-dialog
-  max-width: $modal-width
+  width: 500px
 
   .modal-content
     min-height: $modal-height
@@ -23,12 +24,10 @@ $modal-line-height: 8px
       left: 0
       width: 100%
       height: $modal-line-height
-      background-color: $modal-line-red
+      background-color: $purple
       content: ''
 
     .modal-header
-      padding-top: $modal-padding
-
       // hide Bootstrap-defined pseudo elements, 
       // so they don't count as flex items
       &::before,
@@ -41,7 +40,7 @@ $modal-line-height: 8px
     .img-horizontal
       display: flex
       align-items: center
-      justify-content: space-around
+      justify-content: flex-start
 
       .modal-title-img
         flex-shrink: 0
@@ -49,50 +48,105 @@ $modal-line-height: 8px
         height: $modal-title-img-size
         margin-right: 1rem
 
+      .img-lock
+        width: 20px
+        height: auto//22px
+        padding: 10px 15px
+        border: solid 1px $gray-lighter
+        border-radius: 4px
+        box-sizing: content-box
+
     h4
       color: $black
-      font-family: $gotham
-      font-size: 1.78rem
+      font-family: $gotham-medium
+      font-size: 1.8rem
 
     .modal-body
       h4
-        margin-bottom: .5rem
+        margin-bottom: 2rem
+
+        small
+          color: $gray
+          font-family: $gotham
+          font-size: 1.14rem
 
       p
-        color: $gray
-        font-family: $gotham
-        font-size: 1.14rem
+        font-size: .93rem
 
-      .control-label
+      .label-floating
+        .control-label
+          color: $gray-darker
+
+          .required::before
+            color: $gray-darker
+
+      .control-label,
+      .is-focused .control-label
+        color: $gray
+
+        .required::before
+          color: $gray
+
+      select,
+      input
         color: $gray-darker
 
     .modal-footer
       .close
-        display: flex
-        position: absolute
-        right: $modal-border-radius
         bottom: $modal-border-radius
-        align-items: center
-        padding: 0
-        font-family: $roboto
-        font-size: 1.14rem
-        font-weight: normal
-        opacity: 1
 
-        span
-          display: inline-block
 
-        .close-icon
-          margin-left: 1rem
+    .close
+      display: flex
+      position: absolute
+      right: $modal-border-radius
+      align-items: center
+      height: 22px
+      padding: 0
+      font-family: $roboto
+      font-size: 1.14rem
+      font-weight: normal
+      opacity: 1
 
-          &::before,
-          &::after
-            display: block
-            width: 30px
-            height: 1px
-            transform: rotate(45deg)
-            background-color: $gray
-            content: ''
+      span
+        display: inline-block
 
-          &::after
-            transform: rotate(-45deg)
+      .close-icon
+        margin-left: 1rem
+
+        &::before,
+        &::after
+          display: block
+          width: 30px
+          height: 1px
+          transform: rotate(45deg)
+          background-color: $gray
+          content: ''
+
+        &::after
+          transform: rotate(-45deg)
+
+.modal-error
+  width: $modal-width
+
+  .modal-content
+    .modal-header
+      padding-top: $modal-padding
+
+    .img-horizontal
+      justify-content: space-around
+
+    h4
+      font-family: $gotham
+      font-size: 1.78rem
+
+    &::before
+      background-color: $modal-error
+
+    .control-label
+      color: $gray-darker
+
+.modal-success
+  .modal-content
+    &::before
+      background-color: $modal-success

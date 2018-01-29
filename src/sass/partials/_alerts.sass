@@ -1,6 +1,8 @@
+.alert-flex
+  display: flex
+
 #auth-sign-up
-  .alert-warning
-    display: flex
+  .alert-flex
     align-items: center
     border: 0
     color: $black
@@ -19,3 +21,11 @@
 section
   .alert:last-child
     margin-bottom: 0
+
+.modal
+  .alert
+    img
+      flex-shrink: 0
+      width: 29px
+      height: 27px
+      margin-right: 1rem

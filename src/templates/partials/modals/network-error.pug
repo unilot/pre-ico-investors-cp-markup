@@ -1,9 +1,11 @@
 #networkError.modal.fade(tabindex='-1' role='dialog')
-  .modal-dialog(role='document')
+  .modal-dialog.modal-error(role='document')
     .modal-content
       .modal-header
         img.modal-title-img.center-block(src='assets/img/sending-is-failed.png')
+      
       .modal-body
         h4.text-center Sending is failed
-        p.text-center Check your network connection.
-        button.btn.btn-primary.btn-lg.btn-auth.center-block(role='button') Try again
+          br
+          small Check your network connection
+        button.btn.btn-primary.btn-lg.center-block(role='button') Try again
