@@ -14,10 +14,12 @@ block content
           a(href='#auth-sign-up', role='tab', aria-controls='auth-sign-up', data-toggle='tab') Sign Up
         li(role='presentation')
           a(href='#auth-sign-in', role='tab', aria-controls='auth-sign-in', data-toggle='tab') Sign In
+        li(role='presentation')
+          a(href='#', role='tab', data-toggle='modal', data-target='#networkError' style='font-family: "Roboto Light"') Trigger network error
       
       .tab-content
         #auth-sign-up.tab-pane.active.js-has-overlay(role='tabpanel')
-          include lib/overlay-loader
+          include lib/overlay-loader          
           form.js-generic-form
             .row
               .col-md-12
