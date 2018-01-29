@@ -1,0 +1,84 @@
+$modal-width: 430px
+$modal-height: 340px
+$modal-border-radius: 20px
+$modal-padding: 40px
+
+$modal-title-img-size: 49px
+
+$modal-line-red: #f15039
+$modal-line-height: 8px
+
+.modal-dialog
+  max-width: $modal-width
+
+  .modal-content
+    min-height: $modal-height
+    padding: 0 $modal-padding
+    border-radius: $modal-border-radius
+    overflow: hidden
+
+    &::before
+      display: block
+      position: absolute
+      left: 0
+      width: 100%
+      height: $modal-line-height
+      background-color: $modal-line-red
+      content: ''
+
+    .modal-header
+      display: flex
+      align-items: center
+      justify-content: space-around
+      padding-top: $modal-padding
+
+      // hide Bootstrap-defined pseudo elements, 
+      // so they don't count as flex items
+      &::before,
+      &::after
+        display: none
+
+      .modal-title
+        color: $black
+        font-family: $gotham
+        font-size: 1.78rem
+
+      .modal-title-img
+        flex-shrink: 0
+        width: $modal-title-img-size
+        height: $modal-title-img-size
+        margin-right: 1rem
+
+    .control-label
+      color: $gray-darker
+
+    .modal-footer
+      .close
+        display: flex
+        position: absolute
+        right: $modal-border-radius
+        bottom: $modal-border-radius
+        align-items: center
+        padding: 0
+        font-family: $roboto
+        font-size: 1.14rem
+        font-weight: normal
+        opacity: 1
+
+        span
+          display: inline-block
+
+        .close-icon
+          margin-left: 1rem
+
+          &::before,
+          &::after
+            display: block
+            width: 30px
+            height: 1px
+            transform: rotate(45deg)
+            background-color: $gray
+            content: ''
+
+          &::after
+            transform: rotate(-45deg)
