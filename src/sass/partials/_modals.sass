@@ -1,16 +1,5 @@
-$modal-width: 430px
-$modal-height: 340px
-$modal-border-radius: 20px
-$modal-padding: 40px
-
-$modal-title-img-size: 49px
-
-$modal-error: #f15039
-$modal-success: #35b344
-$modal-line-height: 8px
-
 .modal-dialog
-  width: 500px
+  width: $modal-md-width
 
   .modal-content
     min-height: $modal-height
@@ -37,6 +26,10 @@ $modal-line-height: 8px
       .modal-title-img
         height: 76px
 
+    .bordered
+      padding-bottom: 10px
+      border-bottom: solid 1px $modal-header-border-color
+
     .img-horizontal
       display: flex
       align-items: center
@@ -50,9 +43,8 @@ $modal-line-height: 8px
 
       .img-lock
         width: 20px
-        height: auto//22px
+        height: auto
         padding: 10px 15px
-        border: solid 1px $gray-lighter
         border-radius: 4px
         box-sizing: content-box
 
@@ -70,8 +62,21 @@ $modal-line-height: 8px
           font-family: $gotham
           font-size: 1.14rem
 
-      p
+      p,
+      ol,
+      ul
         font-size: .93rem
+
+      ol
+        padding: 0
+        list-style-position: inside
+
+        li
+          margin-bottom: .25em
+
+        ul
+          margin-bottom: .25em
+          list-style-type: none
 
       .label-floating
         .control-label
@@ -127,8 +132,6 @@ $modal-line-height: 8px
           transform: rotate(-45deg)
 
 .modal-error
-  width: $modal-width
-
   .modal-content
     .modal-header
       padding-top: $modal-padding
@@ -150,3 +153,29 @@ $modal-line-height: 8px
   .modal-content
     &::before
       background-color: $modal-success
+
+.modal-sm
+  width: $modal-sm-width
+
+.modal-lg
+  width: $modal-lg-width
+
+.modal
+  .calculator
+    border-left: solid 1px $gray-lighter
+    border-radius: 0
+    box-shadow: none
+
+.icon-lock,
+.qr
+  border: solid 1px $gray-lighter
+
+.qr
+  width: $qr-size
+  height: $qr-size
+  padding: 15px
+  border-radius: 10px
+
+#contractNumber
+  color: $gray-darker
+

@@ -28,9 +28,24 @@
     color: $white
 
 .btn-lg
-  width: $btn-lg-width
+  min-width: $btn-lg-width
   min-height: $btn-lg-height
   max-height: 2rem
+
+.btn-inverse
+  background-color: $black
+  color: $white
+
+  .glyphicon
+    color: $gray-light
+
+// Buttons with icon
+.btn-icon
+  .glyphicon:first-child
+    margin-right: .5rem
+
+  .glyphicon:last-child
+    margin-left: .5rem
 
 // Navbar button (sign in/out)
 .nav
@@ -49,15 +64,12 @@
       background: $nav-btn-hover-color
       color: $nav-text-color
 
-  .btn-action
-    color: $white
-
   .btn-icon
     padding-right: 1rem
     padding-left: 1.5rem
 
-    .glyphicon
-      margin-left: .5rem
+  .btn-action
+    color: $white
 
 // Auth buttons
 .btn-auth
@@ -129,3 +141,11 @@
     border-color: $purple
     background-color: transparent
     text-decoration: none
+
+.contract-number
+  .btn
+    font-family: $roboto
+    font-size: 1.14rem
+
+    &:hover
+      color: $gray-lighter
