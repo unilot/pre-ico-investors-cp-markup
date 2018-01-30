@@ -6,6 +6,7 @@ var concat = require('gulp-concat');
 var hash = require('gulp-hash-filename');
 var minifyCSS = require('gulp-csso');
 var clean = require('gulp-clean');
+var sass = require('gulp-sass');
 
 
 //Config
@@ -24,21 +25,31 @@ var jsSrc = [
     nodeModules + '/jquery-countdown/dist/jquery.countdown.js',
     nodeModules + '/jsrender/jsrender.js',
     nodeModules + '/bootstrap/dist/js/bootstrap.min.js',
+    nodeModules + '/bootstrap-material-design/dist/js/ripples.min.js',
+    nodeModules + '/bootstrap-material-design/dist/js/material.min.js',
     nodeModules + '/web3/dist/web3.js',
     nodeModules + '/bootstrap-validator/dist/validator.min.js',
     nodeModules + '/js-cookie/src/js.cookie.js',
     nodeModules + '/twitter-bootstrap-wizard/jquery.bootstrap.wizard.js',
     nodeModules + '/twitter-bootstrap-wizard/prettify.js',
     nodeModules + '/google-libphonenumber/dist/libphonenumber.js',
+    nodeModules + '/slideout/dist/slideout.min.js',
     srcDir + '/js/*.js'
 ];
 
 var cssSrc = [
     nodeModules + '/normalize.css/normalize.css',
     nodeModules + '/bootstrap/dist/css/bootstrap.css',
+    nodeModules + '/bootstrap-material-design/dist/css/ripples.min.css',
     nodeModules + '/twitter-bootstrap-wizard/prettify.css',
+    srcDir + '/css/sass/sass.css',
     srcDir + '/css/*.css'
 ];
+
+var sassSrc = [
+    srcDir + '/sass/*.sass',
+    srcDir + '/sass/**/*.sass',
+]
 
 var fontsSrc = [
     nodeModules + '/bootstrap/dist/fonts/*',
@@ -56,8 +67,8 @@ gulp.task('html', function(){
 gulp.task('webserver', function(){
     gulp.src(distDir)
         .pipe(webserver({
-            open: true,
-            host: '0.0.0.0',
+            open: false,
+            host: '127.0.0.1',
             port: 8030,
             fallback: 'index.html'
         }))
@@ -77,13 +88,20 @@ gulp.task('js:prod', function(){
         .pipe(gulp.dest(distDir + '/assets/js/'))
 });
 
-gulp.task('css:dev', function () {
+gulp.task('sass', function(){
+    return gulp.src(sassSrc)
+        .pipe(sass({}).on('error', sass.logError))
+        .pipe(concat('sass.css'))
+        .pipe(gulp.dest(srcDir + '/css/sass'));
+});
+
+gulp.task('css:dev', ['sass'], function () {
     return gulp.src(cssSrc)
         .pipe(concat('main.css'))
         .pipe(gulp.dest(distDir + '/assets/css/'))
 });
 
-gulp.task('css:prod', function () {
+gulp.task('css:prod', ['sass'], function () {
     return gulp.src(cssSrc)
         .pipe(concat('main.min.css'))
         .pipe(hash())
@@ -103,6 +121,7 @@ gulp.task('watch', function(){
     gulp.watch(htmlWatch, ['html']);
     gulp.watch(jsSrc, ['js:dev']);
     gulp.watch(cssSrc, ['css:dev']);
+    gulp.watch(sassSrc, ['css:dev']);
 });
 
 gulp.task('clean', function () {

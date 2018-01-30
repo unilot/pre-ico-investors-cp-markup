@@ -1,0 +1,127 @@
+.programs
+  .tab-content
+    max-height: 300px
+    padding-top: 0
+    padding-left: 0
+    border-radius: 0
+    box-shadow: none
+    overflow-y: auto
+
+  .nav-pills
+    li
+      a
+        border-radius: 27.5px
+        background-color: $white
+        color: $gray-darker
+        font-family: $roboto
+        font-size: 1.43rem
+
+        &:hover,
+        &:focus
+          background-color: inherit
+          color: inherit
+
+    li:not(:last-child)
+      margin-right: 20px
+
+$input-group-width: 250px
+$copy-link-width: 70px
+
+.referrals
+  output
+    margin-bottom: 2rem
+    color: $black
+    font-family: $roboto-medium
+    font-size: 2.14rem
+
+    .unit
+      font-family: $roboto-light
+
+  .form-group
+    margin-top: 1rem
+
+  .subtle
+    color: $gray
+
+  .input-group
+    display: flex
+    justify-content: space-between
+    width: $input-group-width
+    height: 38px
+
+    #referral-link
+      display: inline-block
+      width: $input-group-width - 10px - $copy-link-width
+      color: $black
+      text-overflow: ellipsis
+
+    .input-group-addon
+      display: inline-block
+      width: $copy-link-width
+      padding: 0
+      line-height: 38px
+
+      a
+        color: $purple
+        line-height: .8em
+
+  .nav-social
+    display: flex
+    justify-content: space-between
+
+    // override Bootstrap pseudo-elements
+    &::before,
+    &::after
+      display: none
+
+    li
+      margin: 0
+
+    a
+      padding: 0
+
+      &:hover,
+      &:focus
+        background: transparent
+
+    .icon
+      width: 46px
+      height: 46px
+      transition: background .5s
+      line-height: 46px
+
+    .icon-telegram
+      font-size: 1.2rem
+
+      &:hover
+        background-color: darken($telegram-blue, 10%)
+
+      &::before
+        position: relative
+        left: -3px
+
+    .icon-reddit
+      font-size: 1.8rem
+
+      &:hover
+        background-color: lighten($blood-orange, 10%)
+
+    .icon-twitter
+      font-size: 1.3rem
+
+      &:hover
+        background-color: darken($twitter-blue, 10%)
+
+      &::before
+        position: relative
+        left: -1px
+
+    .icon-facebook
+      font-size: 1.3rem
+
+      &:hover
+        background-color: lighten($facebook-blue, 10%)
+
+      &::before
+        position: relative
+        right: -1px

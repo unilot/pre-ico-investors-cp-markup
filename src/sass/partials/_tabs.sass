@@ -1,0 +1,51 @@
+.slideout-panel
+  .tab-content
+    @extend %white-block
+
+  .nav-tabs
+    padding-bottom: 0
+    border: 0
+    background-color: transparent
+
+    li,
+    li > a
+      border-radius: $wb-border-radius $wb-border-radius 0 0
+
+    li
+      margin: 0
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+        margin-bottom: -1px
+
+
+      a
+        margin: 0
+        border: 0
+        color: $gray-light
+        font-family: $gotham-medium
+        font-size: 1.78rem
+
+    li:not(.active)
+      a
+        &:hover
+          background-color: darken($bg-color, 5%)
+
+    li.active
+      a
+        // have to use !important to override !important values set by bootstrap-material-design
+        background-color: $white
+        color: $black !important
+
+        &:hover,
+        &:focus
+          border: 0
+
+    // cover rounded corner if active or hovered tab is above
+    .active::after,
+    li:hover::after
+      display: block
+      position: absolute
+      width: 100%
+      height: $wb-border-radius
+      background-color: $white
+      content: ''
+      z-index: -1

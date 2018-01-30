@@ -1,0 +1,172 @@
+.required
+  &::before
+    color: red
+    content: '*'
+
+// avoid overlapping multiple help block
+.help-block
+  position: relative !important
+  margin-bottom: 0
+
+// avoid painting regular help text with red on errors
+.has-error.has-danger
+  .help-block:not(.with-errors)
+    color: inherit
+
+.form-group
+  .help-block
+    &.with-errors,
+    &.forgot-password
+      display: block
+
+  .caret
+    position: absolute
+    top: 18px
+    right: 0
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+      display: none
+
+
+.check
+  margin-right: 1rem
+
+form
+  margin-bottom: 1rem
+
+  .form-group
+    &.has-error.has-danger,
+    &.is-focused
+      .control-label
+        color: $purple
+
+    &.has-error.has-danger.is-focused
+      .form-control
+        background-image: linear-gradient($purple, $purple), linear-gradient($input-border, $input-border)
+
+#auth-sign-up,
+#auth-sign-in
+  .form-group:not(.is-focused)
+    .control-label
+      color: $gray-darker
+
+.beta-invite
+  .form-group
+    .control-label
+      color: $gray
+
+.modal-body
+  .label-floating
+    .control-label
+      color: $gray-darker
+
+      .required::before
+        color: $gray-darker
+
+  .control-label
+    color: $gray
+
+    .required::before
+      color: $gray
+
+  select,
+  input
+    color: $gray-darker
+
+.checkbox
+  label:not(:first-child)
+    margin-left: 2rem
+
+.calculator
+  form
+    .form-group
+      margin-bottom: $sidebar-margin-y
+
+    label
+      @extend %small-gray-label
+
+      &[for='total-amount']
+        margin-bottom: 0
+
+    .form-control
+      @extend %dark-gotham-text
+      @extend %input-reset
+
+      &:focus
+        border-color: $purple
+        box-shadow: none
+        -webkit-box-shadow: none
+        border-image: $purple-gradient 10
+
+      @media (max-width: $max-width-sm)
+        height: 2em
+
+
+      &[type='number']
+        -moz-appearance: textfield
+        -webkit-appearance: textfield
+        appearance: textfield
+
+      &[readonly]
+        border-color: $readonly-input-border
+        background-color: transparent
+
+    .has-error
+      .form-control
+        border-bottom-color: $error-color
+        box-shadow: none
+
+        &:focus
+          box-shadow: none
+          -webkit-box-shadow: none
+
+      .control-label,
+      .help-block
+        color: $error-color
+
+      &:focus-within
+        .control-label,
+        .help-block
+          color: $gray
+
+    .input-primary
+      border-color: $purple
+      border-image: $purple-gradient 10
+
+    .input-group
+      width: 100%
+
+      .input-group-addon
+        @extend %input-reset
+        padding-right: 0
+
+      .input-group-btn,
+      .input-group-addon
+        width: 3rem
+
+      .input-group-btn
+        position: relative
+
+      @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+        .input-group-btn
+          background-color: $todo-bg
+
+
+      .input-group-increment
+        @extend %flex-column-layout
+        position: absolute
+        right: 0
+        bottom: 0
+        width: 34px
+
+.contract-number
+  margin: 0 0 0 1rem
+
+  .form-group
+    margin: 0
+
+  #contractNumber
+    margin-bottom: 1.5rem
+
+.space-after
+  &::after
+    content: ' '

@@ -1,0 +1,25 @@
+// Styles for pseudo transparent blocks with small facts about Unilot (pre)ICO
+.info
+  display: flex
+
+  .info-block
+    @extend %flex-column-layout
+    justify-content: center
+    width: $info-block-width
+    height: $info-block-height
+    border: solid 1px $white
+    border-radius: $info-block-radius
+    background-color: lighten($bg-color, 3%)
+    color: $gray-dark
+    text-align: center
+
+    &:not(:last-child)
+      margin-right: $info-block-gap
+
+    .info-label
+      text-transform: uppercase
+
+    .info-value
+      font-family: $gotham-bold
+      font-size: 1.57rem
+      line-height: 1em

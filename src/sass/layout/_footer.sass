@@ -1,0 +1,64 @@
+footer
+  height: $footer-height
+  padding-top: $footer-padding-y
+  background-color: $gray-darker
+
+.nav-social
+  @extend %flex-centered
+  max-width: $footer-nav-width
+  margin: 0 auto
+
+  li
+    margin: 0 .5rem
+
+  .footer-logo
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-right: 1rem
+
+    a:hover
+      background-color: transparent
+
+  .icon
+    @extend %flex-fully-centered
+    display: inline-block
+    width: $social-icon-size
+    height: $social-icon-size
+    border-radius: 100%
+    color: $white
+    font-size: 1.14rem
+    line-height: $social-icon-size
+
+    &::before
+      margin: 0   // IE11 fix
+
+  .icon-github
+    font-size: $social-icon-size
+
+  .icon-telegram
+    background-color: $telegram-blue
+    font-size: .8rem
+
+    &::before
+      position: relative
+      left: -1px
+
+  .icon-reddit
+    background-color: $blood-orange
+
+  .icon-twitter
+    background-color: $twitter-blue
+    font-size: .8rem
+
+    &::before
+      position: relative
+      left: -1px
+
+  .icon-facebook
+    background-color: $facebook-blue
+    font-size: .9rem
+
+    &::before
+      position: relative
+      right: 0

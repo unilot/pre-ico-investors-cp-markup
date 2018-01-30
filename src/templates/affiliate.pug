@@ -1,0 +1,42 @@
+extends base/new-base
+
+block vars
+  -var pageTitle = 'Affiliate & Bounty';
+  -var isAuthorised = true;
+  
+  -var isDashboard = false;
+  -var isAffiliate = true;
+  -var isProfile = false
+
+block content
+  .row
+    //- Main content
+    .col-md-8.col-sm-12.col-xs-12
+      main
+        section.programs
+          h3 Affiliate &amp; Bounty programs
+          
+          .tab-content
+            #affiliate.tab-pane.active(role='tabpanel')
+              p Unilot Limited, a company incorporated in Malta, with registration number C84051 with its registered address at 23, Old Railway Road, St Venera Malta (the “Company” or “us”) and you (“you” or “the Affiliate”) agree to the following terms, which will set out rights and responsibilities to regulate the relationship between you and the Company (the “Affiliate Agreement”).
+              p Please review the Affiliate Agreement carefully to ensure you understand your rights, obligations and the repercussions for you should you breach the Affiliate Agreement.
+              p By registering in the Affiliate Programme, and / or by accessing and utilising any of our marketing tools or accepting any reward, bonus or commission, whether contained in the Affiliate Agreement or elsewhere as a part of our Affiliate Programme, you acknowledge that you will be deemed to have read, understood and agreed to the Affiliate Agreement. 
+              p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo, magnam facere corporis at eum ullam consequuntur molestiae ipsum nemo maiores natus quasi placeat in dignissimos laborum, voluptatem sed molestias quis.
+            
+            #bounty.tab-pane(role='tabpanel')
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nisi adipisci, cum hic excepturi beatae eligendi architecto. Molestiae eius corrupti libero nulla. Numquam accusamus cum non obcaecati, modi exercitationem illum!
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nisi adipisci, cum hic excepturi beatae eligendi architecto. Molestiae eius corrupti libero nulla. Numquam accusamus cum non obcaecati, modi exercitationem illum!
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nisi adipisci, cum hic excepturi beatae eligendi architecto. Molestiae eius corrupti libero nulla. Numquam accusamus cum non obcaecati, modi exercitationem illum!
+              p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus nisi adipisci, cum hic excepturi beatae eligendi architecto. Molestiae eius corrupti libero nulla. Numquam accusamus cum non obcaecati, modi exercitationem illum!
+          
+          ul.nav.nav-pills
+            li(role='presentation').active
+              a.btn.btn-default.btn-lg(href='#affiliate', role='tab', aria-controls='affiliate', data-toggle='tab') Affiliate program
+            li(role='presentation')
+              a.btn.btn-default.btn-lg(href='#bounty', role='tab', aria-controls='bounty', data-toggle='tab') Bounty program
+    
+    //- Sidebar
+    .col-md-4.hidden-sm.hidden-xs
+      aside.pull-right
+        include partials/buy-tokens
+        include partials/referrals

@@ -1,0 +1,17 @@
+ul.nav
+  if isAuthorised
+    li(class=isDashboard ? 'active' : '')
+      a(href='new.html') Dashboard #[span.sr-only (current)]
+  
+    li(class=isAffiliate ? 'active' : '')
+      a(href='affiliate.html') Affiliate &amp; Bounty programs
+  
+  li
+    a(href='https://unilot.io/en-us/faq.html' target='_blank') FAQ
+
+  li
+    a(href='https://unilot.io/en-us/' target='_blank') Unilot ICO
+  
+  if isAuthorised
+    li(class=isProfile ? 'active' : '')
+      a(href='profile.html') Profile

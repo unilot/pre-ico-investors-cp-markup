@@ -1,0 +1,108 @@
+header
+  min-height: $nav-height
+  max-height: $header-height
+  transition: .5s all
+  background-color: $gray-darker
+  background-image: url('../img/map.png')
+  background-repeat: no-repeat
+  background-size: cover
+  color: $gray-light
+
+  @media (max-width: $tall-header-max-width)
+    max-height: $header-height-tall
+    background-position: 55%
+
+
+  .logo
+    height: $logo-height
+
+  .container
+    @extend %flex-column-layout
+    justify-content: flex-start
+    height: 100%
+
+  .row
+    &:nth-child(2)
+      display: flex
+      flex-grow: 1
+      align-items: flex-end
+      min-height: $header-height - $nav-height
+      max-height: $header-height-tall - $nav-height
+      padding-bottom: .5rem
+
+      @media (max-width: $tall-header-max-width)
+        align-items: center
+
+
+  .welcome,
+  .tokens-info
+    h3,
+    p
+      margin: 0
+
+    h3
+      color: $white
+
+    p
+      font-family: $roboto-light
+
+
+  .tokens-info
+    p
+      font-size: 1.14rem
+
+    @media (max-width: $tall-header-max-width)
+      p
+        text-align: center
+
+
+    p
+      @media (max-width: $tall-header-max-width)
+        margin-bottom: .5em
+        font-size: 21px
+
+
+    strong
+      font-family: $roboto
+      font-weight: normal
+
+    small
+      font-family: $roboto
+      font-size: .86rem
+      @media (max-width: $tall-header-max-width)
+        font-size: 18px
+
+
+    .lead
+      margin-bottom: 10px
+      color: $white
+      font-size: 1.43rem
+      @media (max-width: $tall-header-max-width)
+        margin-bottom: 1em
+        font-size: 30px
+
+
+      .tokens
+        color: $gold
+        white-space: nowrap
+
+    .tokens-question
+      @media (max-width: $tall-header-max-width)
+        display: none
+
+
+      &::before
+        display: inline-block
+        position: relative
+        top: -4px
+        width: $question-icon-size
+        height: $question-icon-size
+        margin-right: 9px
+        border-radius: 100%
+        background-color: $blood-orange
+        color: $white
+        font-family: $roboto-medium
+        font-size: .9rem
+        line-height: $question-icon-size + 1px
+        text-align: center
+        content: '?'

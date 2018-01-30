@@ -1,0 +1,73 @@
+// Styles for custom progress bar illustrating the progress of Unilot (pre)ICO
+.progress
+  position: relative
+  height: $progress-bar-height
+  margin: ($progress-bar-margin + ($progress-bar-offset / 2)) 0
+  border-radius: 17.5px
+  background-color: $progress-bar-bg
+  box-shadow: inset 1.4px 1.4px 2px 0 $progress-bar-shadow
+  overflow: visible
+  @media (max-width: $max-width-sm)
+    height: 64px
+    border-radius: 31.5px
+
+
+.progress-bar
+  @extend %flex-spaced-between
+  position: absolute
+  top: -($progress-bar-offset / 2)
+  min-width: 2rem
+  height: $progress-bar-height + $progress-bar-offset
+  padding-right: $progress-bar-radius
+  padding-left: $progress-bar-radius
+  border-radius: $progress-bar-radius
+  background-image: $pink-gradient
+  line-height: $progress-bar-height + $progress-bar-offset
+  @media (max-width: $max-width-sm)
+    top: -($progress-bar-offset)
+    height: 64px + ($progress-bar-offset * 2)
+    border-radius: 40.5px
+    line-height: 64px + ($progress-bar-offset * 2)
+
+
+.progress-goal
+  position: absolute
+  top: -2rem
+  right: 0
+  font-size: 1.07rem
+  @media (max-width: $max-width-sm)
+    position: relative
+    top: -2.5em
+    width: 100%
+    font-size: 20px
+    text-align: center
+
+
+.progress-amount
+  font-size: 1.07rem
+  white-space: nowrap
+  @media (max-width: $max-width-sm)
+    font-size: 20px
+  @media (max-width: 435px)
+    visibility: hidden
+
+
+.progress-percentage
+  flex-grow: 1
+  font-size: 1.43rem
+  text-align: right
+
+aside
+  .progress
+    height: $progress-small-height
+    border-radius: 5.8px
+
+    .progress-bar
+      top: -($progress-small-offset / 2)
+      height: $progress-small-height + $progress-small-offset
+      border-radius: 7.5px
+
+    .progress-goal,
+    .progress-amount,
+    .progress-percentage
+      display: none

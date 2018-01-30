@@ -6,7 +6,7 @@
     var $etherAmountInput = $('.js-calculator-eth-amount-input');
     var $referralLinkCopyButton = $('.js-copy-referral-link');
     var $buyCopyTokensContractNumber = $('.js-buy-tokens-copy-contract-number');
-    var $timeCounterBlock = $('#js-time-counter');
+    var $timeCounterBlock = $('.js-time-counter');
     var $signUpWizard = $('#signupWizard');
     var $icoProgressBars = $('.ico-sale-progress');
     var $ethRaisedContainer = $('.eth-raised-container');
@@ -57,6 +57,7 @@
         document.execCommand('copy');
     });
 
+    // Wizard
     $signUpWizard.bootstrapWizard();
 
     $('a[data-toggle=tab]', $signUpWizard).on("click", function (e) {
@@ -130,4 +131,39 @@
         $('#questions .panel-collapse.in').removeClass('in');
         $('#'+hash).addClass('in');
     }
+
+    // Slideout
+    // initialize slideout
+    var slideout = new Slideout({
+        'panel': document.getElementById('main-body'),
+        'menu': document.getElementById('slideout'),
+        'padding': 256,
+        'tolerance': 70
+    });
+
+    // initialize toggle button
+    document.querySelector('.toggle-menu').addEventListener('click', function() {
+        slideout.toggle();
+    });
+
+    // set overlay to close slideout menu on click
+    function close(eve) {
+        eve.preventDefault();
+        slideout.close();
+    }
+
+    slideout
+        .on('beforeopen', function() {
+            this.panel.classList.add('panel-open');
+        })
+        .on('open', function() {
+            this.panel.addEventListener('click', close);
+        })
+        .on('beforeclose', function() {
+            this.panel.classList.remove('panel-open');
+            this.panel.removeEventListener('click', close);
+        });
+
+    // Material design
+    $.material.init();
 })();

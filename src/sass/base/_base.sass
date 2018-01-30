@@ -1,0 +1,35 @@
+html
+  font-size: $base-font-size
+
+body
+  @extend %flex-column-layout
+  min-height: 100vh
+  font-family: $roboto
+
+  .slideout-panel
+    background-color: $bg-color
+
+.grow
+  flex-grow: 1
+  padding: 30px 0 70px
+
+  .row
+    padding-right: 15px
+    padding-left: 15px
+
+  aside
+    width: $aside-width
+
+.no-padding
+  padding: 0 !important // override rules specified in partials
+
+.no-margin
+  margin: 0 !important
+
+section
+  @extend %white-block
+
+.ico
+  margin-bottom: 40px
+  padding: 0
+  color: $black

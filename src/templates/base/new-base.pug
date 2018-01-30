@@ -1,0 +1,35 @@
+block vars
+  - var isAuthorised = false
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='content-type', content='text/html;charset=UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+    title Unilot | #{pageTitle}
+    link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
+  
+  body
+    include ../lib/buy-token-modal
+    include ../partials/modals/forgot-password
+    include ../partials/modals/network-error
+    include ../partials/modals/source-wallet
+    include ../partials/modals/buy-unit-tokens
+    
+    #slideout
+      include ../partials/slideout-nav
+
+    #main-body
+      include ../partials/header
+      
+      .container.grow      
+        block content
+      
+      include ../partials/footer
+      
+    script(type='application/javascript', src='/assets/js/config.js')
+    script(type='application/javascript', src='/assets/js/main.js')
+    

@@ -1,0 +1,41 @@
+h1,
+h2,
+h3,
+h4
+  font-family: $gotham
+
+h3
+  margin: 0 0 28px
+  font-size: 1.6rem
+
+h4
+  font-size: 1.43rem
+
+p
+  line-height: 1.57em
+
+a
+  color: $link-color
+
+  &:hover,
+  &:focus
+    color: $link-color
+
+@media (max-width: $max-width-sm)
+  h3
+    font-size: 32.6px
+
+  p
+    margin-bottom: 2em
+    font-family: $roboto-light
+    font-size: 26px
+
+  .welcome,
+  .tokens-info
+    h3
+      font-size: 1.6rem
+
+    p
+      margin-bottom: 0
+      font-family: $roboto
+      font-size: 1rem

@@ -1,0 +1,48 @@
+%white-block
+  margin-bottom: 40px
+  padding: 25px
+  border-radius: $wb-border-radius
+  background-color: $white
+  box-shadow: 0 14px 16px 0 $section-shadow
+
+// Flex templates
+%flex-spaced-between
+  display: flex
+  justify-content: space-between
+
+%flex-centered
+  display: flex
+  justify-content: center
+
+%flex-fully-centered
+  @extend %flex-centered
+  align-items: center
+
+%flex-column-layout
+  display: flex
+  flex-direction: column
+
+
+// Forms elements
+%input-reset
+  border: 0
+  border-radius: 0
+  background-color: transparent
+  box-shadow: none
+
+%dark-gotham-text
+  color: $gray-dark
+  font-family: $gotham
+  font-size: 1.14rem
+  @media (max-width: $max-width-sm)
+    font-size: 35.7px
+
+
+%small-gray-label
+  color: $gray
+  font-family: $roboto
+  font-size: .86rem
+  font-weight: normal
+  text-transform: uppercase
+  @media (max-width: $max-width-sm)
+    font-size: 24px

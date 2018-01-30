@@ -1,0 +1,90 @@
+// Styles for countdown timer to Unilot (pre)ICO finish date and time
+.timer
+  @media (max-width: $max-width-sm)
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-bottom: 100px
+
+    h4
+      margin-bottom: 30px
+      font-size: 38.5px
+
+  time
+    display: grid
+    grid-column-gap: $timer-gap-width
+    grid-template-columns: repeat(4, min-content)
+
+  .time-value
+    position: relative
+    font-family: $roboto-medium
+    font-size: 2.86rem
+    line-height: 1em
+    @media (max-width: $max-width-sm)
+      font-size: 55.5px
+
+
+    &:not(.seconds)
+      &::after
+        display: inline-block
+        position: absolute
+        width: $timer-gap-width
+        font-family: $gotham
+        font-weight: bolder
+        text-align: center
+        content: ':'
+
+  .time-label
+    color: $gray
+    font-family: $roboto-light
+    font-size: 1rem
+    @media (max-width: $max-width-sm)
+      font-size: 16px
+
+$timer-small-gap-width: 1.5rem
+aside
+  .timer
+    time
+      grid-column-gap: $timer-small-gap-width
+
+      .time-value
+        font-size: 2.9rem
+
+        &:not(.seconds)
+          &::after
+            width: $timer-small-gap-width
+
+    .time-label
+      font-size: 0.9rem !important
+
+// IE 10+ fix
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+  time
+    display: -ms-grid
+    -ms-grid-columns: min-content $timer-gap-width min-content $timer-gap-width min-content $timer-gap-width min-content
+    -ms-grid-rows: min-content min-content
+
+    span
+      display: inline-block
+
+    .time-value
+      -ms-grid-row: 1
+
+    .time-label
+      -ms-grid-row: 2
+
+    .days
+      -ms-grid-column: 1
+
+    .hours
+      -ms-grid-column: 3
+
+    .minutes
+      -ms-grid-column: 5
+
+    .seconds
+      -ms-grid-column: 7
+
+  aside
+    time
+      -ms-grid-columns: min-content $timer-small-gap-width min-content $timer-small-gap-width min-content $timer-small-gap-width min-content

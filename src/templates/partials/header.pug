@@ -1,0 +1,25 @@
+header
+  .container
+    .row
+      include navbar
+    
+    if isAuthorised
+      .row
+        .welcome.col-md-7.col-sm-6.hidden-xs
+            h3 Welcome, Alex!
+            p Thank you for participation in our project. This area is your personal account of Unilot token sale.
+        
+        
+        .tokens-info.col-md-5.col-sm-6.col-xs-12
+            p.lead.text-right
+              a(href='#') #[span.tokens-question]
+              | My Tokens: 
+              //- span.tokens #[strong.tokens-amount 0.0000] UNIT
+              span.tokens #[strong.tokens-amount 150 753.0000] UNIT
+
+            p.text-right Referral Tokens: 
+              span.tokens #[strong.tokens-amount 0.0000] UNIT
+
+            p.text-right
+              small
+                a(href='affiliate.html') Get more Tokens for free

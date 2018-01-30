@@ -1,4 +1,13 @@
 .idea
-dist
+dist/*.html
+dist/base
+dist/lib
+dist/partials
+dist/assets/css/*
+dist/assets/js/*
 !dist/assets/js/config.js
+distassets
+src/css/sass
+.sass-lint.yml
 node_modules
+npm-debug.log

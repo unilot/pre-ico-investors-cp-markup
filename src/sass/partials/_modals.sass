@@ -1,0 +1,163 @@
+.modal-dialog
+  width: $modal-md-width
+
+  .modal-content
+    min-height: $modal-height
+    padding: 0 $modal-padding
+    border-radius: $modal-border-radius
+    overflow: hidden
+
+    &::before
+      display: block
+      position: absolute
+      left: 0
+      width: 100%
+      height: $modal-line-height
+      background-color: $purple
+      content: ''
+
+    .modal-header
+      // hide Bootstrap-defined pseudo elements, 
+      // so they don't count as flex items
+      &::before,
+      &::after
+        display: none
+
+      .modal-title-img
+        height: 76px
+
+    .bordered
+      padding-bottom: 10px
+      border-bottom: solid 1px $modal-header-border-color
+
+    .img-horizontal
+      display: flex
+      align-items: center
+      justify-content: flex-start
+
+      .modal-title-img
+        flex-shrink: 0
+        width: $modal-title-img-size
+        height: $modal-title-img-size
+        margin-right: 1rem
+
+      .img-lock
+        width: 20px
+        height: auto
+        padding: 10px 15px
+        border-radius: 4px
+        box-sizing: content-box
+
+    h4
+      color: $black
+      font-family: $gotham-medium
+      font-size: 1.8rem
+
+    .modal-body
+      h4
+        margin-bottom: 2rem
+
+        small
+          color: $gray
+          font-family: $gotham
+          font-size: 1.14rem
+
+      p,
+      ol,
+      ul
+        font-size: .93rem
+
+      ol
+        padding: 0
+        list-style-position: inside
+
+        li
+          margin-bottom: .25em
+
+        ul
+          margin-bottom: .25em
+          list-style-type: none
+
+    .modal-footer
+      .close
+        bottom: $modal-border-radius
+
+
+    .close
+      display: flex
+      position: absolute
+      right: $modal-border-radius
+      align-items: center
+      height: 22px
+      padding: 0
+      font-family: $roboto
+      font-size: 1.14rem
+      font-weight: normal
+      opacity: 1
+
+      span
+        display: inline-block
+
+      .close-icon
+        margin-left: 1rem
+
+        &::before,
+        &::after
+          display: block
+          width: 30px
+          height: 1px
+          transform: rotate(45deg)
+          background-color: $gray
+          content: ''
+
+        &::after
+          transform: rotate(-45deg)
+
+.modal-error
+  .modal-content
+    .modal-header
+      padding-top: $modal-padding
+
+    .img-horizontal
+      justify-content: space-around
+
+    h4
+      font-family: $gotham
+      font-size: 1.78rem
+
+    &::before
+      background-color: $modal-error
+
+    .control-label
+      color: $gray-darker
+
+.modal-success
+  .modal-content
+    &::before
+      background-color: $modal-success
+
+.modal-sm
+  width: $modal-sm-width
+
+.modal-lg
+  width: $modal-lg-width
+
+.modal
+  .calculator
+    border-left: solid 1px $gray-lighter
+    border-radius: 0
+    box-shadow: none
+
+.icon-lock,
+.qr
+  border: solid 1px $gray-lighter
+
+.qr
+  width: $qr-size
+  height: $qr-size
+  padding: 15px
+  border-radius: 10px
+
+#contractNumber
+  color: $gray-darker
+

@@ -1,0 +1,42 @@
+nav.navbar.navbar-unilot(role='navigation')
+  ul#navbar.nav.navbar-nav
+    //- items to the left
+    li.item-toggle
+      a(href='#').toggle-menu
+        span.sr-only Toggle navigation
+        span.glyphicon.glyphicon-menu-hamburger
+
+    if isAuthorised
+      li.item-collapsible(class=isDashboard ? 'active' : '')
+        a(href='new.html') Dashboard #[span.sr-only (current)]
+    
+      li.item-collapsible(class=isAffiliate ? 'active' : '')
+        a(href='affiliate.html') Affiliate &amp; Bounty programs
+    else
+      li.item-collapsible
+        a(href='https://unilot.io/en-us/' target='_blank') Unilot ICO
+
+    li.item-collapsible
+      a(href='https://unilot.io/en-us/faq.html' target='_blank') FAQ
+    
+    //- should be in center
+    li.item-brand
+      a(href='#')
+        img.logo(src='assets/img/unilot-logo-header.png', alt='Unilot Investor Account')
+    
+    
+    //- items to the right
+    if isAuthorised
+      li.item-right.item-collapsible
+        a(href='https://unilot.io/en-us/' target='_blank') Unilot ICO
+      
+      li.item-right.item-collapsible-xs(class=isProfile ? 'active' : '')
+        a(href='profile.html') Profile
+    
+    li.item-right.item-btn
+      if isAuthorised
+        a.btn.btn-default.nav-btn.btn-icon(role='button' href='new-auth.html')
+            span.btn-action Sign out
+            span.glyphicon.glyphicon-log-out
+      else
+        a.btn.btn-default.nav-btn(role='button' href='new-auth.html') #[span.btn-action Sign in] or #[span.btn-action Sign up]

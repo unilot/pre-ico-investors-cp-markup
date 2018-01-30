@@ -1,0 +1,84 @@
+extends base/new-base
+
+block vars
+  -var pageTitle = 'Profile';
+  -var isAuthorised = true;
+  
+  -var isDashboard = false;
+  -var isAffiliate = false;
+  -var isProfile = true
+
+block content
+  .row
+    //- Main content
+    .col-md-8.col-sm-12.col-xs-12
+      main
+        section.profile
+          .row
+            .col-md-5
+              h3 Edit Profile
+              form
+                .form-group.label-floating
+                  label.control-label(for='firstName') First name
+                  input#firstName.form-control(type='text', name='first-name' value='Alex')
+                  .help-block.with-errors
+
+                .form-group.label-floating
+                  label.control-label(for='lastName') Last name
+                  input#lastName.form-control(type='text', name='last-name' value='Lushnikov')
+                  .help-block.with-errors
+
+                .form-group.label-floating
+                  label.control-label(for='company') Company name
+                  input#company.form-control(type='text', name='company')
+                  .help-block.with-errors
+
+                .form-group.label-floating
+                  label.control-label(for='phone') Phone number
+                  input#phone.form-control(type='tel', name='phone')
+                  .help-block.with-errors
+
+                .form-group.label-floating
+                  label.control-label(for='country') Country
+                  span.caret
+                  select#country.form-control(required, name='country')
+                    option(selected) Uzbekistan
+                    option Albania
+                    option Algeria
+                    option Andorra
+                  .help-block.with-errors
+
+                button.btn.btn-default.btn-lg.btn-block(role='submit') Save profile
+
+            .col-md-6.col-md-offset-1
+              .row
+                include partials/wallet
+
+              .row
+                h3 Change password
+                form
+                  .form-group.label-floating
+                    label.control-label(for='currentPassword') Current password
+                    input#currentPassword.form-control(type='password', name='current-password' required)
+                    .help-block.with-errors
+
+                  .form-group.label-floating
+                    label.control-label(for='newPassword') New password
+                    input#newPassword.form-control(type='password', name='new-password' required)
+                    .help-block.with-errors
+
+                  .form-group.label-floating
+                    label.control-label(for='repeatPassword') Repeat new password
+                    input#repeatPassword.form-control(type='password', name='repeat-password' required)
+                    .help-block.with-errors
+
+                  button.btn.btn-default.btn-lg.btn-block(role='submit') Change password
+    
+    //- Sidebar
+    .col-md-4.hidden-sm.hidden-xs
+      aside.pull-right
+        include partials/buy-tokens
+        include partials/referrals
+        
+        section
+          include partials/timer

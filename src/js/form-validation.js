@@ -178,12 +178,14 @@
                     }
                 },
                 phone: function($input) {
+                    var $codeField = $('#' + $input.data('phone'));
                     var phoneUtil = libphonenumber.PhoneNumberUtil.getInstance();
                     var $form = $input.closest('form');
-                    var validator = $form.data('bs.validator');
-
+                    var filteredData = '+'
+                            + $codeField.val().replace( /\D/g, '')
+                            + $input.val().replace( /\D/g, '');
                     try {
-                        var phone = phoneUtil.parse($input.val());
+                        var phone = phoneUtil.parse(filteredData);
 
                         if ( !phoneUtil.isValidNumber(phone) ) {
                             throw new Error();
@@ -292,17 +294,6 @@
     };
 
     var $forms = $('form.js-generic-form');
-    var $signUpForm = $('#signUpForm');
 
     onlineFormProcessor($forms);
-    onlineFormProcessor($signUpForm, {
-        badRequest: function($form, jqXHR, textStatus, errorThrown) {
-            var $termsAndConditionsModal = $('#termsAndConditions');
-            var $modalFormGroupsWithErrors = $('.form-group.has-error', $termsAndConditionsModal);
-
-            if ( $modalFormGroupsWithErrors.length === 0 ) {
-                $termsAndConditionsModal.modal('hide');
-            }
-        }
-    });
 })();

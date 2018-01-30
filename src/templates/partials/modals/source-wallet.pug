@@ -1,0 +1,42 @@
+#sourceWallet.modal.fade(tabindex='-1' role='dialog')
+  .modal-dialog(role='document')
+    .modal-content.no-padding
+      .modal-header.img-horizontal
+        img.modal-title-img.img-lock(src='assets/img/lock.png')
+        h4.modal-title Source Wallet
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span.close-icon(aria-hidden='true')
+      
+      .modal-body
+        p Please specify address of the wallet that will be used to buy UNIT tokens.
+        form
+          .row.no-padding
+            .col-md-10
+              .form-group
+                label.control-label.text-uppercase(for='wallet') Wallet #[span.required]
+                span.caret
+                select#wallet.form-control(required, name='wallet')
+                  option(selected) Coinbase
+                  option Metamask
+                  option MyEtherWallet
+                .help-block.with-errors
+          
+          .row.no-padding
+            .col-md-12
+              .alert.alert-warning.alert-flex(role='alert')
+                img(src='/assets/img/attention.png').pull-left
+                div
+                  p Do NOT use this wallet application for investment.
+                  p Any wallet application that does not allow you to export and import your wallet freely without any extra condition (like writing to support) should not be used.
+                  p This includes any wallet stored on exchange (Coinbase, Bitfinex, CoinExchange, CEX.IO, etc).
+
+          .row.no-padding
+            .col-md-10
+              .form-group.label-floating
+                label.control-label(for='walletNumber') Enter your wallet number #[span.required]
+                input#walletNumber.form-control(type='text', required, name='wallet-number')
+                .help-block.with-errors
+
+          .row.no-padding
+            .col-md-12
+              button.btn.btn-primary.btn-lg.center-block(role='button', data-toggle='modal', data-target='#buyUnitTokens') Confirm

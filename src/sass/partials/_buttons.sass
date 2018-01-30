@@ -1,0 +1,151 @@
+.btn
+  padding-right: 1.5rem
+  padding-left: 1.5rem
+  transition: border .5s
+  border-radius: 25px
+  color: inherit
+  font-family: $gotham
+  text-transform: none
+
+.btn-default
+  border: solid 1px $gray-lighter
+  background-color: transparent
+
+  &:hover,
+  &:focus
+    border-color: $purple
+    background-color: transparent
+
+.btn-primary
+  border: 0
+  background: $purple-gradient
+  color: $white
+
+  &:hover,
+  &:focus
+    border: 0
+    background: $btn-hover-bg
+    color: $white
+
+.btn-lg
+  min-width: $btn-lg-width
+  min-height: $btn-lg-height
+  max-height: 2rem
+
+.btn-inverse
+  background-color: $black
+  color: $white
+
+  .glyphicon
+    color: $gray-light
+
+// Buttons with icon
+.btn-icon
+  .glyphicon:first-child
+    margin-right: .5rem
+
+  .glyphicon:last-child
+    margin-left: .5rem
+
+// Navbar button (sign in/out)
+.nav
+  .nav-btn
+    height: $nav-btn-height
+    padding-top: 0
+    padding-bottom: 0
+    border: solid 1px $nav-text-color
+    color: $nav-text-color
+    font-size: .86rem
+    line-height: $nav-btn-height
+
+    &:hover,
+    &:focus
+      border-color: $purple
+      background: $nav-btn-hover-color
+      color: $nav-text-color
+
+  .btn-icon
+    padding-right: 1rem
+    padding-left: 1.5rem
+
+  .btn-action
+    color: $white
+
+// Auth buttons
+.btn-auth
+  position: relative
+  height: $btn-lg-height
+  margin-top: 14px  // margin-top of .form-group / 2
+
+  .glyphicon
+    position: absolute
+    right: 1.5rem
+    height: $btn-lg-height
+    font-size: 1rem
+    line-height: $btn-lg-height
+
+// Buy Tokens button
+.btn-buy
+  position: relative
+  margin-bottom: $sidebar-margin-y
+  padding: 0
+  font-size: $buy-tokens-font-size
+  line-height: $btn-lg-height
+  @media (max-width: $max-width-sm)
+    border-radius: 55.7px
+    font-size: 44.6px
+    line-height: 2em
+
+
+// Extra bit of information on button
+.btn-extra
+  &::after
+    position: absolute
+    top: 0
+    right: 1.5rem
+    padding: 0 10px
+    transform: translateY(-50%)
+    border-radius: 10px
+    background-color: $darkish-pink
+    background-image: $pink-gradient
+    font-family: $roboto
+    font-size: $base-font-size
+    line-height: 22px
+    content: '40% Bonus'
+    @media (max-width: $max-width-sm)
+      right: 3em
+      padding: 0 1em
+      border-radius: 20.5px
+      font-size: 20px
+      line-height: 2em
+
+
+// Calculator buttons (arrows)
+.btn-increment
+  width: 100%
+  padding: 5px 10px
+  border-radius: 2px
+  color: $purple
+  font-size: .6rem
+
+.btn-up
+  margin-bottom: 5px
+
+// Social buttons (Facebook, Twitter, etc.)
+.btn.btn-social
+  padding: 10px
+  border: solid 1px $social-border
+  border-radius: 20px
+
+  &:hover
+    border-color: $purple
+    background-color: transparent
+    text-decoration: none
+
+.contract-number
+  .btn
+    font-family: $roboto
+    font-size: 1.14rem
+
+    &:hover
+      color: $gray-lighter

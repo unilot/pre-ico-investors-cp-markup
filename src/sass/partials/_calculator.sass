@@ -1,0 +1,44 @@
+.calculator
+  h3
+    margin-bottom: $sidebar-margin-y
+    @media (max-width: $max-width-sm)
+      font-size: 52px
+
+
+  .form-group
+    &:nth-child(4)
+      margin-bottom: 0
+
+    hr
+      border-color: $gray-lighter
+
+    output
+      @extend %dark-gotham-text
+      white-space: nowrap
+
+      &:not(.total-amount, .usd-amount)
+        .unit
+          @extend %small-gray-label
+
+    .eth-amount + span
+      @extend %dark-gotham-text
+
+    .horizontal
+      @extend %flex-spaced-between
+      align-items: baseline
+
+      *
+        margin: 0
+        padding: 0
+
+    .total-amount
+      padding-top: 0
+      color: $purple
+      font-size: 1.86rem
+      @media (max-width: $max-width-sm)
+        font-size: 58.1px
+
+
+      .unit
+        color: $purple
+        font-size: .7em
