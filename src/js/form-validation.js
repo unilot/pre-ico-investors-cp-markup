@@ -183,7 +183,8 @@
                     var validator = $form.data('bs.validator');
 
                     try {
-                        var phone = phoneUtil.parse($input.val());
+                        var filteredData = '+' + $input.val().replace( /^\D+/g, '');
+                        var phone = phoneUtil.parse(filteredData);
 
                         if ( !phoneUtil.isValidNumber(phone) ) {
                             throw new Error();

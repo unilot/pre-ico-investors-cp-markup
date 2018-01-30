@@ -6,7 +6,7 @@
     var $etherAmountInput = $('.js-calculator-eth-amount-input');
     var $referralLinkCopyButton = $('.js-copy-referral-link');
     var $buyCopyTokensContractNumber = $('.js-buy-tokens-copy-contract-number');
-    var $timeCounterBlock = $('#js-time-counter');
+    var $timeCounterBlock = $('.js-time-counter');
     var $signUpWizard = $('#signupWizard');
     var $icoProgressBars = $('.ico-sale-progress');
     var $ethRaisedContainer = $('.eth-raised-container');
