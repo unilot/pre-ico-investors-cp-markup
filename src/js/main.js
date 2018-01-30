@@ -131,7 +131,6 @@
         $('#questions .panel-collapse.in').removeClass('in');
         $('#'+hash).addClass('in');
     }
-})();
 
     // Slideout
     // initialize slideout
