@@ -1,21 +1,24 @@
-form
-  margin-bottom: 1rem
-
 .required
   &::before
     color: red
     content: '*'
 
+// avoid overlapping multiple help block
 .help-block
   position: relative !important
   margin-bottom: 0
 
-  // avoid painting regular help text with red on errors
+// avoid painting regular help text with red on errors
 .has-error.has-danger
   .help-block:not(.with-errors)
     color: inherit
 
 .form-group
+  .help-block
+    &.with-errors,
+    &.forgot-password
+      display: block
+
   .caret
     position: absolute
     top: 18px
@@ -24,43 +27,50 @@ form
       display: none
 
 
-#auth-sign-up,
-#auth-sign-in
-  .control-label
-    color: $gray-darker
-
-#auth-sign-in
-  .forgot-password
-    display: block
-
 .check
   margin-right: 1rem
 
-.calculator,
-.beta-invite,
-.modal-content,
-.referrals,
-.profile
-  form
-    .form-control,
-    .form-group .form-control
-        background-image: linear-gradient($purple, $purple), linear-gradient($input-border, $input-border)
+form
+  margin-bottom: 1rem
 
-
-.calculator,
-#forgotPassword,
-.profile
-  form
-    .form-group.is-focused
-      label
+  .form-group
+    &.has-error.has-danger,
+    &.is-focused
+      .control-label
         color: $purple
 
+    &.has-error.has-danger.is-focused
+      .form-control
+        background-image: linear-gradient($purple, $purple), linear-gradient($input-border, $input-border)
+
+#auth-sign-up,
+#auth-sign-in
+  .form-group:not(.is-focused)
+    .control-label
+      color: $gray-darker
+
 .beta-invite
-  form
-    .form-group,
-    .form-group.is-focused
-      label
-        color: $gray
+  .form-group
+    .control-label
+      color: $gray
+
+.modal-body
+  .label-floating
+    .control-label
+      color: $gray-darker
+
+      .required::before
+        color: $gray-darker
+
+  .control-label
+    color: $gray
+
+    .required::before
+      color: $gray
+
+  select,
+  input
+    color: $gray-darker
 
 .checkbox
   label:not(:first-child)
