@@ -92,17 +92,4 @@ header
 
 
       &::before
-        display: inline-block
-        position: relative
-        top: -4px
-        width: $question-icon-size
-        height: $question-icon-size
-        margin-right: 9px
-        border-radius: 100%
-        background-color: $blood-orange
-        color: $white
-        font-family: $roboto-medium
-        font-size: .9rem
-        line-height: $question-icon-size + 1px
-        text-align: center
-        content: '?'
+        @include orange-question
