@@ -40,11 +40,13 @@
     color: $gray-light
 
 // Buttons with icon
-.btn-icon
+.btn-icon,
+.btn-icon:focus,
+.btn-icon:active
   .glyphicon:first-child
     margin-right: .5rem
 
-  .glyphicon:last-child
+  .glyphicon:nth-child(2)
     margin-left: .5rem
 
 // Navbar button (sign in/out)
@@ -71,7 +73,7 @@
   .btn-action
     color: $white
 
-// Auth buttons
+// Sign in/up form buttons
 .btn-auth
   position: relative
   height: $btn-lg-height
@@ -99,7 +101,7 @@
 
 // Extra bit of information on button
 .btn-extra
-  &::after
+  span
     position: absolute
     top: 0
     right: 1.5rem
@@ -111,7 +113,6 @@
     font-family: $roboto
     font-size: $base-font-size
     line-height: 22px
-    content: '40% Bonus'
     @media (max-width: $max-width-sm)
       right: 3em
       padding: 0 1em
