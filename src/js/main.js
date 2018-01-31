@@ -125,13 +125,6 @@
 
     $('.popover-trigger').popover();
 
-    if ( url.match('#') ) {
-        var hash = url.split('#')[1];
-
-        $('#questions .panel-collapse.in').removeClass('in');
-        $('#'+hash).addClass('in');
-    }
-
     // Slideout
     // initialize slideout
     var slideout = new Slideout({
