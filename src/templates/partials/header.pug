@@ -12,7 +12,10 @@ header
         
         .tokens-info.col-md-5.col-sm-6.col-xs-12
             p.lead.text-right
-              a(href='#') #[span.tokens-question]
+              a.popover-trigger(href='#', tabindex='0', role='button', data-toggle='popover', data-trigger='toggle',
+                                title='Are your tokens not displayed?', data-placement='bottom', data-html='true',
+                                data-content='<ul><li>Updating tokens amount may take a while due to Ethereum Network load.</li><li>Check tokens amount at your wallet.</li></ul><br /><a href="" class="btn btn-md btn-default">How to display tokens?</a>')
+                span.tokens-question
               | My Tokens: 
               //- span.tokens #[strong.tokens-amount 0.0000] UNIT
               span.tokens #[strong.tokens-amount 150 753.0000] UNIT
