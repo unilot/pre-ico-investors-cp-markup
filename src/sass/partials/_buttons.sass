@@ -36,6 +36,7 @@
   background-color: $black
   color: $white
 
+  .icon,
   .glyphicon
     color: $gray-light
 
@@ -43,9 +44,11 @@
 .btn-icon,
 .btn-icon:focus,
 .btn-icon:active
+  .icon:first-child,
   .glyphicon:first-child
     margin-right: .5rem
 
+  .icon:nth-child(2),
   .glyphicon:nth-child(2)
     margin-left: .5rem
 

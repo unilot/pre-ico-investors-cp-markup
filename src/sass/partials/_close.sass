@@ -1,0 +1,52 @@
+.close
+  display: flex
+  position: absolute
+  right: $modal-border-radius
+  align-items: center
+  height: 22px
+  padding: 0
+  font-family: $roboto
+  font-size: 1.14rem
+  font-weight: normal
+  opacity: 1
+
+  span
+    display: inline-block
+
+  .close-icon
+    &::before,
+    &::after
+      display: block
+      width: 30px
+      height: 1px
+      transform: rotate(45deg)
+      background-color: $gray
+      content: ''
+
+    &::after
+      transform: rotate(-45deg)
+
+.modal-content
+  .close
+    .close-icon
+      margin-left: 1rem
+
+$close-icon-small-size: 12px
+
+section
+  .close
+    top: $close-icon-small-size
+    right: $close-icon-small-size
+    height: $close-icon-small-size
+
+    .close-icon
+      &::before,
+      &::after
+        position: relative
+        top: 0
+        width: 16px
+
+      &::before
+        top: 1px
+
+    

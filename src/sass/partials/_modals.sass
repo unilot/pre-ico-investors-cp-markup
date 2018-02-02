@@ -82,37 +82,6 @@
       .close
         bottom: $modal-border-radius
 
-
-    .close
-      display: flex
-      position: absolute
-      right: $modal-border-radius
-      align-items: center
-      height: 22px
-      padding: 0
-      font-family: $roboto
-      font-size: 1.14rem
-      font-weight: normal
-      opacity: 1
-
-      span
-        display: inline-block
-
-      .close-icon
-        margin-left: 1rem
-
-        &::before,
-        &::after
-          display: block
-          width: 30px
-          height: 1px
-          transform: rotate(45deg)
-          background-color: $gray
-          content: ''
-
-        &::after
-          transform: rotate(-45deg)
-
 .modal-error
   .modal-content
     .modal-header
@@ -157,6 +126,11 @@
   height: $qr-size
   border-radius: 10px
 
-#contractNumber
+[id='contractNumber']
   color: $gray-darker
 
+[id='copyContractNumber']
+  width: 260px
+
+  .icon
+    font-size: 1.43rem
