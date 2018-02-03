@@ -33,6 +33,26 @@ nav.navbar.navbar-unilot(role='navigation')
       li.item-right.item-collapsible-xs(class=isProfile ? 'active' : '')
         a(href='profile.html') Profile
     
+    li.item-right.item-btn.item-lang
+      a#languageSwitcher.btn.btn-default.nav-btn.btn-icon(role='button', href='#', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+        span.flag 
+          img(src='assets/img/flags/uk.svg')
+        span.btn-action ENG
+        span.caret
+
+      ul.dropdown-menu(aria-labelledby='languageSwitcher')
+        li.active
+          a(nohref)
+            span.flag
+              img(src='assets/img/flags/uk.svg')
+            span English
+        li
+          a(href='#')
+            span.flag
+              img(src='assets/img/flags/ru.svg')
+            span Russian
+
+
     li.item-right.item-btn
       if isAuthorised
         a.btn.btn-default.nav-btn.btn-icon(role='button' href='new-auth.html')
