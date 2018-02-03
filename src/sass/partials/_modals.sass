@@ -1,5 +1,18 @@
+// stop background scrolling when a modal is opened
+.modal-open
+  position: fixed
+  width: 100%
+  overflow: hidden
+
 .modal-dialog
   width: $modal-md-width
+  margin-right: auto
+  margin-left: auto
+  @media (max-width: $modal-md-width + 10px)
+    width: 80vw
+    min-width: 300px
+    max-width: $modal-sm-width
+
 
   .modal-content
     min-height: $modal-height
@@ -17,8 +30,7 @@
       content: ''
 
     .modal-header
-      // hide Bootstrap-defined pseudo elements, 
-      // so they don't count as flex items
+      // hide Bootstrap-defined pseudo elements, so they don't count as flex items
       &::before,
       &::after
         display: none
@@ -49,9 +61,7 @@
         box-sizing: content-box
 
     h4
-      color: $black
-      font-family: $gotham-medium
-      font-size: 1.8rem
+      @include modal-title
 
     .modal-body
       h4
@@ -110,12 +120,23 @@
 
 .modal-lg
   width: $modal-lg-width
+  @media (max-width: $max-width-sm)
+    width: $modal-md-width
+  @media (max-width: $modal-md-width + 10px)
+    width: 80vw
+    min-width: 300px
+    max-width: $modal-sm-width
+
 
 .modal
   .calculator
     border-left: solid 1px $gray-lighter
     border-radius: 0
     box-shadow: none
+    @media (max-width: $max-width-sm)
+      margin-top: 1rem
+      border: 0
+
 
 .icon-lock,
 .qr
@@ -134,3 +155,29 @@
 
   .icon
     font-size: 1.43rem
+
+@media (max-width: $modal-md-width + 10px)
+  .qr-container,
+  .contract-number-container
+    display: flex
+    justify-content: center
+    width: 100%
+
+@media (max-width: $max-width-sm)
+  .modal-dialog
+    .modal-content
+      .modal-header
+        padding-right: 70px
+
+  .modal
+    .calculator
+      h3
+        @include modal-title
+
+      label
+        font-size: .86rem
+
+      input,
+      output,
+      span.input-group-addon
+        font-size: 2rem

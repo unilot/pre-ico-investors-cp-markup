@@ -9,7 +9,7 @@
       
       .modal-body
         .row.no-padding
-          .col-md-8
+          .col-md-8.col-sm-12
             .alert.alert-flex.no-padding(role='alert')
               img(src='/assets/img/attention.png').pull-left
               p Be sure that you read all the information about Unilot project and token sale carefully
@@ -32,10 +32,10 @@
               p Please do not send anything other than ETH to the Unilot smart contract and do not send ETH from an Exchange.
             
             .row.no-padding
-              .col-md-4
+              .qr-container.col-md-4.col-sm-4.col-xs-4
                 img.qr(src='/assets/img/qr-sample.png')
 
-              .col-md-8
+              .contract-number-container.col-md-8.col-sm-8.col-xs-8
                 form.contract-number
                   .form-group
                     label.control-label.text-uppercase(for='contractNumber') Contract number
@@ -45,5 +45,5 @@
                       span Copy contract number
 
 
-          .col-md-4
+          .col-md-4.col-sm-12
             include ../calculator
