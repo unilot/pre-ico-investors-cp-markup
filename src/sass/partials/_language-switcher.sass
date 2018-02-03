@@ -1,0 +1,68 @@
+$nav-dropdown-margin-top: 5px
+$flag-size: 20px
+
+.flag
+  display: inline-block
+  width: $flag-size
+
+.navbar-unilot
+  position: relative
+
+  .nav
+    .open
+      & > a
+        border-color: $purple
+        background: $nav-btn-hover-color
+
+      .dropdown-menu
+        top: $nav-dropdown-margin-top + ($nav-height + $nav-btn-height) / 2
+        padding: 0
+        border-radius: 15px
+        background-color: $white
+        overflow: hidden
+        @media (max-width: $tall-header-max-width)
+          position: absolute
+
+
+        .flag
+          margin-right: .5rem
+
+        [nohref]
+          cursor: default
+
+        li
+          margin: 0
+
+        li,
+        li:hover
+          a
+            color: $gray-dark
+
+        .active,
+        .active:hover
+          background: darken($white, 2.5%)
+
+          a
+            color: $purple
+
+        li:hover,
+        .active:hover
+          background-color: darken($white, 5%)
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+    .item-lang
+      flex-shrink: 0
+
+      & > a
+        display: flex
+        align-items: center
+
+        .flag
+          flex-shrink: 0
+
+      & > ul
+        li
+          a
+            display: flex
+            align-items: center
+            height: $nav-btn-height
