@@ -159,4 +159,21 @@
 
     // Material design
     $.material.init();
+
+
+    
+    // Modals: ensure that body element has .modal-open class to avoid background 
+    // scrolling after one modal is closed and second is opened.        
+    
+    // #buyUnitTokens modal appears when 'Confirm' button in #sourceWallet modal 
+    // is clicked. The same button dismisses the #sourceWallet, thus causing a mix-up 
+    // between fired events and their consequences. The class .modal-open is added to 
+    // body element with the appearance of #buyUnitTokens, but is removed right away 
+    // with dismissal of #sourceWallet. Therefore, this workaround comes to play. It 
+    // utilises focusin.bs.modal event instead of show.bs.modal, since the latter is 
+    // tangled within this confusion.
+    $('#buyUnitTokens').on('focusin.bs.modal', function(){
+        $(document.body).delay(800).addClass('modal-open');
+    })
+
 })();
