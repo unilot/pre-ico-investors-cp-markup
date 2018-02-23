@@ -1,29 +1,3 @@
-.programs
-  .tab-content
-    max-height: 300px
-    padding-top: 0
-    padding-left: 0
-    border-radius: 0
-    box-shadow: none
-    overflow-y: auto
-
-  .nav-pills
-    li
-      a
-        border-radius: 27.5px
-        background-color: $white
-        color: $gray-darker
-        font-family: $roboto
-        font-size: 1.43rem
-
-        &:hover,
-        &:focus
-          background-color: inherit
-          color: inherit
-
-    li:not(:last-child)
-      margin-right: 20px
-
 $input-group-width: 250px
 $copy-link-width: 28px
 
@@ -126,3 +100,125 @@ $copy-link-width: 28px
       &::before
         position: relative
         right: -1px
+
+.document
+  padding-bottom: 3em
+
+  .row
+    padding: 0
+    counter-reset: section
+
+  h2
+    margin-top: 0
+
+  h3
+    margin-top: 1.5em
+    margin-bottom: .5em
+    padding-bottom: .1em
+    border-bottom: solid 1px $gray-lighter
+
+  h4
+    margin-top: 1.5em
+    font-size: 1.2em
+    line-height: 1.5em
+
+    &.numbered::before
+      font-weight: bolder
+      content: counter(section) '. '
+      counter-increment: section
+
+  h3 + h4
+    margin-top: 0
+
+  div > h4:first-child
+    margin-top: .5em
+
+  ol
+    list-style-type: none
+
+// list styles ----------------------------------------
+ol.numbered
+  padding-left: 0
+  counter-reset: section
+  list-style-type: none
+
+  & > li::before
+    content: counter(section) '. '
+    counter-increment: section
+
+  & > li
+    margin-bottom: .5em
+
+.nested
+  padding-left: 0
+  counter-reset: subsection
+
+  & > li::before
+    content: counter(section) '.' counter(subsection) '. '
+    counter-increment: subsection
+
+  & > li
+    margin-bottom: 1em
+
+  & > li > ol
+    margin-top: .5em
+    padding-left: 2em
+
+    & > li
+      margin-bottom: .5em
+
+.latin
+  counter-reset: latin
+
+  & > li::before
+    content: counter(latin, lower-alpha) '. '
+    counter-increment: latin
+
+.roman
+  counter-reset: roman
+
+  & > li::before
+    content: counter(roman, lower-roman) '. '
+    counter-increment: roman
+
+.bulleted
+  padding-left: 2em
+  list-style-type: disc
+
+  & > li
+    margin-bottom: .5em
+
+  & > li > .bulleted
+    list-style-type: circle
+
+.numbered,
+.latin,
+.roman,
+.bulleted,
+.nested
+  & > li
+    &::before
+      font-weight: bolder
+
+.programs
+  .tab-pane
+    overflow-x: hidden
+
+    a
+      display: inline-block
+      white-space: nowrap
+      @media(max-width: 640px)
+        white-space: normal
+      @media(max-width: 480px)
+        white-space: nowrap
+
+
+  .nav-tabs
+    @media (max-width: 510px)
+
+      li
+        width: 50%
+
+        a
+          text-overflow: ellipsis
+          overflow-x: hidden
