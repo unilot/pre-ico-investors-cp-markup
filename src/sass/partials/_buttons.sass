@@ -2,10 +2,14 @@
   padding-right: 1.5rem
   padding-left: 1.5rem
   transition: border .5s
-  border-radius: 25px
+  border-radius: 15px
   color: inherit
   font-family: $gotham
   text-transform: none
+
+.item-lang
+  .btn
+    border-radius: 25px
 
 .btn-default
   border: solid 1px $gray-lighter
@@ -17,15 +21,21 @@
     background-color: transparent
 
 .btn-primary
-  border: 0
-  background: $purple-gradient
+  background: $burgundy-red
+  border: 2px solid $burgundy-red
   color: $white
-
+  &:active:focus
+    background: $burgundy-red
+    border: 2px solid $burgundy-red
   &:hover,
   &:focus
-    border: 0
-    background: $btn-hover-bg
-    color: $white
+    border: 2px solid $burgundy-red
+    background: $white
+    color: $burgundy-red
+  &.disabled
+    &:hover
+      border: 2px solid $burgundy-red
+      background: $white
 
 .btn-lg
   min-width: $btn-lg-width
@@ -115,8 +125,9 @@
     padding: 0 10px
     transform: translateY(-50%)
     border-radius: 10px
-    background-color: $darkish-pink
-    background-image: $pink-gradient
+    background-color: $burgundy-matching-yellow
+    color: $white
+    //background-image: $pink-gradient
     font-family: $roboto
     font-size: $base-font-size
     line-height: 22px

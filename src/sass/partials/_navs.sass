@@ -119,3 +119,38 @@
   .navbar-nav
     .item-collapsible-xs
       display: none
+
+ul.select-currency.nav.nav-tabs
+  border-bottom: none
+  & > li
+    min-width: 12em
+    margin: 0.3em 0.5em 0.3em 0
+    & > a
+      color: $black
+      border: 1px solid $input-border
+      border-radius: 8px
+      font-size: 1.2em
+      text-align: center
+      height: 3.3em
+      & > img
+        $icon-size: 2em
+        $img-margin: 0.5em
+        width: $icon-size
+        height: $icon-size
+        margin-right: $img-margin
+        &.ltc
+          $icon-size-ltc: 1.7em
+          width: $icon-size-ltc
+          height: $icon-size-ltc
+          margin: (($icon-size - $icon-size-ltc)/2) 0.5em (($icon-size - $icon-size-ltc)/2) 0
+          margin-right: $img-margin
+      &:hover
+        border: 1px solid $purple
+        background: none
+    &.active
+      & > a
+        &:focus, &:active
+          background: none
+          border: 1px solid $purple
+          color: $black
+

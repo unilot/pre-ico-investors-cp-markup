@@ -9,13 +9,13 @@
       
       .modal-body
         p Please specify address of the wallet that will be used to buy UNIT tokens.
-        form
+        form#addSourceWalletForm(method='post')
           .row.no-padding
             .col-md-10
               .form-group
-                label.control-label.text-uppercase(for='wallet') Wallet #[span.required]
+                label.control-label.text-uppercase(for='sourceWalletWalletApp') Wallet #[span.required]
                 span.caret
-                select#wallet.form-control(required, name='wallet')
+                select#sourceWalletWalletApp.form-control(required, name='wallet')
                   option(selected) Coinbase
                   option Metamask
                   option MyEtherWallet
@@ -33,8 +33,8 @@
           .row.no-padding
             .col-md-10
               .form-group.label-floating
-                label.control-label(for='walletNumber') Enter your wallet number #[span.required]
-                input#walletNumber.form-control(type='text', required, name='wallet-number')
+                label.control-label(for='sourceWalletWallet') Enter your wallet number #[span.required]
+                input#sourceWalletWallet.form-control(type='text', name='wallet-number', required=true, disabled=true)
                 .help-block.with-errors
 
           .row.no-padding

@@ -9,6 +9,7 @@ block vars
   -var isDashboard = true;
   -var isAffiliate = false;
   -var isProfile = false
+  -var currency = 'ETH'
 
 block content
   .row
@@ -19,9 +20,9 @@ block content
           include partials/timer
           include partials/progress
           include partials/ico-info
-        .hidden-md.hidden-lg
-          include partials/buy-tokens
-          include partials/calculator
+        //.hidden-md.hidden-lg
+          //include partials/buy-tokens
+          //include partials/calculator-eth
         section
           h3 UNIT Tokens Information
           p To participate in the UNIT Token distribution, you will need to send ETH to Unilot wallet. Unilot wallet is the Ethereum UNIT Token distribution smart contract. You will automatically receive tokens after the transaction is successfully finished. You can always check your UNIT Tokens amount on the right sidebar of your account.
@@ -33,9 +34,9 @@ block content
       aside.pull-right
         include partials/buy-tokens
         
-        if isBetaParticipant
-          include partials/beta/thanks
-        else
-          include partials/beta/invite
-          
-        include partials/calculator
+        //if isBetaParticipant
+        //  include partials/beta/thanks
+        //else
+        //  include partials/beta/invite
+
+        include partials/calculator-eth

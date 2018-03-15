@@ -2,23 +2,21 @@
     var url = document.location.toString();
 
     //Calculator
-    var $UNTAmountInput = $('.js-calculator-token-amount-input');
-    var $etherAmountInput = $('.js-calculator-eth-amount-input');
     var $referralLinkCopyButton = $('.js-copy-referral-link');
     var $buyCopyTokensContractNumber = $('.js-buy-tokens-copy-contract-number');
+    var $myWalletCopy = $('.js-my-wallet-copy');
     var $timeCounterBlock = $('.js-time-counter');
     var $signUpWizard = $('#signupWizard');
     var $icoProgressBars = $('.ico-sale-progress');
     var $ethRaisedContainer = $('.eth-raised-container');
+    var $copyAddressButton = $('.js-copy-address');
 
-    var calculator = new Calculator($UNTAmountInput, $etherAmountInput, config.token.price);
+    var calculator = new Calculator();
     var isReferralLinkCopyButtonPopoverShown = false;
 
-    calculator.setFiatExchangeRate(config.eth.fiatExchangeRate);
     calculator.setBonusAmount(config.token.bonus);
     calculator.setMinTokenAmount(config.token.minTokenAmount);
     calculator.setMaxTokenAmount(config.token.maxTokenAmount);
-    calculator.setTokenPrice(config.token.price);
 
     $icoProgressBars.width((config.token.saleProgress * 100) + '%');
 
@@ -32,9 +30,8 @@
     });
 
     //Timer
-    var counterTmpl = $.templates('#timeCounterTemplate');
-
-    var milestone = moment.tz('2018-02-17 19:00', 'UTC');
+    var counterTmpl = $.templates('#jsTimeCounterTemplate');
+    var milestone = moment.tz('2018-03-22 19:00', 'UTC');
 
     $timeCounterBlock.countdown(milestone.toDate(), function(event){
         $(this).html(event.strftime(counterTmpl.render()));
@@ -42,6 +39,8 @@
 
     $referralLinkCopyButton.popover({delay: {hide: 1000}});
     $buyCopyTokensContractNumber.popover({delay: {hide: 1000}});
+    $myWalletCopy.popover({delay: {hide: 1000}});
+    $copyAddressButton.popover({delay: {hide: 1000}});
 
     $referralLinkCopyButton.on('show.bs.popover', function(event) {
         var $input = $('#referralLink');
@@ -52,6 +51,20 @@
 
     $buyCopyTokensContractNumber.on('show.bs.popover', function(event) {
         var $input = $('#tokenBuyContractNumber');
+
+        $input.select();
+        document.execCommand('copy');
+    });
+
+    $myWalletCopy.on('show.bs.popover', function(event) {
+        var $input = $('#wallet');
+
+        $input.select();
+        document.execCommand('copy');
+    });
+
+    $copyAddressButton.on('show.bs.popover', function(event) {
+        var $input = $($('js-copy-input', $(event.target).closest('form')).get(0));
 
         $input.select();
         document.execCommand('copy');
@@ -161,19 +174,54 @@
     $.material.init();
 
 
-    
-    // Modals: ensure that body element has .modal-open class to avoid background 
-    // scrolling after one modal is closed and second is opened.        
-    
-    // #buyUnitTokens modal appears when 'Confirm' button in #sourceWallet modal 
-    // is clicked. The same button dismisses the #sourceWallet, thus causing a mix-up 
-    // between fired events and their consequences. The class .modal-open is added to 
-    // body element with the appearance of #buyUnitTokens, but is removed right away 
-    // with dismissal of #sourceWallet. Therefore, this workaround comes to play. It 
-    // utilises focusin.bs.modal event instead of show.bs.modal, since the latter is 
+
+    // Modals: ensure that body element has .modal-open class to avoid background
+    // scrolling after one modal is closed and second is opened.
+
+    // #buyUnitTokens modal appears when 'Confirm' button in #sourceWallet modal
+    // is clicked. The same button dismisses the #sourceWallet, thus causing a mix-up
+    // between fired events and their consequences. The class .modal-open is added to
+    // body element with the appearance of #buyUnitTokens, but is removed right away
+    // with dismissal of #sourceWallet. Therefore, this workaround comes to play. It
+    // utilises focusin.bs.modal event instead of show.bs.modal, since the latter is
     // tangled within this confusion.
     $('#buyUnitTokens').on('focusin.bs.modal', function(){
         $(document.body).delay(800).addClass('modal-open');
-    })
+    });
 
+
+    //Select wallet
+    var $walletAppSourceSelect = $('#sourceWalletWalletApp');
+
+    if ($walletAppSourceSelect.length > 0) {
+        var onWalletSelected = function(e) {
+            var _self = $(this);
+            var $walletInput = $('#sourceWalletWallet');
+
+            if (_self.val()) {
+                $walletInput.removeAttr('disabled');
+            }
+        };
+
+        $walletAppSourceSelect.change(onWalletSelected);
+
+        if ( $walletAppSourceSelect.val() ) {
+            $walletAppSourceSelect.trigger('change');
+        }
+    }
+
+    //Close destroy button
+    $(document).click('.js-close-destroy-block', function(e) {
+        var $_self = $(e.target);
+
+        //Fix for chrome that may return child element as target instead of target one
+        if (!$_self.hasClass('js-close-destroy-block')) {
+            $_self = $_self.closest('.js-close-destroy-block');
+        }
+
+        if ( $_self.data('target') ) {
+            $_self.closest($_self.data('target')).remove();
+        }
+
+    });
 })();
