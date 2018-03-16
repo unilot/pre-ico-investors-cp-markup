@@ -1,124 +1,123 @@
-function Calculator(untAmountInputEl, ethAmountInputEl, fiatExchangeRate) {
-    this.tokenAmountEl = untAmountInputEl;
-    this.ethAmountEl = ethAmountInputEl;
-    this.setFiatExchangeRate(fiatExchangeRate);
-
-    this.setTokenAmount(parseInt(this.tokenAmountEl.val()));
-
+function Calculator() {
     this._setup();
+    this.setTokenAmount(1, this.$tokenAmountEl);
 }
 
 Calculator.prototype = {
-    tokenAmountEl: null,
-    ethAmountEl: null,
-    totalTokenContainerEl: $('.js-token-total-amount'),
-    tokenContainerEl: $('.js-token-amount'),
-    bonusTokenContainerEl: $('.js-token-bonus-amount'),
-    totalEthContainerEl: $('.js-eth-total-amount'),
-    totalBonusContainerEl: $('.js-token-total-bonus'),
-    totalFiatContainerEl: $('.js-fiat-total-amount'),
-    tokenPriceEl: $('.js-token-price'),
+    $tokenAmountEl: $('.js-calculator-token-amount-input'),
+    $cryptoAmountEl: $('.js-calculator-eth-amount-input'),
+    $totalTokenContainerEl: $('.js-token-total-amount'),
+    $tokenContainerEl: $('.js-token-amount'),
+    $bonusTokenContainerEl: $('.js-token-bonus-amount'),
+    $totalBonusContainerEl: $('.js-token-total-bonus'),
+    $totalFiatContainerEl: $('.js-fiat-total-amount'),
+    $tokenPriceEl: $('.js-token-price'),
 
     tokenAmount: 0,
     ethAmount: 0,
-    tokenPrice: parseFloat((0.5/200).toFixed(6)),
-    fiatExchangeRate: 0,
     minTokenValue: 0,
-    maxTokenValue: 10000,
+    maxTokenValue: 0,
 
     bonusTokenAmount: 1,
     bonusAmount: 0.4, //40%
 
-    calculateEthAmount: function (tokenAmount) {
-        return ( ( tokenAmount || this.tokenAmount )  * this.tokenPrice);
+    _getMinAmount: function($input) {
+        return $input.attr('min') || this.minTokenValue;
     },
 
-    calculateTokenAmount: function(ethAmount) {
-        return Math.floor( ( ethAmount || this.ethAmount ) / this.tokenPrice);
+    _getMaxAmount: function($input) {
+        return $input.attr('max') || this.maxTokenValue;
     },
 
-    isValidTokenAmount: function(tokenAmount){
-        var _tokenAmount = tokenAmount || this.tokenAmount;
+    isValidTokenAmount: function(tokenAmount, $input){
+        var _tokenAmount = tokenAmount;
+        var minValue = this._getMinAmount($input);
+        var maxValue = this._getMaxAmount($input);
 
         return !( isNaN(_tokenAmount)
-            || _tokenAmount < this.minTokenValue
-            || _tokenAmount > this.maxTokenValue );
+            || _tokenAmount < minValue
+            || ( maxValue > 0 && _tokenAmount > maxValue ) );
     },
 
-    setTokenAmount: function(amount) {
+    markAsError: function($input) {
+        var $formGroup = $input.closest('.form-group');
+
+        $formGroup.addClass('has-error');
+        $('.help-block.with-errors', $formGroup).removeClass('hidden');
+
+    },
+
+    removeErrorMark: function($input) {
+        var $formGroup = $input.closest('.form-group');
+
+        $formGroup.removeClass('has-error');
+        $('.help-block.with-errors', $formGroup).addClass('hidden');
+    },
+
+    setTokenAmount: function(amount, $input) {
         var _amount = parseInt(amount);
+        var _self = this;
+        var $inputEl = $input;
 
-        if ( !this.isValidTokenAmount(_amount) ) {
-            this.tokenAmountEl.closest('.form-group').addClass('has-error');
+        if (!$inputEl) {
+            $inputEl = this.$tokenAmountEl;
+        }
+
+        if ($inputEl.length > 1) {
+            $inputEl.each(function(index, element){
+                _self.setTokenAmount(_amount, $(element));
+            });
+
+            return true;
+        }
+
+        $inputEl.val(_amount);
+        this.tokenAmount = _amount;
+
+        var tokenTotalAmount = 0,
+            tokenAmount = 0,
+            bonusAmount = 0;
+
+        if ( !this.isValidTokenAmount(_amount, $inputEl) ) {
+            this.markAsError($inputEl);
+            _amount = 0;
         } else {
-            this.tokenAmountEl.closest('.form-group').removeClass('has-error');
-            this.tokenAmount = _amount;
+            this.removeErrorMark($inputEl);
 
-            this.ethAmount = parseFloat(this.calculateEthAmount().toFixed(6));
-            var value = this.ethAmount;
-
-            this.ethAmountEl.val(value);
-            this.totalBonusContainerEl.text(this.getBonus());
-            this.totalTokenContainerEl.text(this.getTokenTotalAmount());
-            this.tokenContainerEl.text(this.getTokenAmount());
-            this.bonusTokenContainerEl.text(this.getTokenBonusAmount());
-            this.totalEthContainerEl.text(this.ethAmount);
-            this.totalFiatContainerEl.text(this.getFiatAmount());
+            tokenTotalAmount = this.getTokenTotalAmount();
+            tokenAmount = this.getTokenAmount();
+            bonusAmount = this.getTokenBonusAmount();
         }
 
-        this.tokenAmountEl.val(this.tokenAmount);
-    },
+        $inputEl.closest('form').find(this.$totalBonusContainerEl).text(this.getBonus());
+        $inputEl.closest('form').find(this.$totalTokenContainerEl).text(tokenTotalAmount);
+        $inputEl.closest('form').find(this.$tokenContainerEl).text(tokenAmount);
+        $inputEl.closest('form').find(this.$bonusTokenContainerEl).text(bonusAmount);
 
-    setEthAmount: function(amount) {
-        var _amount = parseFloat(amount);
+        $inputEl.trigger('calculator.token.change', [_amount]);
 
-        if ( isNaN(_amount) ) {
-            this.ethAmountEl.closest('.form-group').addClass('has-error');
-        } else if ( !this.isValidTokenAmount(this.calculateTokenAmount(_amount)) ) {
-            this.tokenAmountEl.closest('.form-group').addClass('has-error');
-            this.ethAmountEl.closest('.form-group').addClass('has-error');
-        }  else {
-            this.tokenAmountEl.closest('.form-group').removeClass('has-error');
-            this.ethAmountEl.closest('.form-group').removeClass('has-error');
-
-            this.ethAmount = _amount;
-            this.tokenAmount = this.calculateTokenAmount();
-
-            this.tokenAmountEl.val(this.tokenAmount);
-            this.ethAmountEl.val(amount);
-            this.totalBonusContainerEl.text(this.getBonus());
-            this.totalTokenContainerEl.text(this.getTokenTotalAmount());
-            this.totalEthContainerEl.text(this.ethAmount);
-            this.totalFiatContainerEl.text(this.getFiatAmount());
-        }
-    },
-    
-    _fixTokenAmount: function() {
-        if ( isNaN(this.tokenAmount) || this.tokenAmount <= this.minTokenValue ) {
-            this.setTokenAmount(this.minTokenValue);
-        } else if ( this.tokenAmount >= this.maxTokenValue ) {
-            this.setTokenAmount(this.maxTokenValue);
-        }
+        return true;
     },
 
     _setup: function () {
-        this.tokenAmountEl.off('input', this.events().tokenAmountChanged);
-        this.ethAmountEl.off('input', this.events().ethAmountChanged);
+        this.$tokenAmountEl.off('input', this.events().tokenAmountChanged);
+        this.$cryptoAmountEl.off('input', this.events().ethAmountChanged);
 
-        $('.js-value-up', this.tokenAmountEl.closest('.input-group'))
+        $('.js-value-up', this.$tokenAmountEl.closest('.input-group'))
             .off('click', this.events().incrementTokenAmount);
-        $('.js-value-down', this.tokenAmountEl.closest('.input-group'))
+        $('.js-value-down', this.$tokenAmountEl.closest('.input-group'))
             .off('click', this.events().decreaseTokenAmount);
 
-        this.tokenAmountEl.on('input', this.events().tokenAmountChanged);
-        this.ethAmountEl.on('input', this.events().ethAmountChanged);
+        this.$tokenAmountEl.on('input', this.events().tokenAmountChanged);
+        this.$cryptoAmountEl.on('input', this.events().ethAmountChanged);
 
-        $('.js-value-up', this.tokenAmountEl.closest('.input-group'))
+        $('.js-value-up', this.$tokenAmountEl.closest('.input-group'))
             .on('click', this.events().incrementTokenAmount);
-        $('.js-value-down', this.tokenAmountEl.closest('.input-group'))
+        $('.js-value-down', this.$tokenAmountEl.closest('.input-group'))
             .on('click', this.events().decreaseTokenAmount);
 
-        this.setTokenPrice(this.tokenPrice);
+        this.$tokenAmountEl.on('calculator.token.change', this.events().calculateCryptoAmount);
+
     },
 
     _hasBonus: function () {
@@ -143,15 +142,7 @@ Calculator.prototype = {
         return result;
     },
 
-    getFiatAmount: function() {
-        if ( this.fiatExchangeRate <= 0 ) {
-            return null;
-        }
-
-        return Math.floor( this.ethAmount * this.fiatExchangeRate * 100 ) / 100;
-    },
-
-    getBonus: function() {
+        getBonus: function() {
         var result = 0;
 
         if ( this._hasBonus() ) {
@@ -159,24 +150,6 @@ Calculator.prototype = {
         }
 
         return result;
-    },
-
-    setFiatExchangeRate: function(exchangeRate) {
-        var _exchangeRate = parseFloat(exchangeRate);
-
-        if ( !isNaN(_exchangeRate) ) {
-            this.fiatExchangeRate = _exchangeRate;
-        }
-    },
-
-    setTokenPrice: function(tokenPrice) {
-        var _tokenPrice = parseFloat(tokenPrice);
-
-        if ( !isNaN(_tokenPrice) && _tokenPrice > 0 ) {
-            this.tokenPrice = _tokenPrice;
-            this.tokenPriceEl.text(this.tokenPrice + ' ETH');
-            this.setTokenAmount(this.tokenAmount);
-        }
     },
 
     setBonusAmount: function(bonusAmount) {
@@ -203,36 +176,90 @@ Calculator.prototype = {
         }
     },
 
+    _calculateFiat: function ($coinEl, cryptoAmount) {
+        var fiatExchange = $coinEl.data('fiat');
+
+        var accuracy = Math.pow(10,6);
+        var fiatAmount = ( Math.round( ( cryptoAmount * fiatExchange ) * accuracy ) / accuracy );
+
+        var $formGroup = $coinEl.closest('.form-group');
+        var $form = $coinEl.closest('form');
+
+        if ( fiatExchange ) {
+            if ( $formGroup.length > 0 && $formGroup.find(this.$totalFiatContainerEl).length > 0 ) {
+                $formGroup.find(this.$totalFiatContainerEl).text( fiatAmount );
+            } else if ( $form.length > 0 && $form.find(this.$totalFiatContainerEl).length > 0 ) {
+                $form.find(this.$totalFiatContainerEl).text( fiatAmount );
+            }
+        }
+    },
+
     events: function() {
-        _self = this;
+        var _self = this;
 
         return {
-            tokenAmountChanged: function() {
-                _self.setTokenAmount(parseInt($(this).val()));
+            tokenAmountChanged: function(e) {
+                var $this = $(e.target);
+                _self.setTokenAmount(parseInt($this.val()));
             },
 
-            ethAmountChanged: function(event) {
-                _self.setEthAmount($(this).val());
+            ethAmountChanged: function(e) {
+                var $el = $(e.target);
+
+                var tokenPrice = $el.data('price');
+
+                var tokenAmount = Math.floor(parseFloat($el.val())/tokenPrice);
+
+                $el.data('clsource', true);
+
+                _self.setTokenAmount(tokenAmount);
             },
 
-            incrementTokenAmount: function() {
-                if ( _self.isValidTokenAmount() ) {
-                    if ( _self.tokenAmount < _self.maxTokenValue ) {
-                        _self.setTokenAmount(_self.tokenAmount + 1);
-                    }
-                } else {
-                    _self._fixTokenAmount();
+            incrementTokenAmount: function(e) {
+                var amount = _self.tokenAmount;
+
+                if ( isNaN(amount) ) {
+                    amount = 0;
+                }
+
+                _self.setTokenAmount(amount + 1);
+            },
+
+            decreaseTokenAmount: function (e) {
+                var amount = _self.tokenAmount;
+
+                if ( isNaN(amount) ) {
+                    amount = 0;
+                }
+
+                var minAmount = _self._getMinAmount($('input', $(e.target).closest('.input-group')));
+
+                if ( minAmount < amount ) {
+                    _self.setTokenAmount(amount - 1);
                 }
             },
 
-            decreaseTokenAmount: function () {
-                if ( _self.isValidTokenAmount() ) {
-                    if ( _self.tokenAmount > _self.minTokenValue ) {
-                        _self.setTokenAmount(_self.tokenAmount - 1);
+            calculateCryptoAmount: function (e, tokenAmount) {
+                var $form = $(e.target).closest('form');
+
+                $form.find(_self.$cryptoAmountEl).each(function(index, element) {
+                    var $el = $(element);
+                    var tokenPrice = $el.data('price');
+
+
+                    var cryptoAmount = Math.round(
+                            (parseFloat(tokenPrice) * tokenAmount) * Math.pow(10, 12)
+                        ) / Math.pow(10, 12);
+
+                    if (!$el.data('clsource')) {
+                        $el.val(cryptoAmount);
+                    } else {
+                        cryptoAmount = parseFloat($el.val());
+                        $el.data('clsource', false);
                     }
-                } else {
-                    _self._fixTokenAmount();
-                }
+
+                    _self._calculateFiat($el, cryptoAmount);
+                });
             }
         };
     }

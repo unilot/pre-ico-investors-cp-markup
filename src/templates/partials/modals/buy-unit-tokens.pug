@@ -8,42 +8,62 @@
           span.close-icon(aria-hidden='true')
       
       .modal-body
-        .row.no-padding
-          .col-md-8.col-sm-12
-            .alert.alert-flex.no-padding(role='alert')
-              img(src='/assets/img/attention.png').pull-left
-              p Be sure that you read all the information about Unilot project and token sale carefully
-            
-            .alert.alert-warning(role='alert')
-              p
-                strong Contribution process:
-              ol
-                li Copy the Unilot wallet address down below.
-                li Go to your wallet application (see example below)
-                  ul
-                    li MyEtherWallet
-                    li Metamask browser extension
-                li Make transfer to the copied wallet address, input the amount you want to invest and set:
-              p #[strong Gas Limit: 210 000], recommended #[strong Gas Price is 30 Gwei].
-              p After the transaction is finished you will automatically get your tokens and can check the amount at your personal account. 
-            
-            .alert.alert-flex.no-padding(role='alert')
-              img(src='/assets/img/attention.png').pull-left
-              p Please do not send anything other than ETH to the Unilot smart contract and do not send ETH from an Exchange.
-            
-            .row.no-padding
-              .qr-container.col-md-4.col-sm-4.col-xs-4
-                img.qr(src='/assets/img/qr-sample.png')
+          ul.select-currency.nav.nav-tabs(role="tablist")
+              li(role="presentation")
+                  a(href="#ethereum", role="tab", aria-controls="ethereum", data-toggle="tab")
+                      img.eth(src="/assets/img/coins/ETH.svg")
+                      = "Ethereum"
+              li(role="presentation")
+                  a(href="#bitcoin", role="tab", aria-controls="bitcoin", data-toggle="tab")
+                      img.btc(src="/assets/img/coins/BTC.svg")
+                      = "Bitcoin"
+                  li(role="presentation")
+                      a(href="#litecoin", role="tab", aria-controls="litecoin", data-toggle="tab")
+                          img.ltc(src="/assets/img/coins/LTC.svg")
+                          = 'Litecoin'
+          .tab-content
+              #litecoin.tab-pane(role="tabpanel")
+                  .row.no-padding
+                      .col-md-8
+                      .col-md-4
+                          include ../calculator
+              #ethereum.tab-pane(role="tabpanel")
+                .row.no-padding
+                  .col-md-8.col-sm-12
+                    .alert.alert-flex.no-padding(role='alert')
+                      img(src='/assets/img/attention.png').pull-left
+                      p Be sure that you read all the information about Unilot project and token sale carefully
 
-              .contract-number-container.col-md-8.col-sm-8.col-xs-8
-                form.contract-number
-                  .form-group
-                    label.control-label.text-uppercase(for='contractNumber') Contract number
-                    input#contractNumber.form-control(type='text', readonly, name='contract-number', value='0x378356e2391cBaccB1cB11d9F7B1fe6B244819f1')
-                    button#copyContractNumber.btn.btn-lg.btn-inverse.btn-icon
-                      span.icon.icon-copy
-                      span Copy contract number
+                    .alert.alert-warning(role='alert')
+                      p
+                        strong Contribution process:
+                      ol
+                        li Copy the Unilot wallet address down below.
+                        li Go to your wallet application (see example below)
+                          ul
+                            li MyEtherWallet
+                            li Metamask browser extension
+                        li Make transfer to the copied wallet address, input the amount you want to invest and set:
+                      p #[strong Gas Limit: 210 000], recommended #[strong Gas Price is 30 Gwei].
+                      p After the transaction is finished you will automatically get your tokens and can check the amount at your personal account.
+
+                    .alert.alert-flex.no-padding(role='alert')
+                      img(src='/assets/img/attention.png').pull-left
+                      p Please do not send anything other than ETH to the Unilot smart contract and do not send ETH from an Exchange.
+
+                    .row.no-padding
+                      .qr-container.col-md-4.col-sm-4.col-xs-4
+                        img.qr(src='/assets/img/qr-sample.png')
+
+                      .contract-number-container.col-md-8.col-sm-8.col-xs-8
+                        form.contract-number
+                          .form-group
+                            label.control-label.text-uppercase(for='contractNumber') Contract number
+                            input#contractNumber.form-control(type='text', readonly, name='contract-number', value='0x378356e2391cBaccB1cB11d9F7B1fe6B244819f1')
+                            button#copyContractNumber.btn.btn-lg.btn-inverse.btn-icon
+                              span.icon.icon-copy
+                              span Copy contract number
 
 
-          .col-md-4.col-sm-12
-            include ../calculator
+                  .col-md-4.col-sm-12
+                    include ../calculator

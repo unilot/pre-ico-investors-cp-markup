@@ -1,10 +1,10 @@
-section.calculator
-  h3 Calculator
-  form
+form
+  section.calculator
+    h3 Calculator
     .form-group
-      label(for='unit-amount') # of UNIT tokens
+      label # of UNIT tokens
       .input-group
-        input(type='number' placeholder='1000' value='1000')#unit-amount.form-control.input-primary.js-calculator-token-amount-input
+        input(type='number' placeholder='1000' value='1000' min="1000").form-control.input-primary.js-calculator-token-amount-input
         span.input-group-btn
           .input-group-increment
             button.btn.btn-default.btn-increment.btn-up.js-value-up(type='button')
@@ -13,37 +13,37 @@ section.calculator
               span.glyphicon.glyphicon-chevron-down
 
     .form-group
-      label(for='eth-amount') Amount of ETH
+      label Amount of #{currency}
       .input-group
-        input(type='number' value='0.079' readonly)#eth-amount.form-control.eth-amount.js-calculator-eth-amount-input
-        span.input-group-addon ETH
+        input(type='number' value='0.000079' data-price='0.000079', data-fiat="730.60").form-control.eth-amount.js-calculator-eth-amount-input
+        span.input-group-addon #{currency}
 
     .form-group
       .horizontal
-        label(for='purchase-amount') You'll receive:
-        output#purchase-amount
+        label You'll receive:
+        output
           span.space-after.js-token-amount 10
-          //- span 1 000 000 
+          //- span 1 000 000
           span.unit UNIT
       .horizontal
-        label(for='bonus-amount') #[span.js-token-total-bonus 40]% bonus:
-        output#bonus-amount
+        label #[span.js-token-total-bonus 40]% bonus:
+        output
           span.space-after.js-token-bonus-amount 4
-          //- span 400 000 
+          //- span 400 000
           span.unit UNIT
 
     .form-group.output.text-center
-      label(for='total-amount') Total:
-      output#total-amount.total-amount
+      label Total:
+      output.total-amount
         span.space-after.js-token-total-amount 14
-        //- span 1 400 000 
+        //- span 1 400 000
         span.unit UNIT
 
     hr
 
     .form-group.output.text-center
-      label(for='usd-amount') Approximate $US amount:
-      output#usd-amount.usd-amount
+      label Approximate $US amount:
+      output.usd-amount
         span.unit $
         span.js-fiat-total-amount 0.00000952
         //- span 9.52
